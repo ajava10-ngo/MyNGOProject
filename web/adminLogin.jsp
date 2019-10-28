@@ -19,25 +19,24 @@
             <div class="container">
                 <div class="row d-md-flex">
                     <div class="col-md-6 d-flex ftco-animate">
-                        <div class="img img-2 align-self-stretch" style="background-image: url(assets/images/bg_4.jpg);"></div>
+                        <div class="img img-2 align-self-stretch">
+                            <h3 class="mb-3">Admin Login</h3>
+                            <form action="login" method="post" class="volunter-form">
+                                <div class="form-group">
+                                    <input type="text" name="username" class="form-control" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Login" class="btn btn-white py-3 px-5">
+                                </div>
+                                <div class="form-group">
+                                    <a class="form-control-plaintext" href="register.jsp">Not Registered? Register Here</a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="col-md-6 volunteer pl-md-5 ftco-animate">
-                        <h3 class="mb-3">Admin Login</h3>
-                        <form action="login" method="post" class="volunter-form">
-                            <div class="form-group">
-                                <input type="text" name="username" class="form-control" placeholder="Username">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" class="form-control" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Login" class="btn btn-white py-3 px-5">
-                            </div>
-                            <div class="form-group">
-                                <a class="form-control-plaintext" href="register.jsp">Not Registered? Register Here</a>
-                            </div>
-                        </form>
-                    </div>    			
                 </div>
             </div>
         </section>
