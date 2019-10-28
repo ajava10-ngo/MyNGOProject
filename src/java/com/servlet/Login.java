@@ -34,9 +34,15 @@ public class Login extends HttpServlet {
             ResultSet rs = userDao.login(user);
 
             if (rs.next()) {
-                System.out.println(request.getParameter("username"));
-                System.out.println(request.getParameter("password"));
-                response.sendRedirect("index.jsp");
+
+                if (Integer.parseInt(rs.getString("type")) == 1) {
+                    
+                } else {
+
+                    System.out.println(request.getParameter("username"));
+                    System.out.println(request.getParameter("password"));
+                    response.sendRedirect("index.jsp");
+                }
             }
 
         } catch (IOException | SQLException e) {
