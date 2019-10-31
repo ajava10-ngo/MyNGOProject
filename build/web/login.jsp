@@ -39,4 +39,3 @@
         </body>
     </html>
 <jsp:include page="blocks/footer.jsp"></jsp:include>
-
