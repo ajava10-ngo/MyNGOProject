@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
             if (rs.next()) {
 
                 if (Integer.parseInt(rs.getString("type")) == 1) {
-                    
+                    response.sendRedirect("index.jsp");
                 } else {
 
                     System.out.println(request.getParameter("username"));

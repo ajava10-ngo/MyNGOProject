@@ -5,108 +5,107 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<footer class="ftco-footer ftco-section img">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-md-3">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">About Us</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Recent Blog</h2>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(assets/images/image_1.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(assets/images/image_2.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="ftco-footer-widget mb-4 ml-md-4">
-                    <h2 class="ftco-heading-2">Site Links</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Home</a></li>
-                        <li><a href="#" class="py-2 d-block">About</a></li>
-                        <li><a href="#" class="py-2 d-block">Donate</a></li>
-                        <li><a href="#" class="py-2 d-block">Causes</a></li>
-                        <li><a href="#" class="py-2 d-block">Event</a></li>
-                        <li><a href="#" class="py-2 d-block">Blog</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Have a Questions?</h2>
-                    <div class="block-23 mb-3">
-                        <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+<footer class="site-footer">
+    <div class="footer-widgets">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="foot-about">
+                        <h2><a class="foot-logo" href="#"><img src="assets/images/foot-logo.png" alt=""></a></h2>
+
+                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit. Mauris temp us vestib ulum mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus vestib ulum mauris.Lorem ipsum dolo.</p>
+
+                        <ul class="d-flex flex-wrap align-items-center">
+                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 textclass-center">
+                    </div><!-- .foot-about -->
+                </div><!-- .col -->
 
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-            </div>
-        </div>
-    </div>
-</footer>
+                <div class="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
+                    <h2>Useful Links</h2>
 
+                    <ul>
+                        <li><a href="#">Privacy Polticy</a></li>
+                        <li><a href="#">Become  a Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Causes</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">News</a></li>
+                    </ul>
+                </div><!-- .col -->
 
+                <div class="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
+                    <div class="foot-latest-news">
+                        <h2>Latest News</h2>
 
-<!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+                        <ul>
+                            <li>
+                                <h3><a href="#">A new cause to help</a></h3>
+                                <div class="posted-date">MArch 12, 2018</div>
+                            </li>
 
+                            <li>
+                                <h3><a href="#">We love to help people</a></h3>
+                                <div class="posted-date">MArch 12, 2018</div>
+                            </li>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.easing.1.3.js"></script>
-<script src="assets/js/jquery.waypoints.min.js"></script>
-<script src="assets/js/jquery.stellar.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
-<script src="assets/js/aos.js"></script>
-<script src="assets/js/jquery.animateNumber.min.js"></script>
-<script src="assets/js/bootstrap-datepicker.js"></script>
-<script src="assets/js/jquery.timepicker.min.js"></script>
-<script src="assets/js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="assets/js/google-map.js"></script>
-<script src="assets/js/main.js"></script>
+                            <li>
+                                <h3><a href="#">The new ideas for helping</a></h3>
+                                <div class="posted-date">MArch 12, 2018</div>
+                            </li>
+                        </ul>
+                    </div><!-- .foot-latest-news -->
+                </div><!-- .col -->
+
+                <div class="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
+                    <div class="foot-contact">
+                        <h2>Contact</h2>
+
+                        <ul>
+                            <li><i class="fa fa-phone"></i><span>+45 677 8993000 223</span></li>
+                            <li><i class="fa fa-envelope"></i><span>office@template.com</span></li>
+                            <li><i class="fa fa-map-marker"></i><span>Main Str. no 45-46, b3, 56832, Los Angeles, CA</span></li>
+                        </ul>
+                    </div><!-- .foot-contact -->
+
+                    <div class="subscribe-form">
+                        <form class="d-flex flex-wrap align-items-center">
+                            <input type="email" placeholder="Your email">
+                            <input type="submit" value="send">
+                        </form><!-- .flex -->
+                    </div><!-- .search-widget -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .footer-widgets -->
+
+    <div class="footer-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div><!-- .col-12 -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .footer-bar -->
+</footer><!-- .site-footer -->
+
+<script type='text/javascript' src='assets/js/jquery.js'></script>
+<script type='text/javascript' src='assets/js/jquery.collapsible.min.js'></script>
+<script type='text/javascript' src='assets/js/swiper.min.js'></script>
+<script type='text/javascript' src='assets/js/jquery.countdown.min.js'></script>
+<script type='text/javascript' src='assets/js/circle-progress.min.js'></script>
+<script type='text/javascript' src='assets/js/jquery.countTo.min.js'></script>
+<script type='text/javascript' src='assets/js/jquery.barfiller.js'></script>
+<script type='text/javascript' src='assets/js/custom.js'></script>
 
 </body>
 </html>

@@ -5,16 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="blocks/nav.jsp"></jsp:include>
-<jsp:include page="blocks/cssLinkage.jsp"></jsp:include>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>login Page</title>
-    </head>
-    <body>
-        <section class="ftco-section-3 img" style="background-image: url(assets/images/bg_3.jpg);">
-            <div class="overlay"></div>
+<jsp:include page="blocks/header.jsp"></jsp:include>
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Login Page</title>
+        </head>
+        <body>
             <div class="container">
                 <div class="row d-md-flex">
                     <div class="col-md-6 d-flex ftco-animate">
@@ -22,15 +19,15 @@
                     </div>
                     <div class="col-md-6 volunteer pl-md-5 ftco-animate">
                         <h3 class="mb-3">Login</h3>
-                        <form action="login" method="post" class="volunter-form">
+                        <form action="register" method="post" class="volunter-form">
                             <div class="form-group">
-                                <input type="text" name="username" class="form-control" placeholder="Username">
+                                <input type="text" name="username" class="form-control" placeholder="Username" required="">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <input type="password" name="password" class="form-control" placeholder="Password" required="">
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Login" class="btn btn-white py-3 px-5">
+                                <input type="submit" value="Register" class="btn gradient-bg">
                             </div>
                             <div class="form-group">
                                 <a class="form-control-plaintext" href="register.jsp">Not Registered? Register Here</a>
@@ -39,8 +36,7 @@
                     </div>    			
                 </div>
             </div>
-        </section>
-    </body>
-</html>
+        </body>
+    </html>
 <jsp:include page="blocks/footer.jsp"></jsp:include>
 
