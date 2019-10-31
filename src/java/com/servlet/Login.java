@@ -19,9 +19,9 @@ public class Login extends HttpServlet {
 
         PrintWriter out = response.getWriter();
         try {
-
-            System.out.println(request.getParameter("username"));
-            System.out.println(request.getParameter("password"));
+            
+            System.out.println("Username : " + request.getParameter("username"));
+            System.out.println("Password : " + request.getParameter("password"));
 
             String username = request.getParameter("username");
             String password = request.getParameter("password");
@@ -36,13 +36,18 @@ public class Login extends HttpServlet {
             if (rs.next()) {
 
                 if (Integer.parseInt(rs.getString("type")) == 1) {
-                    response.sendRedirect("index.jsp");
+                    
+                    response.sendRedirect("admin/dashboard.jsp");
+                    
                 } else {
 
                     System.out.println(request.getParameter("username"));
                     System.out.println(request.getParameter("password"));
                     response.sendRedirect("index.jsp");
                 }
+            } else {
+                out.print("Invalid Username or Password ");
+                response.sendRedirect("login.jsp");
             }
 
         } catch (IOException | SQLException e) {

@@ -19,7 +19,7 @@
                     </div>
                     <div class="col-md-6 volunteer pl-md-5 ftco-animate">
                         <h3 class="mb-3">Login</h3>
-                        <form action="register" method="post" class="volunter-form">
+                        <form action="login" method="post" class="volunter-form">
                             <div class="form-group">
                                 <input type="text" name="username" class="form-control" placeholder="Username" required="">
                             </div>
