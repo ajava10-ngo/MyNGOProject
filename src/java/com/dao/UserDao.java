@@ -65,4 +65,25 @@ public class UserDao {
         }
         return null;
     }
+    
+    public ResultSet selectAll() {
+        
+        try {
+            String sql = "select * from user;";
+            con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            return rs;
+        } catch (SQLException e) {
+            System.err.println("UserDao Exception : " + e.toString());
+        } finally {
+            try {                
+            } catch (Exception e) {
+                System.err.println("UserDao Exception : " + e.toString());
+            }
+        }
+        return null;
+    }
 }

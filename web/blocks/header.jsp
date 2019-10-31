@@ -81,5 +81,3 @@
             </div><!-- .nav-bar -->
         </header><!-- .site-header -->
         <!-- END nav -->
-    </body>
-</html>

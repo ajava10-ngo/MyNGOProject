@@ -42,8 +42,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write('\n');
-      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "blocks/nav.jsp", out, false);
-      out.write('\n');
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "blocks/header.jsp", out, false);
       out.write('\n');
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "blocks/content.jsp", out, false);
