@@ -43,11 +43,12 @@
                                 </a>
                             </div>
                             <div class="mdc-list-item mdc-drawer-item">
-                                <a class="mdc-drawer-link" href="#">
+                                <a class="mdc-drawer-link" href="volunteerDetails.jsp">
                                     <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">track_changes</i>
-                                    Create Event
+                                    Volunteers
                                 </a>
                             </div>
+                            
                             <div class="mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="ui-sub-menu">
                                 <a class="mdc-drawer-link" href="#">
                                     <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">dashboard</i>
@@ -87,12 +88,14 @@
                                     Sample Pages
                                     <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
                                 </a>
+
                                 <div class="mdc-expansion-panel" id="sample-page-submenu">
                                     <nav class="mdc-list mdc-drawer-submenu">
                                         <div class="mdc-list-item mdc-drawer-item">
                                             <a class="mdc-drawer-link" href="pages/samples/blank-page.html">
                                                 Blank Page
                                             </a>
+
                                         </div>
                                         <div class="mdc-list-item mdc-drawer-item">
                                             <a class="mdc-drawer-link" href="pages/samples/403.html">
