@@ -3,6 +3,8 @@ package org.apache.jsp.admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.ResultSet;
+import com.dao.VolunteerDao;
 
 public final class volunteerDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -44,6 +46,8 @@ public final class volunteerDetails_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -74,7 +78,7 @@ public final class volunteerDetails_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("                                    <div class=\"mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12\">\n");
       out.write("                                        <div class=\"mdc-card table-responsive\">\n");
       out.write("                                            <div class=\"table-heading px-2 px-1 border-bottom\">\n");
-      out.write("                                                <h1 class=\"mdc-card__title mdc-card__title--large\">User List</h1>\n");
+      out.write("                                                <h1 class=\"mdc-card__title mdc-card__title--large\">Volunteer List</h1>\n");
       out.write("                                            </div>\n");
       out.write("                                            <table class=\"table\">\n");
       out.write("                                                <thead>\n");
@@ -92,23 +96,79 @@ public final class volunteerDetails_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("                                                    </tr>\n");
       out.write("                                                </thead>\n");
       out.write("                                                <tbody>\n");
+      out.write("                                                ");
+
+                                                    VolunteerDao volunteerDao = new VolunteerDao();
+                                                    ResultSet rs = volunteerDao.selectVolunteer();
+                                                    while (rs.next()) {
+                                                
       out.write("\n");
-      out.write("                                                    <tr>\n");
       out.write("\n");
-      out.write("                                                        <td >\n");
-      out.write("                                                            <div class=\"col mdc-button\" data-mdc-auto-init=\"MDCRipple\">\n");
-      out.write("                                                                <i class=\"mdi mdi-heart text-blue\" onclick=\"#\" >\n");
-      out.write("                                                                    Delete User\n");
-      out.write("                                                                </i>\n");
-      out.write("                                                            </div>\n");
-      out.write("                                                        </td>\n");
-      out.write("                                                    </tr>\n");
-      out.write("                                            </table>\n");
-      out.write("                                        </div>\n");
+      out.write("                                                <tr>\n");
+      out.write("                                                    <td class=\"text-left\">\n");
+      out.write("                                                        ");
+      out.print( rs.getString("name"));
+      out.write("\n");
+      out.write("                                                    </td>\n");
+      out.write("                                                    <td class=\"text-left\">\n");
+      out.write("                                                        ");
+      out.print( rs.getString("email"));
+      out.write("\n");
+      out.write("                                                    </td>\n");
+      out.write("                                                    <td class=\"text-left\">\n");
+      out.write("                                                        ");
+      out.print( rs.getString("username"));
+      out.write("\n");
+      out.write("                                                    </td>\n");
+      out.write("                                                    <td class=\"text-left\">\n");
+      out.write("                                                        ");
+      out.print( rs.getString("mobile"));
+      out.write("\n");
+      out.write("                                                    </td>\n");
+      out.write("                                                    <td class=\"text-left\">\n");
+      out.write("                                                        ");
+      out.print( rs.getString("age"));
+      out.write("\n");
+      out.write("                                                    </td>\n");
+      out.write("                                                    <td class=\"text-left\">\n");
+      out.write("                                                        ");
+      out.print( rs.getString("gender"));
+      out.write("\n");
+      out.write("                                                    </td>\n");
+      out.write("                                                    <td class=\"text-left\">\n");
+      out.write("                                                        ");
+      out.print( rs.getString("cityId"));
+      out.write("\n");
+      out.write("                                                    </td>\n");
+      out.write("                                                    <td class=\"text-left\">\n");
+      out.write("                                                        ");
+      out.print( rs.getString("stateId"));
+      out.write("\n");
+      out.write("                                                    </td>\n");
+      out.write("                                                    <td class=\"text-left\">\n");
+      out.write("                                                        ");
+      out.print( rs.getString("address"));
+      out.write("\n");
+      out.write("                                                    </td>\n");
+      out.write("                                                    <td >\n");
+      out.write("                                                        <div class=\"col mdc-button\" data-mdc-auto-init=\"MDCRipple\">\n");
+      out.write("                                                            <i class=\"mdi mdi-heart text-blue\" onclick=\"#\" >\n");
+      out.write("                                                                Remove\n");
+      out.write("                                                            </i>\n");
+      out.write("                                                        </div>\n");
+      out.write("                                                    </td>\n");
+      out.write("                                                </tr>\n");
+      out.write("                                                ");
+
+                                                    }
+                                                
+      out.write("\n");
+      out.write("                                        </table>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
-      out.write("                        </main>\n");
+      out.write("                        </div>\n");
+      out.write("                    </main>\n");
       out.write("                    ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "blocks/footer.jsp", out, false);
       out.write("\n");

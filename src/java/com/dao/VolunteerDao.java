@@ -1,7 +1,6 @@
 package com.dao;
 
 import com.connection.DBConnection;
-import com.model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
