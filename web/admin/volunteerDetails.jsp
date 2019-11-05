@@ -78,7 +78,7 @@
                                                 <td >
                                                     <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
                                                         <a href="removeVolunteer.jsp?volunteerId=<%= rs.getString("volunteerId") %>" class="mdi mdi-heart text-blue">
-                                                            Remove
+                                                            Remove_Volunteer
                                                         </a>
                                                     </span>
                                                 </td>

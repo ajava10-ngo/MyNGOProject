@@ -39,7 +39,7 @@
                     </a>
                 </div>
                 <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="#">
+                    <a class="mdc-drawer-link" href="volunteerDetails.jsp">
                         <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">track_changes</i>
                         Volunteer
                     </a>

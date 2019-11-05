@@ -27,7 +27,7 @@
                                 <input type="password" name="password" class="form-control" placeholder="Password" required="">
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Register" class="btn gradient-bg">
+                                <input type="submit" value="Login" class="btn gradient-bg">
                             </div>
                             <div class="form-group">
                                 <a class="form-control-plaintext" href="register.jsp">Not Registered? Register Here</a>
