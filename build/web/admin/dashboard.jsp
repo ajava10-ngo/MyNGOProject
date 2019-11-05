@@ -160,7 +160,9 @@
                                                         <a href="" class="mdi mdi-heart text-blue">Delete User</a>
                                                     </span>
                                                     <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                                                        <a href="makeVolunteer.jsp?id=<%= rs.getString("userId") %>&email=<%= rs.getString("email") %>" class="mdi mdi-heart text-blue">Make Volunteer</a>
+                                                        <a href="makeVolunteer.jsp?id=<%= rs.getString("userId") %>&email=<%= rs.getString("email") %>" class="mdi mdi-heart text-blue">
+                                                            Make Volunteer
+                                                        </a>
                                                     </span>
                                                 </td>
                                             </tr>

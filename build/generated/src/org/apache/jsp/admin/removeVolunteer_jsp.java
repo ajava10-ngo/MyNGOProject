@@ -3,11 +3,10 @@ package org.apache.jsp.admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import com.mailSending.SendMailSSL;
-import com.dao.VolunteerDao;
 import com.model.Volunteer;
+import com.dao.VolunteerDao;
 
-public final class makeVolunteer_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class removeVolunteer_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -49,66 +48,36 @@ public final class makeVolunteer_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("\n");
       out.write("        ");
 
             try {
-                String id = request.getParameter("id");
-                String email = request.getParameter("email");
-                if (id != null && email != null) {
-                    int userId = Integer.parseInt(id);
-                    Volunteer volunteer = new Volunteer(userId);
+                int volunteerId = Integer.parseInt(request.getParameter("volunteerId"));
+                if (volunteerId !=  0) {
+                    Volunteer volunteer = new Volunteer();
+                    volunteer.setVolunteerId(volunteerId);
                     VolunteerDao volunteerDao = new VolunteerDao();
-                    boolean isInserted = volunteerDao.makeVolunteer(volunteer);
-                    if (isInserted) {
-        
-      out.write("\n");
-      out.write("        \n");
-      out.write("        <h1>An Email Is Sent To The User !</h1>\n");
-      out.write("        ");
- 
-            if (SendMailSSL.sendEmail(email)) {
-                response.sendRedirect("volunteerDetails.jsp"); 
-            } else {
-                out.print("Mail Not Sent");
-            }
-        
-      out.write("\n");
-      out.write("\n");
-      out.write("        ");
-
-        } else {
-        
-      out.write("\n");
-      out.write("\n");
-      out.write("        ");
-      out.print( "Not Success..");
-      out.write("\n");
-      out.write("\n");
-      out.write("        ");
-
-            }
-        } else {
-        
-      out.write("\n");
-      out.write("\n");
-      out.write("        ");
-      out.print( "Email or UserId is null");
-      out.write("\n");
-      out.write("\n");
-      out.write("        ");
-
+                    
+                    boolean isRemoved = volunteerDao.removeVolunteer(volunteer);
+                    
+                    if (isRemoved) {
+                        response.sendRedirect("volunteerDetails.jsp");
+                    } else {
+                        out.print("<h1 color='red'>Volunteer Not Removed</h1>");
+                    }
                 }
+        
+      out.write("\n");
+      out.write("\n");
+      out.write("        ");
+
             } catch (Exception e) {
-                out.print("Volunteer Exception : " + e.toString());
+                out.print("Remove Volunteer Exception : " + e.toString());
             }
         
       out.write("\n");

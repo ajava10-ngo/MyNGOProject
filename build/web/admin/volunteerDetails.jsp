@@ -76,11 +76,11 @@
                                                     <%= rs.getString("address")%>
                                                 </td>
                                                 <td >
-                                                    <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                                                        <i class="mdi mdi-heart text-blue" onclick="#" >
-                                                            Delete User
-                                                        </i>
-                                                    </div>
+                                                    <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
+                                                        <a href="removeVolunteer.jsp?volunteerId=<%= rs.getString("volunteerId") %>" class="mdi mdi-heart text-blue">
+                                                            Remove
+                                                        </a>
+                                                    </span>
                                                 </td>
                                             </tr>
                                             <%

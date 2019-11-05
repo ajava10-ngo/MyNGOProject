@@ -65,7 +65,7 @@
                                     <li><a href="portfolio.html">Gallery</a></li>
                                     <li><a href="news.html">News</a></li>
                                     <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="login.jsp">Login/Register</a></li>
+                                    <li><a href="login.jsp">Login</a></li>
                                 </ul>
                             </nav><!-- .site-navigation -->
 

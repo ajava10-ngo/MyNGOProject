@@ -53,7 +53,7 @@ public class VolunteerDao {
     
     public boolean removeVolunteer(Volunteer volunteer) {
         try {
-            String sql = "DELETE FROM `volunteer` WHERE volunteer = ?;";
+            String sql = "DELETE FROM `volunteer` WHERE volunteerId = ?;";
             con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             

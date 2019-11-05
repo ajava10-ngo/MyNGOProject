@@ -4,6 +4,7 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.mailSending.SendMailSSL"%>
 <%@page import="com.dao.VolunteerDao"%>
 <%@page import="com.model.Volunteer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,7 +12,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
     </head>
     <body>
 
@@ -28,7 +28,13 @@
         %>
         
         <h1>An Email Is Sent To The User !</h1>
-        <% response.sendRedirect("volunteerDetails.jsp"); %>
+        <% 
+            if (SendMailSSL.sendEmail(email)) {
+                response.sendRedirect("volunteerDetails.jsp"); 
+            } else {
+                out.print("Mail Not Sent");
+            }
+        %>
 
         <%
         } else {
