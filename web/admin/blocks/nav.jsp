@@ -45,7 +45,7 @@
                     </a>
                 </div>
                 <div class="mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="ui-sub-menu">
-                    <a class="mdc-drawer-link" href="#">
+                    <a class="mdc-drawer-link" href="donorDetails.jsp">
                         <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">dashboard</i>
                         Blood Bank
                         <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>

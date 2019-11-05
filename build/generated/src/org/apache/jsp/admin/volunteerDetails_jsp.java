@@ -69,7 +69,7 @@ public final class volunteerDetails_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("                                <div class=\"mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12\">\n");
       out.write("                                    <div class=\"mdc-card table-responsive\">\n");
       out.write("                                        <div class=\"table-heading px-2 px-1 border-bottom\">\n");
-      out.write("                                            <h1 class=\"mdc-card__title mdc-card__title--large\">User List</h1>\n");
+      out.write("                                            <h1 class=\"mdc-card__title mdc-card__title--large\">Volunteer List</h1>\n");
       out.write("                                        </div>\n");
       out.write("                                        <table class=\"table\">\n");
       out.write("                                            <thead>\n");
@@ -145,7 +145,7 @@ public final class volunteerDetails_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("                                                        <a href=\"removeVolunteer.jsp?volunteerId=");
       out.print( rs.getString("volunteerId") );
       out.write("\" class=\"mdi mdi-heart text-blue\">\n");
-      out.write("                                                            Make Volunteer\n");
+      out.write("                                                            Remove_Volunteer\n");
       out.write("                                                        </a>\n");
       out.write("                                                    </span>\n");
       out.write("                                                </td>\n");

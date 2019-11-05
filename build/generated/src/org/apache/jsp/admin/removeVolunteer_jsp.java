@@ -68,7 +68,7 @@ public final class removeVolunteer_jsp extends org.apache.jasper.runtime.HttpJsp
                     if (isRemoved) {
                         response.sendRedirect("volunteerDetails.jsp");
                     } else {
-                        out.print("<h1 color='red'>Volunteer Not Removed</h1>");
+                        out.print("<h1 style='color : red;>Volunteer Not Removed</h1>");
                     }
                 }
         
@@ -77,7 +77,7 @@ public final class removeVolunteer_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("        ");
 
             } catch (Exception e) {
-                out.print("Remove Volunteer Exception : " + e.toString());
+                out.print("<h1 style='color : red;'>Remove Volunteer Exception : " + e.toString() + " </h1>");
             }
         
       out.write("\n");

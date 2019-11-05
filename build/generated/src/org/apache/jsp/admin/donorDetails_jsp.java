@@ -3,10 +3,8 @@ package org.apache.jsp.admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import java.sql.ResultSet;
-import com.dao.UserDao;
 
-public final class demoDash_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class donorDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -46,12 +44,11 @@ public final class demoDash_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
-      out.write("        \n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <title>Donor Details</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <div class=\"body-wrapper\">\n");
@@ -61,6 +58,26 @@ public final class demoDash_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "blocks/header.jsp", out, false);
       out.write("\n");
+      out.write("                <div class=\"page-wrapper mdc-toolbar-fixed-adjust\">\n");
+      out.write("                    <main class=\"content-wrapper\">\n");
+      out.write("                        <div class=\"mdc-layout-grid\">\n");
+      out.write("                            <div class=\"mdc-layout-grid__inner\">\n");
+      out.write("                                <div class=\"mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12\">\n");
+      out.write("                                    <div class=\"mdc-card table-responsive\">\n");
+      out.write("                                        <div class=\"table-heading px-2 px-1 border-bottom\">\n");
+      out.write("                                            <h1 class=\"mdc-card__title mdc-card__title--large\">User List</h1>\n");
+      out.write("                                        </div>\n");
+      out.write("\n");
+      out.write("                                    </div>\n");
+      out.write("                                </div>\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("                    </main>\n");
+      out.write("                    <!--content-->\n");
+      out.write("                ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "blocks/footer.jsp", out, false);
+      out.write("\n");
+      out.write("            </div>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");

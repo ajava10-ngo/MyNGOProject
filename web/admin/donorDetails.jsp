@@ -1,17 +1,18 @@
 <%-- 
-    Document   : volunteerDetails
-    Created on : 4 Nov, 2019, 11:40:04 AM
+    Document   : donorDetails
+    Created on : 5 Nov, 2019, 6:30:26 PM
     Author     : Ritesh Verma
 --%>
 
 <%@page import="java.sql.ResultSet"%>
-<%@page import="com.dao.VolunteerDao"%>
+<%@page import="com.dao.DonorDao"%>
+<%@page import="com.model.Donor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Volunteer Details</title>
+        <title>Donor Details</title>
     </head>
     <body>
         <div class="body-wrapper">
@@ -24,63 +25,45 @@
                                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
                                     <div class="mdc-card table-responsive">
                                         <div class="table-heading px-2 px-1 border-bottom">
-                                            <h1 class="mdc-card__title mdc-card__title--large">Volunteer List</h1>
+                                            <h1 class="mdc-card__title mdc-card__title--large">Donor List</h1>
                                         </div>
                                         <table class="table">
                                             <thead>
+
                                                 <tr>
                                                     <th class="text-left">Name</th>
-                                                    <th class="text-left">Email</th>
-                                                    <th class="text-left">Username</th>
+                                                    <th class="text-left">Blood Group</th>
                                                     <th class="text-left">Mobile</th>
                                                     <th class="text-left">Gender</th>
                                                     <th class="text-left">Age</th>
-                                                    <th class="text-left">City</th>
-                                                    <th class="text-left">State</th>
                                                     <th class="text-left">Address</th>
-                                                    <th >Actions</th>
                                                 </tr>
+
                                             </thead>
                                             <tbody>
                                             <%
-                                                VolunteerDao volunteerDao = new VolunteerDao();
-                                                ResultSet rs = volunteerDao.getAllVolunteer();
+                                                DonorDao donorDao = new DonorDao();
+                                                ResultSet rs = donorDao.getAllDonor();
                                                 while (rs.next()) {
                                             %>
                                             <tr>
                                                 <td class="text-left">
-                                                    <%= rs.getString("name")%>
+                                                    <%= rs.getString("name") %>
                                                 </td>
                                                 <td class="text-left">
-                                                    <%= rs.getString("email")%>
+                                                    <%= rs.getString("bloodGroup") %>
                                                 </td>
                                                 <td class="text-left">
-                                                    <%= rs.getString("username")%>
+                                                    <%= rs.getString("mobile") %>
                                                 </td>
                                                 <td class="text-left">
-                                                    <%= rs.getString("mobile")%>
+                                                    <%= rs.getString("gender") %>
                                                 </td>
                                                 <td class="text-left">
-                                                    <%= rs.getString("age")%>
+                                                    <%= rs.getString("age") %>
                                                 </td>
                                                 <td class="text-left">
-                                                    <%= rs.getString("gender")%>
-                                                </td>
-                                                <td class="text-left">
-                                                    <%= rs.getString("cityId")%>
-                                                </td>
-                                                <td class="text-left">
-                                                    <%= rs.getString("stateId")%>
-                                                </td>
-                                                <td class="text-left">
-                                                    <%= rs.getString("address")%>
-                                                </td>
-                                                <td >
-                                                    <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                                                        <a href="removeVolunteer.jsp?volunteerId=<%= rs.getString("volunteerId") %>" class="mdi mdi-heart text-blue">
-                                                            Remove_Volunteer
-                                                        </a>
-                                                    </span>
+                                                    <%= rs.getString("address") %>
                                                 </td>
                                             </tr>
                                             <%
@@ -93,6 +76,7 @@
                         </div>
                     </div>
                 </main>
+                <!--content-->
                 <jsp:include page="blocks/footer.jsp"></jsp:include>
             </div>
         </div>

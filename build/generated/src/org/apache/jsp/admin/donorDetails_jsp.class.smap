@@ -1,0 +1,14 @@
+SMAP
+donorDetails_jsp.java
+JSP
+*S JSP
+*F
++ 0 donorDetails.jsp
+admin/donorDetails.jsp
+*L
+5,11:44
+16,2:55,3
+18,16:61
+34:77,3
+35,5:80
+*E

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2019 at 09:56 AM
+-- Generation Time: Nov 05, 2019 at 11:21 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -1619,7 +1619,7 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `mobile` varchar(13) NOT NULL,
-  `gender` varchar(5) NOT NULL,
+  `gender` varchar(6) NOT NULL,
   `age` int(11) NOT NULL,
   `stockId` int(11) NOT NULL,
   `stateId` int(11) NOT NULL,
@@ -1636,7 +1636,8 @@ INSERT INTO `user` (`userId`, `name`, `email`, `username`, `password`, `mobile`,
 (1, 'Ritesh Verma', 'recoonie.ritesh@gmail.com', 'rv@03', 'rv@03', '9713891029', 'Male', 23, 5, 20, 705, '161 Anantpuri Colony, A.B. Road', 1),
 (5, 'Ritik Verma', 'verma.ritik1685@gmail.com', 'ritik@11', 'ritik@11', '9770169148', 'Male', 19, 5, 20, 705, 'asdasd', 2),
 (6, 'asd', 'asd@gmail.com', 'asd@11', 'asd@11', '9119900911', 'Male', 19, 5, 20, 705, 'qweqewsdadqweqewewe', 2),
-(7, 'Pragati Patidar', 'pragatipatidar@gamil.com', 'pragati@123', 'pragati@123', '9978872882', 'Femal', 22, 3, 20, 705, 'bhawarkua', 2);
+(7, 'Pragati Patidar', 'pragatipatidar15@gamil.com', 'pragati@123', 'pragati@123', '9978872882', 'Femal', 22, 3, 20, 705, 'bhawarkua', 2),
+(8, 'Ajava10 ', 'ajavango@gmail.com', 'ajava10_ngo', 'ajava10_ngo', '9488277221', 'Male', 23, 5, 20, 705, 'Universal Informatics, A.B. Road, Bhawarkua, Near I-Bus Stop', 2);
 
 -- --------------------------------------------------------
 
@@ -1655,7 +1656,9 @@ CREATE TABLE `volunteer` (
 
 INSERT INTO `volunteer` (`volunteerId`, `userId`) VALUES
 (1, 5),
-(2, 6);
+(5, 6),
+(4, 7),
+(7, 8);
 
 --
 -- Indexes for dumped tables
@@ -1739,13 +1742,13 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `volunteer`
 --
 ALTER TABLE `volunteer`
-  MODIFY `volunteerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `volunteerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

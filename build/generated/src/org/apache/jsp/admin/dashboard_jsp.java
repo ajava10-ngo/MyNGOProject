@@ -227,7 +227,11 @@ public final class dashboard_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                    <span class=\"col mdc-button\" data-mdc-auto-init=\"MDCRipple\">\n");
       out.write("                                                        <a href=\"makeVolunteer.jsp?id=");
       out.print( rs.getString("userId") );
-      out.write("\" class=\"mdi mdi-heart text-blue\">Make Volunteer</a>\n");
+      out.write("&email=");
+      out.print( rs.getString("email") );
+      out.write("\" class=\"mdi mdi-heart text-blue\">\n");
+      out.write("                                                            Make_Volunteer\n");
+      out.write("                                                        </a>\n");
       out.write("                                                    </span>\n");
       out.write("                                                </td>\n");
       out.write("                                            </tr>\n");

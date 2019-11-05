@@ -4,9 +4,25 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.dao.VolunteerDao"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.dao.UserDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    int totalUser = 0;
+    UserDao getUser = new UserDao();
+    ResultSet resultSetUser = getUser.getAllUser();
+    while (resultSetUser.next()) {
+        totalUser++;
+    }
+
+    int totalVolunteer = 0;
+    VolunteerDao volunteerDao = new VolunteerDao();
+    ResultSet resultSetVolunteer = volunteerDao.getAllVolunteer();
+    while (resultSetVolunteer.next()) {
+        totalVolunteer++;
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,97 +46,75 @@
                                                     <i class="mdi mdi-account-settings text-white icon-md"></i>
                                                 </div>
                                                 <div class="text-wrapper pl-1">
-                                                    <h3 class="mdc-typography--display1 font-weight-bold mb-1">300</h3>
-                                                    <p class="font-weight-normal mb-0 mt-0">New Users Added This Month</p>
-                                                </div>
+                                                    <h3 class="mdc-typography--display1 font-weight-bold mb-1"><%= totalUser%></h3>
+                                                <p class="font-weight-normal mb-0 mt-0">Total User</p>
                                             </div>
                                         </div>
-                                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
-                                            <div class="mdc-card py-3 pl-2 d-flex flex-row align-item-center">
-                                                <div class="mdc--tile mdc--tile-success rounded">
-                                                    <i class="mdi mdi-basket text-white icon-md"></i>
-                                                </div>
-                                                <div class="text-wrapper pl-1">
-                                                    <h3 class="mdc-typography--display1 font-weight-bold mb-1">783</h3>
-                                                    <p class="font-weight-normal mb-0 mt-0">Total Users</p>
-                                                </div>
+                                    </div>
+                                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
+                                        <div class="mdc-card py-3 pl-2 d-flex flex-row align-item-center">
+                                            <div class="mdc--tile mdc--tile-primary rounded">
+                                                <i class="mdi mdi-account-star text-white icon-md"></i>
                                             </div>
-                                        </div>
-                                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
-                                            <div class="mdc-card py-3 pl-2 d-flex flex-row align-item-center">
-                                                <div class="mdc--tile mdc--tile-warning rounded">
-                                                    <i class="mdi mdi-ticket text-white icon-md"></i>
-                                                </div>
-                                                <div class="text-wrapper pl-1">
-                                                    <h3 class="mdc-typography--display1 font-weight-bold mb-1">69</h3>
-                                                    <p class="font-weight-normal mb-0 mt-0">Volunteers</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
-                                            <div class="mdc-card py-3 pl-2 d-flex flex-row align-item-center">
-                                                <div class="mdc--tile mdc--tile-primary rounded">
-                                                    <i class="mdi mdi-account-star text-white icon-md"></i>
-                                                </div>
-                                                <div class="text-wrapper pl-1">
-                                                    <h3 class="mdc-typography--display1 font-weight-bold mb-1">5785</h3>
-                                                    <p class="font-weight-normal mb-0 mt-0">New Visitors</p>
-                                                </div>
+                                            <div class="text-wrapper pl-1">
+                                                <h3 class="mdc-typography--display1 font-weight-bold mb-1"><%= totalVolunteer%></h3>
+                                                <p class="font-weight-normal mb-0 mt-0">Total Volunteers</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">
-                                    <div class="mdc-card d-flex flex-column">
-                                        <div class="mdc-layout-grid__inner flex-grow-1">
-                                            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3"></div>
-                                            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6 d-flex align-item-center flex-column">
-                                                <h2 class="mdc-card__title mdc-card__title--large text-center mt-2 mb-2">Recent Event</h2>
-                                                <div id="currentBalanceCircle" class="w-100"></div>
-                                            </div>
-                                            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3"></div>
+                            </div>
+                            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">
+                                <div class="mdc-card d-flex flex-column">
+                                    <div class="mdc-layout-grid__inner flex-grow-1">
+                                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3"></div>
+                                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6 d-flex align-item-center flex-column">
+                                            <h2 class="mdc-card__title mdc-card__title--large text-center mt-2 mb-2">Recent Event</h2>
+                                            <div id="currentBalanceCircle" class="w-100"></div>
                                         </div>
-                                        <div class="mdc-layout-grid__inner">
-                                            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
-                                                <section class="mdc-card__action-footer mt-4 bg-red w-100">
-                                                    <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                                                        <i class="mdi mdi-store icon-md"></i>
-                                                    </div>
-                                                    <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                                                        <i class="mdi mdi-phone-plus icon-md"></i>
-                                                    </div>
-                                                    <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                                                        <i class="mdi mdi-share-variant icon-md"></i>
-                                                    </div>
-                                                    <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                                                        <i class="mdi mdi-autorenew icon-md"></i>
-                                                    </div>
-                                                </section>
-                                            </div>
+                                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3"></div>
+                                    </div>
+                                    <div class="mdc-layout-grid__inner">
+                                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+                                            <section class="mdc-card__action-footer mt-4 bg-red w-100">
+                                                <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
+                                                    <i class="mdi mdi-store icon-md"></i>
+                                                </div>
+                                                <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
+                                                    <i class="mdi mdi-phone-plus icon-md"></i>
+                                                </div>
+                                                <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
+                                                    <i class="mdi mdi-share-variant icon-md"></i>
+                                                </div>
+                                                <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
+                                                    <i class="mdi mdi-autorenew icon-md"></i>
+                                                </div>
+                                            </section>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
-                                    <div class="mdc-card table-responsive">
-                                        <div class="table-heading px-2 px-1 border-bottom">
-                                            <h1 class="mdc-card__title mdc-card__title--large">User List</h1>
-                                        </div>
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-left">Name</th>
-                                                    <th class="text-left">Email</th>
-                                                    <th class="text-left">Username</th>
-                                                    <th class="text-left">Mobile</th>
-                                                    <th class="text-left">Gender</th>
-                                                    <th class="text-left">Age</th>
-                                                    <th class="text-left">City</th>
-                                                    <th class="text-left">State</th>
-                                                    <th class="text-left">Address</th>
-                                                    <th class="text-center">Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
+                            </div>
+                            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+                                <div class="mdc-card table-responsive">
+                                    <div class="table-heading px-2 px-1 border-bottom">
+                                        <h1 class="mdc-card__title mdc-card__title--large">User List</h1>
+                                    </div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-left">Name</th>
+                                                <th class="text-left">Email</th>
+                                                <th class="text-left">Username</th>
+                                                <th class="text-left">Mobile</th>
+                                                <th class="text-left">Gender</th>
+                                                <th class="text-left">Age</th>
+                                                <th class="text-left">City</th>
+                                                <th class="text-left">State</th>
+                                                <th class="text-left">Address</th>
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                             <%
                                                 UserDao userDao = new UserDao();
                                                 ResultSet rs = userDao.getAllUser();
@@ -160,7 +154,7 @@
                                                         <a href="" class="mdi mdi-heart text-blue">Delete User</a>
                                                     </span>
                                                     <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                                                        <a href="makeVolunteer.jsp?id=<%= rs.getString("userId") %>&email=<%= rs.getString("email") %>" class="mdi mdi-heart text-blue">
+                                                        <a href="makeVolunteer.jsp?id=<%= rs.getString("userId")%>&email=<%= rs.getString("email")%>" class="mdi mdi-heart text-blue">
                                                             Make_Volunteer
                                                         </a>
                                                     </span>
