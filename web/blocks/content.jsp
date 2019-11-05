@@ -1,4 +1,11 @@
+<%-- 
+    Document   : content
+    Created on : 4 Nov, 2019, 9:52:15 PM
+    Author     : Ritesh Verma
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <div class="swiper-container hero-slider">
     <div class="swiper-wrapper">
         <div class="swiper-slide hero-content-wrap">

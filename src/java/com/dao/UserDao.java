@@ -66,7 +66,7 @@ public class UserDao {
         return null;
     }
     
-    public ResultSet selectAll() {
+    public ResultSet getAllUser() {
         
         try {
             String sql = "select * from user;";

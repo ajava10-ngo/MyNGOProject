@@ -10,7 +10,7 @@ public class VolunteerDao {
 
     private Connection con = null;
 
-    public ResultSet selectVolunteer() {
+    public ResultSet getAllVolunteer() {
 
         try {
             String sql = "SELECT * FROM user inner join volunteer on user.userId = volunteer.userId;";
