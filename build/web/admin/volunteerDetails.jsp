@@ -90,14 +90,6 @@
                                     </table>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                            <div class="mdc-list-item mdc-drawer-item">
-                                <a class="mdc-drawer-link" href="makeVolunteer.jsp">
-                                    Dashboard
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </main>

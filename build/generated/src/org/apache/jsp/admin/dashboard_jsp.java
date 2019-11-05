@@ -62,7 +62,7 @@ public final class dashboard_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "blocks/header.jsp", out, false);
       out.write("\n");
-      out.write("\n");
+      out.write("                <!--content-->\n");
       out.write("                <div class=\"page-wrapper mdc-toolbar-fixed-adjust\">\n");
       out.write("                    <main class=\"content-wrapper\">\n");
       out.write("                        <div class=\"mdc-layout-grid\">\n");
@@ -162,7 +162,7 @@ public final class dashboard_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                    <th class=\"text-left\">City</th>\n");
       out.write("                                                    <th class=\"text-left\">State</th>\n");
       out.write("                                                    <th class=\"text-left\">Address</th>\n");
-      out.write("                                                    <th >Actions</th>\n");
+      out.write("                                                    <th class=\"text-center\">Actions</th>\n");
       out.write("                                                </tr>\n");
       out.write("                                            </thead>\n");
       out.write("                                            <tbody>\n");
@@ -221,11 +221,14 @@ public final class dashboard_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                                                </td>\n");
       out.write("                                                <td >\n");
-      out.write("                                                    <div class=\"col mdc-button\" data-mdc-auto-init=\"MDCRipple\">\n");
-      out.write("                                                        <i class=\"mdi mdi-heart text-blue\" onclick=\"#\" >\n");
-      out.write("                                                            Delete User\n");
-      out.write("                                                        </i>\n");
-      out.write("                                                    </div>\n");
+      out.write("                                                    <span class=\"col mdc-button\" data-mdc-auto-init=\"MDCRipple\">\n");
+      out.write("                                                        <a href=\"\" class=\"mdi mdi-heart text-blue\">Delete User</a>\n");
+      out.write("                                                    </span>\n");
+      out.write("                                                    <span class=\"col mdc-button\" data-mdc-auto-init=\"MDCRipple\">\n");
+      out.write("                                                        <a href=\"makeVolunteer.jsp?id=");
+      out.print( rs.getString("userId") );
+      out.write("\" class=\"mdi mdi-heart text-blue\">Make Volunteer</a>\n");
+      out.write("                                                    </span>\n");
       out.write("                                                </td>\n");
       out.write("                                            </tr>\n");
       out.write("                                            ");
@@ -241,6 +244,7 @@ public final class dashboard_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                </main>\n");
+      out.write("                <!--content-->\n");
       out.write("                ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "blocks/footer.jsp", out, false);
       out.write("\n");

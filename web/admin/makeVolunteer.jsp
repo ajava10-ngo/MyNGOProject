@@ -4,6 +4,8 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.dao.VolunteerDao"%>
+<%@page import="com.model.Volunteer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,40 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+
+        <%
+            try {
+                String id = request.getParameter("id");
+                String email = request.getParameter("email");
+                if (id != null && email != null) {
+                    int userId = Integer.parseInt(id);
+                    Volunteer volunteer = new Volunteer(userId);
+                    VolunteerDao volunteerDao = new VolunteerDao();
+                    boolean isInserted = volunteerDao.makeVolunteer(volunteer);
+                    if (isInserted) {
+        %>
+        
+        <h1>An Email Is Sent To The User !</h1>
+        <% response.sendRedirect("volunteerDetails.jsp"); %>
+
+        <%
+        } else {
+        %>
+
+        <%= "Not Success.."%>
+
+        <%
+            }
+        } else {
+        %>
+
+        <%= "Email or UserId is null"%>
+
+        <%
+                }
+            } catch (Exception e) {
+                out.print("Volunteer Exception : " + e.toString());
+            }
+        %>
     </body>
 </html>

@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.connection.DBConnection;
+import com.model.Volunteer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,13 +22,51 @@ public class VolunteerDao {
 
             return rs;
         } catch (SQLException e) {
-            System.err.println("UserDao Exception : " + e.toString());
+            System.err.println("VolunteerDao Exception : " + e.toString());
         } finally {
             try {
             } catch (Exception e) {
-                System.err.println("UserDao Exception : " + e.toString());
+                System.err.println("VolunteerDao Exception : " + e.toString());
             }
         }
         return null;
+    }
+
+    public boolean makeVolunteer(Volunteer volunteer) {
+        try {
+            String sql = "INSERT INTO volunteer (userId) VALUES (?);";
+            con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, volunteer.getUserId());
+            
+            int isInserted = ps.executeUpdate();
+            
+            if (isInserted > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.err.println("VolunteerDao Exception : " + e.toString());
+        }
+        return false;
+    }
+    
+    public boolean removeVolunteer(Volunteer volunteer) {
+        try {
+            String sql = "DELETE FROM `volunteer` WHERE volunteer = ?;";
+            con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, volunteer.getVolunteerId());
+            
+            int isInserted = ps.executeUpdate();
+            
+            if (isInserted > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.err.println("VolunteerDao Exception : " + e.toString());
+        }
+        return false;
     }
 }

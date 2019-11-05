@@ -17,7 +17,7 @@
         <div class="body-wrapper">
             <jsp:include page="blocks/nav.jsp"></jsp:include>
             <jsp:include page="blocks/header.jsp"></jsp:include>
-
+                <!--content-->
                 <div class="page-wrapper mdc-toolbar-fixed-adjust">
                     <main class="content-wrapper">
                         <div class="mdc-layout-grid">
@@ -117,7 +117,7 @@
                                                     <th class="text-left">City</th>
                                                     <th class="text-left">State</th>
                                                     <th class="text-left">Address</th>
-                                                    <th >Actions</th>
+                                                    <th class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -156,11 +156,12 @@
                                                     <%= rs.getString("address")%>
                                                 </td>
                                                 <td >
-                                                    <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                                                        <i class="mdi mdi-heart text-blue" onclick="#" >
-                                                            Delete User
-                                                        </i>
-                                                    </div>
+                                                    <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
+                                                        <a href="" class="mdi mdi-heart text-blue">Delete User</a>
+                                                    </span>
+                                                    <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
+                                                        <a href="makeVolunteer.jsp?id=<%= rs.getString("userId") %>&email=<%= rs.getString("email") %>" class="mdi mdi-heart text-blue">Make Volunteer</a>
+                                                    </span>
                                                 </td>
                                             </tr>
                                             <%
@@ -174,6 +175,7 @@
                         </div>
                     </div>
                 </main>
+                <!--content-->
                 <jsp:include page="blocks/footer.jsp"></jsp:include>
             </div>
         </div>
