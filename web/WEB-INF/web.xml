@@ -15,6 +15,10 @@
         <servlet-name>CreateEvent</servlet-name>
         <servlet-class>com.servlet.CreateEvent</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EventOperation</servlet-name>
+        <servlet-class>com.servlet.EventOperation</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -26,6 +30,10 @@
     <servlet-mapping>
         <servlet-name>CreateEvent</servlet-name>
         <url-pattern>/createEvent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EventOperation</servlet-name>
+        <url-pattern>/eventOperation</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

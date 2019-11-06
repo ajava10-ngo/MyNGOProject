@@ -38,7 +38,7 @@
                                                     <th class="text-left">City</th>
                                                     <th class="text-left">State</th>
                                                     <th class="text-left">Address</th>
-                                                    <th >Actions</th>
+                                                    <th class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -78,7 +78,7 @@
                                                 <td >
                                                     <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
                                                         <a href="removeVolunteer.jsp?volunteerId=<%= rs.getString("volunteerId") %>" class="mdi mdi-heart text-blue">
-                                                            Remove_Volunteer
+                                                            Remove
                                                         </a>
                                                     </span>
                                                 </td>

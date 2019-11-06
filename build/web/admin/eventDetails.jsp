@@ -28,44 +28,48 @@
                       </div>
                       <table class="table">
                         <thead>
-                            <th class="text-left">Event</th>
-                            <th class="text-left">Description</th>
-                            <th class="text-left">Date And Time</th>
-                            <th class="text-left">Location</th>
-                            <th class="text-left">Sponsers</th>
-                            <th class="text-center" colspan="2">Actions</th>
+                        <th class="text-left">Event</th>
+                        <th class="text-left">Description</th>
+                        <th class="text-left">Date</th>
+                        <th class="text-left">Time</th>
+                        <th class="text-left">Location</th>
+                        <th class="text-left">Sponsers</th>
+                        <th class="text-center">Actions</th>
                         </thead>
                         <tbody>
                         <%
                             EventDao volunteerDao = new EventDao();
-                            ResultSet rs = volunteerDao.getAllEvents();
+                            ResultSet rs = volunteerDao.getAllEvent();
                             while (rs.next()) {
                         %>
                         <tr>
                           <td class="text-left">
-                            <%= rs.getString("eventType") %>
+                            <%= rs.getString("event")%>
                           </td>
                           <td class="text-left">
-                            <%= rs.getString("description") %>
+                            <%= rs.getString("description")%>
                           </td>
                           <td class="text-left">
-                            <%= rs.getString("dateTime") %>
+                            <%= rs.getString("date")%>
                           </td>
                           <td class="text-left">
-                            <%= rs.getString("location") %>
+                            <%= rs.getString("time")%>
                           </td>
                           <td class="text-left">
-                            <%= rs.getString("sponsers") %>
+                            <%= rs.getString("location")%>
                           </td>
-                          <td>
-                            <span class="mdc-button" data-mdc-auto-init="MDCRipple">
-                              <a href="#" class="mdi mdi-heart text-blue">
-                                Update
+                          <td class="text-left">
+                            <%= rs.getString("sponsers")%>
+                          </td>
+                          <td class="text-center">
+                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
+                              <a href="" class="mdi mdi-heart text-blue">
+                                Remove
                               </a>
                             </span>
-                            <span class="mdc-button" data-mdc-auto-init="MDCRipple">
-                              <a href="#" class="mdi mdi-heart text-blue">
-                                Remove
+                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
+                              <a href="createEvent.jsp?eventId=<%= rs.getString("eventId") %>" class="mdi mdi-heart text-blue">
+                                Update
                               </a>
                             </span>
                           </td>
@@ -78,6 +82,11 @@
                   </div>
                 </div>
               </div>
+              <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
+                <a href="createEvent.jsp" class="mdi mdi-heart text-blue">
+                  Create
+                </a>
+              </span>
             </div>
           </main>
           <jsp:include page="blocks/footer.jsp"></jsp:include>

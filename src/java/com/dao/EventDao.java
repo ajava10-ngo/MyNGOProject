@@ -29,39 +29,78 @@ public class EventDao {
             if (isInserted > 0) {
                 return true;
             }
-
         } catch (Exception e) {
             System.err.println("EventDao Exception : " + e.toString());
         }
-
         return false;
     }
 
-    public boolean updateEvent() {
-        // TODO UPDATE CODE
+    public boolean updateEvent(Event event) {
+        try {
+            String sql = "UPDATE event SET event=?,description=?,date=?,time=?,volunteerId=?,location=?,sponsers=? WHERE eventId = ?;";
+            con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, event.getEvent());
+            ps.setString(2, event.getDescription());
+            ps.setString(3, event.getDate());
+            ps.setString(4, event.getTime());
+            ps.setInt(5, event.getVolunteerId());
+            ps.setString(6, event.getLocation());
+            ps.setString(7, event.getSponsers());
+            ps.setInt(8, event.getEventId());
+
+            int isInserted = ps.executeUpdate();
+
+            if (isInserted > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.err.println("EventDao Exception : " + e.toString());
+        }
         return false;
     }
 
-    public boolean deleteEvent() {
-        // TODO DELETE CODE
-        return false;
-    }
-
-    public ResultSet getAllEvents() {
+    public ResultSet getAllEvent() {
         try {
             String sql = "SELECT * FROM event;";
             con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
 
             ResultSet rs = ps.executeQuery();
-            
-            return rs;
 
+            return rs;
         } catch (Exception e) {
             System.err.println("EventDao Exception : " + e.toString());
         }
-
         return null;
     }
 
+    public Event getSingleEvent(Event event) {
+        try {
+            String sql = "SELECT * FROM event WHERE eventId = ?; ";
+            con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, event.getEventId());
+
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            
+            Event evnt = new Event();
+            
+            evnt.setEvent(rs.getString("event"));
+            evnt.setDescription(rs.getString("description"));
+            evnt.setDate(rs.getString("date"));
+            evnt.setTime(rs.getString("time"));
+            evnt.setVolunteerId(Integer.parseInt(rs.getString("volunteerId")));
+            evnt.setLocation(rs.getString("location"));
+            evnt.setSponsers(rs.getString("sponsers"));
+
+            return evnt;
+        } catch (Exception e) {
+            System.err.println("EventDao Exception : " + e.toString());
+        }
+        return null;
+    }
 }

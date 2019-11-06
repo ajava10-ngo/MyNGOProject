@@ -84,7 +84,7 @@ public final class eventDetails_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                        ");
 
                             EventDao volunteerDao = new EventDao();
-                            ResultSet rs = volunteerDao.getAllEvents();
+                            ResultSet rs = volunteerDao.getAllEvent();
                             while (rs.next()) {
                         
       out.write("\n");
@@ -115,14 +115,14 @@ public final class eventDetails_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("\n");
       out.write("                          </td>\n");
       out.write("                          <td>\n");
-      out.write("                            <span class=\"col mdc-button\" data-mdc-auto-init=\"MDCRipple\">\n");
+      out.write("                            <span class=\"mdc-button\" data-mdc-auto-init=\"MDCRipple\">\n");
       out.write("                              <a href=\"#\" class=\"mdi mdi-heart text-blue\">\n");
-      out.write("                                Remove Event\n");
+      out.write("                                Update\n");
       out.write("                              </a>\n");
       out.write("                            </span>\n");
-      out.write("                            <span class=\"col mdc-button\" data-mdc-auto-init=\"MDCRipple\">\n");
+      out.write("                            <span class=\"mdc-button\" data-mdc-auto-init=\"MDCRipple\">\n");
       out.write("                              <a href=\"#\" class=\"mdi mdi-heart text-blue\">\n");
-      out.write("                                Remove Event\n");
+      out.write("                                Remove\n");
       out.write("                              </a>\n");
       out.write("                            </span>\n");
       out.write("                          </td>\n");

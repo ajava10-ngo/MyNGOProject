@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2019 at 11:21 AM
+-- Generation Time: Nov 06, 2019 at 07:25 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -1524,8 +1524,47 @@ INSERT INTO `city` (`cityId`, `city`, `stateId`) VALUES
 CREATE TABLE `donor` (
   `donorId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
-  `stockId` int(11) NOT NULL
+  `stockId` int(11) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `donor`
+--
+
+INSERT INTO `donor` (`donorId`, `userId`, `stockId`, `date`) VALUES
+(1, 6, 3, '2019-02-09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event`
+--
+
+CREATE TABLE `event` (
+  `eventId` int(11) NOT NULL,
+  `event` varchar(50) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `date` varchar(20) NOT NULL,
+  `time` varchar(20) NOT NULL,
+  `volunteerId` int(11) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  `sponsers` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`eventId`, `event`, `description`, `date`, `time`, `volunteerId`, `location`, `sponsers`) VALUES
+(10, 'asd', 'asd', 'asd', 'asd', 8, 'asd', 'asd'),
+(11, 'asd', 'asd', 'asd', 'asd', 13, 'asd', 'asd'),
+(12, 'asd', 'asd', 'asd', 'asd', 13, 'asd', 'asd'),
+(13, 'Plantation', 'Plant More Trees', '12-11-2019', '12-11-2019', 11, 'Indore', 'Universal Informatics'),
+(14, 'Plantation', 'Plant More Trees', '12-11-2019', '02:13 PM', 11, 'Indore', 'Universal Informatics'),
+(15, 'Ritesh', 'asd', 'asd', 'asd', 8, 'asd', 'asd'),
+(16, 'Ritesh', 'asd', 'asd', 'asd', 8, 'asd', 'asd'),
+(17, 'asd', 'asd', 'asd', 'asd', 8, 'asd', 'asd');
 
 -- --------------------------------------------------------
 
@@ -1636,8 +1675,9 @@ INSERT INTO `user` (`userId`, `name`, `email`, `username`, `password`, `mobile`,
 (1, 'Ritesh Verma', 'recoonie.ritesh@gmail.com', 'rv@03', 'rv@03', '9713891029', 'Male', 23, 5, 20, 705, '161 Anantpuri Colony, A.B. Road', 1),
 (5, 'Ritik Verma', 'verma.ritik1685@gmail.com', 'ritik@11', 'ritik@11', '9770169148', 'Male', 19, 5, 20, 705, 'asdasd', 2),
 (6, 'asd', 'asd@gmail.com', 'asd@11', 'asd@11', '9119900911', 'Male', 19, 5, 20, 705, 'qweqewsdadqweqewewe', 2),
-(7, 'Pragati Patidar', 'pragatipatidar15@gamil.com', 'pragati@123', 'pragati@123', '9978872882', 'Femal', 22, 3, 20, 705, 'bhawarkua', 2),
-(8, 'Ajava10 ', 'ajavango@gmail.com', 'ajava10_ngo', 'ajava10_ngo', '9488277221', 'Male', 23, 5, 20, 705, 'Universal Informatics, A.B. Road, Bhawarkua, Near I-Bus Stop', 2);
+(7, 'Pragati Patidar', 'pragatipatidar15@gamil.com', 'pragati@123', 'pragati@123', '9978872882', 'Female', 22, 3, 20, 705, 'bhawarkua', 2),
+(8, 'Ajava10 ', 'ajavango@gmail.com', 'ajava10_ngo', 'ajava10_ngo', '9488277221', 'Male', 23, 5, 20, 705, 'Universal Informatics, A.B. Road, Bhawarkua, Near I-Bus Stop', 2),
+(9, 'Gourav', 'gaurav@gmail.com', 'gaurav@123', 'gaurav@123', '56466767', 'Male', 23, 5, 20, 705, 'Bhawarkua', 2);
 
 -- --------------------------------------------------------
 
@@ -1655,10 +1695,10 @@ CREATE TABLE `volunteer` (
 --
 
 INSERT INTO `volunteer` (`volunteerId`, `userId`) VALUES
-(1, 5),
-(5, 6),
-(4, 7),
-(7, 8);
+(8, 5),
+(12, 7),
+(11, 8),
+(13, 9);
 
 --
 -- Indexes for dumped tables
@@ -1678,6 +1718,13 @@ ALTER TABLE `donor`
   ADD PRIMARY KEY (`donorId`),
   ADD KEY `userId` (`userId`),
   ADD KEY `stockId` (`stockId`);
+
+--
+-- Indexes for table `event`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`eventId`),
+  ADD KEY `volunteerId` (`volunteerId`);
 
 --
 -- Indexes for table `state`
@@ -1724,7 +1771,13 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT for table `donor`
 --
 ALTER TABLE `donor`
-  MODIFY `donorId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `donorId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `event`
+--
+ALTER TABLE `event`
+  MODIFY `eventId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `state`
@@ -1742,13 +1795,13 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `volunteer`
 --
 ALTER TABLE `volunteer`
-  MODIFY `volunteerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `volunteerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
@@ -1766,6 +1819,12 @@ ALTER TABLE `city`
 ALTER TABLE `donor`
   ADD CONSTRAINT `donor_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`),
   ADD CONSTRAINT `donor_ibfk_2` FOREIGN KEY (`stockId`) REFERENCES `stock` (`stockId`);
+
+--
+-- Constraints for table `event`
+--
+ALTER TABLE `event`
+  ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`volunteerId`) REFERENCES `volunteer` (`volunteerId`);
 
 --
 -- Constraints for table `user`

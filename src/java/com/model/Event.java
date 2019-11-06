@@ -3,13 +3,13 @@ package com.model;
 public class Event {
 
     private int eventId;
-    private String event;
-    private String description;
-    private String date;
-    private String time;
-    private int volunteerId;
-    private String location;
-    private String sponsers;
+    private String event = "";
+    private String description = "";
+    private String date = "";
+    private String time = "";
+    private int volunteerId = 0;
+    private String location = "";
+    private String sponsers = "";
 
     public Event() {}
 
@@ -86,6 +86,4 @@ public class Event {
     public void setSponsers(String sponsers) {
         this.sponsers = sponsers;
     }
-
-    
 }
