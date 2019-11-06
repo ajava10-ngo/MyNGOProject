@@ -9,7 +9,7 @@
         padding: $table-padding;
         color: $table-head-color;
         font-size: $table-head-font-size;
-        text-align: right;
+        text-align: center;
         border-bottom: 1px solid $border-color;
         font-weight: 500;
         &:first-child{
@@ -36,7 +36,7 @@
           padding-left: $table-cell-spacing;
         }
         &:last-child{
-          padding-right: $table-cell-spacing;
+          padding-right: 5px;
         }
         .mdc-button{
           min-width: 0;

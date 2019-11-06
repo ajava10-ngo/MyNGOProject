@@ -21,6 +21,7 @@
 <!-- End plugin css for this page -->
 <!-- inject:css -->
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <!-- endinject -->
 <link rel="shortcut icon" href="assets/images/favicon.png" />
 <aside class="mdc-persistent-drawer mdc-persistent-drawer--open">
@@ -66,9 +67,9 @@
                     </div>
                 </div>
                 <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="#">
+                    <a class="mdc-drawer-link" href="createEvent.jsp">
                         <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">grid_on</i>
-                        Tables
+                        Events
                     </a>
                 </div>
                 <div class="mdc-list-item mdc-drawer-item">

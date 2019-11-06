@@ -18,18 +18,6 @@ public class Register extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
-            System.out.println(request.getParameter("name"));
-            System.out.println(request.getParameter("email"));
-            System.out.println(request.getParameter("username"));
-            System.out.println(request.getParameter("password"));
-            System.out.println(request.getParameter("mobile"));
-            System.out.println(request.getParameter("gender"));
-            System.out.println(Integer.parseInt(request.getParameter("age")));
-            System.out.println(Integer.parseInt(request.getParameter("stockId")));
-            System.out.println(Integer.parseInt(request.getParameter("stateId")));
-            System.out.println(Integer.parseInt(request.getParameter("cityId")));
-            System.out.println(request.getParameter("address"));
-            
             String name = request.getParameter("name");
             String email = request.getParameter("email");
             String username = request.getParameter("username");

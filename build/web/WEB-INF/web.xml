@@ -11,6 +11,10 @@
         <servlet-name>Register</servlet-name>
         <servlet-class>com.servlet.Register</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateEvent</servlet-name>
+        <servlet-class>com.servlet.CreateEvent</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -18,6 +22,10 @@
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateEvent</servlet-name>
+        <url-pattern>/createEvent</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
