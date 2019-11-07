@@ -86,4 +86,24 @@ public class UserDao {
         }
         return null;
     }
+    
+    public boolean removeUser(User user) {
+        try {
+            String sql = "DELETE FROM user WHERE userId = ?;";
+            con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, user.getUserId());
+            
+            int isRemoved = ps.executeUpdate();
+            
+            if (isRemoved > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.err.println("UserDao Exception : " + e.toString());
+        }
+        return false;
+    }
+    
 }

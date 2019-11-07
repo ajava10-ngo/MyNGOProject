@@ -151,7 +151,7 @@
                           </td>
                           <td>
                             <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                              <a href="" class="mdi mdi-heart text-blue">
+                              <a href="../userController?operation=Remove&userId=<%= rs.getString("userId") %>" class="mdi mdi-heart text-blue">
                                 Remove
                               </a>
                             </span>
