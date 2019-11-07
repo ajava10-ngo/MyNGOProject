@@ -10,50 +10,44 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
 
-        <%
-            try {
-                String id = request.getParameter("id");
-                String email = request.getParameter("email");
-                if (id != null && email != null) {
-                    int userId = Integer.parseInt(id);
-                    Volunteer volunteer = new Volunteer(userId);
-                    VolunteerDao volunteerDao = new VolunteerDao();
-                    boolean isInserted = volunteerDao.makeVolunteer(volunteer);
-                    if (isInserted) {
-        %>
-        
-        <h1>An Email Is Sent To The User !</h1>
-        <% 
-            if (SendMailSSL.sendEmail(email)) {
-                response.sendRedirect("volunteerDetails.jsp"); 
-            } else {
-                out.print("Mail Not Sent");
+    <%
+        try {
+            String id = request.getParameter("id");
+            String email = request.getParameter("email");
+            if (id != null && email != null) {
+                int userId = Integer.parseInt(id);
+                Volunteer volunteer = new Volunteer(userId);
+                VolunteerDao volunteerDao = new VolunteerDao();
+                boolean isInserted = volunteerDao.makeVolunteer(volunteer);
+                if (isInserted) {
+                    if (SendMailSSL.sendEmail(email)) {
+                        response.sendRedirect("volunteerDetails.jsp");
+                    } else {
+                        out.print("Mail Not Sent");
+                    }
+
+                } else {
+    %>
+
+    <%= "Not Success.."%>
+
+    <%
+        }
+    } else {
+    %>
+
+    <%= "Email or UserId is null"%>
+
+    <%
             }
-        %>
-
-        <%
-        } else {
-        %>
-
-        <%= "Not Success.."%>
-
-        <%
-            }
-        } else {
-        %>
-
-        <%= "Email or UserId is null"%>
-
-        <%
-                }
-            } catch (Exception e) {
-                out.print("Volunteer Exception : " + e.toString());
-            }
-        %>
-    </body>
+        } catch (Exception e) {
+            out.print("Volunteer Exception : " + e.toString());
+        }
+    %>
+  </body>
 </html>

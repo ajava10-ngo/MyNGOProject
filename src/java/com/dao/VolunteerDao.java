@@ -32,7 +32,7 @@ public class VolunteerDao {
         return null;
     }
 
-    public boolean makeVolunteer(Volunteer volunteer) {
+    public boolean insertVolunteer(Volunteer volunteer) {
         try {
             String sql = "INSERT INTO volunteer (userId) VALUES (?);";
             con = DBConnection.getConnection();
@@ -53,7 +53,7 @@ public class VolunteerDao {
     
     public boolean removeVolunteer(Volunteer volunteer) {
         try {
-            String sql = "DELETE FROM `volunteer` WHERE volunteerId = ?;";
+            String sql = "DELETE FROM volunteer WHERE volunteerId = ?;";
             con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             

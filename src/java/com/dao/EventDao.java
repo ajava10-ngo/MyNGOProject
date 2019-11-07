@@ -61,6 +61,25 @@ public class EventDao {
         return false;
     }
 
+    public boolean removeEvent(Event event) {
+        try {
+            String sql = "delete from event where eventId = ?;";
+            con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setInt(1, event.getEventId());
+
+            int isDeleted = ps.executeUpdate();
+
+            if (isDeleted > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.err.println("EventDao Exception : " + e.toString());
+        }
+        return false;
+    }
+
     public ResultSet getAllEvent() {
         try {
             String sql = "SELECT * FROM event;";
@@ -81,14 +100,14 @@ public class EventDao {
             String sql = "SELECT * FROM event WHERE eventId = ?; ";
             con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
-            
+
             ps.setInt(1, event.getEventId());
 
             ResultSet rs = ps.executeQuery();
             rs.next();
-            
+
             Event evnt = new Event();
-            
+
             evnt.setEvent(rs.getString("event"));
             evnt.setDescription(rs.getString("description"));
             evnt.setDate(rs.getString("date"));

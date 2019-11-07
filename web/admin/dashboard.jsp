@@ -156,7 +156,7 @@
                               </a>
                             </span>
                             <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                              <a href="makeVolunteer.jsp?id=<%= rs.getString("userId")%>&email=<%= rs.getString("email")%>" class="mdi mdi-heart text-blue">
+                              <a href="../volunteerController?operation=Insert&userId=<%= rs.getString("userId")%>&email=<%= rs.getString("email")%>" class="mdi mdi-heart text-blue">
                                 Make_Volunteer
                               </a>
                             </span>

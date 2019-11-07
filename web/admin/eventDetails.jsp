@@ -63,12 +63,12 @@
                           </td>
                           <td class="text-center">
                             <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                              <a href="" class="mdi mdi-heart text-blue">
+                              <a href="eventOperation.jsp?operation=Remove&eventId=<%= rs.getString("eventId")%>" class="mdi mdi-heart text-blue">
                                 Remove
                               </a>
                             </span>
                             <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                              <a href="createEvent.jsp?eventId=<%= rs.getString("eventId") %>" class="mdi mdi-heart text-blue">
+                              <a href="createEvent.jsp?eventId=<%= rs.getString("eventId")%>" class="mdi mdi-heart text-blue">
                                 Update
                               </a>
                             </span>
