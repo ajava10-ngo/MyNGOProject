@@ -12,8 +12,8 @@
         <servlet-class>com.servlet.Register</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EventOperation</servlet-name>
-        <servlet-class>com.servlet.EventOperation</servlet-class>
+        <servlet-name>EventController</servlet-name>
+        <servlet-class>com.servlet.EventController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VolunteerController</servlet-name>
@@ -32,8 +32,8 @@
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EventOperation</servlet-name>
-        <url-pattern>/eventOperation</url-pattern>
+        <servlet-name>EventController</servlet-name>
+        <url-pattern>/eventController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>VolunteerController</servlet-name>

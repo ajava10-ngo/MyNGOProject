@@ -43,7 +43,7 @@
                       <div class="table-heading px-2 px-1 border-bottom">
                         <h1 class="mdc-card__title mdc-card__title--large">Create An Event</h1>
                       </div>
-                      <form action="eventOperation.jsp" method="post">
+                      <form action="../eventController" method="post">
                         <div class="mdc-card">
                           <section class="mdc-card__supporting-text">
                             <div class="mdc-layout-grid__inner">
@@ -105,6 +105,26 @@
                                 </div>
                               </div>
                             </div>
+                            <%
+                                if (eventId == 0) {
+                            %>
+                            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
+                              <div class="template-demo">
+                                <div id="demo-tf-box-wrapper">
+                                  <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
+                                    <input name="volunteerId" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Volunteer">
+
+                                    <div class="mdc-text-field__bottom-line"></div>
+                                  </div>
+                                  <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
+                                    Must be at least 8 characters
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <%
+                            } else {
+                            %>
                             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
                               <div class="template-demo">
                                 <div id="demo-tf-box-wrapper">
@@ -119,6 +139,9 @@
                                 </div>
                               </div>
                             </div>
+                            <%
+                                }
+                            %>
                             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
                               <div class="template-demo">
                                 <div id="demo-tf-box-wrapper">
@@ -172,7 +195,7 @@
                               <div class="template-demo">
                                 <div id="demo-tf-box-wrapper">
                                   <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                    <input type="hidden" value="<%= eventId %>" name="eventId">
+                                    <input type="hidden" value="<%= eventId%>" name="eventId">
                                     <input type="submit" name="operation" value="Update" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message">
                                   </div>
                                 </div>

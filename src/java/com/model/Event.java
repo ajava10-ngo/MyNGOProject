@@ -12,6 +12,17 @@ public class Event {
     private String sponsers = "";
 
     public Event() {}
+    
+    public Event(int eventId, String event, String description, String date, String time, int volunteerId, String location, String sponsers) {
+        this.eventId = eventId;
+        this.event = event;
+        this.description = description;
+        this.date = date;
+        this.time = time;
+        this.volunteerId = volunteerId;
+        this.location = location;
+        this.sponsers = sponsers;
+    }
 
     public Event(String event, String description, String date, String time, int volunteerId, String location, String sponsers) {
         this.event = event;

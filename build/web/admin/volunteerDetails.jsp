@@ -29,15 +29,15 @@
                       <table class="table">
                         <thead>
                           <tr>
-                            <th class="text-left">Name</th>
-                            <th class="text-left">Email</th>
-                            <th class="text-left">Username</th>
-                            <th class="text-left">Mobile</th>
-                            <th class="text-left">Gender</th>
-                            <th class="text-left">Age</th>
-                            <th class="text-left">City</th>
-                            <th class="text-left">State</th>
-                            <th class="text-left">Address</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Username</th>
+                            <th class="text-center">Mobile</th>
+                            <th class="text-center">Gender</th>
+                            <th class="text-center">Age</th>
+                            <th class="text-center">City</th>
+                            <th class="text-center">State</th>
+                            <th class="text-center">Address</th>
                             <th class="text-center">Actions</th>
                           </tr>
                         </thead>
@@ -48,31 +48,31 @@
                             while (rs.next()) {
                         %>
                         <tr>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("name")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("email")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("username")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("mobile")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("age")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("gender")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("cityId")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("stateId")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("address")%>
                           </td>
                           <td >

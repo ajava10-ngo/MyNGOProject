@@ -2,11 +2,12 @@ package com.model;
 
 public class Donor {
 
-    private int donorId, userId, stockId, date;
+    private int donorId, userId, stockId;
+    private String date;
 
     public Donor() {}
-    
-    public Donor(int userId, int stockId, int date) {
+
+    public Donor(int userId, int stockId, String date) {
         this.userId = userId;
         this.stockId = stockId;
         this.date = date;
@@ -36,12 +37,11 @@ public class Donor {
         this.stockId = stockId;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
-    
 }

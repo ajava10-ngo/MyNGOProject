@@ -28,12 +28,12 @@
                       </div>
                       <table class="table">
                         <thead>
-                        <th class="text-left">Event</th>
-                        <th class="text-left">Description</th>
-                        <th class="text-left">Date</th>
-                        <th class="text-left">Time</th>
-                        <th class="text-left">Location</th>
-                        <th class="text-left">Sponsers</th>
+                        <th class="text-center">Event</th>
+                        <th class="text-center">Description</th>
+                        <th class="text-center">Date</th>
+                        <th class="text-center">Time</th>
+                        <th class="text-center">Location</th>
+                        <th class="text-center">Sponsers</th>
                         <th class="text-center">Actions</th>
                         </thead>
                         <tbody>
@@ -43,27 +43,27 @@
                             while (rs.next()) {
                         %>
                         <tr>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("event")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("description")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("date")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("time")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("location")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("sponsers")%>
                           </td>
                           <td class="text-center">
                             <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                              <a href="eventOperation.jsp?operation=Remove&eventId=<%= rs.getString("eventId")%>" class="mdi mdi-heart text-blue">
+                              <a href="../eventController?operation=Remove&eventId=<%= rs.getString("eventId")%>" class="mdi mdi-heart text-blue">
                                 Remove
                               </a>
                             </span>

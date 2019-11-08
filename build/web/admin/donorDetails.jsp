@@ -29,17 +29,16 @@
                       </div>
                       <table class="table">
                         <thead>
-
                           <tr>
-                            <th class="text-left">Name</th>
-                            <th class="text-left">Blood Group</th>
-                            <th class="text-left">Mobile</th>
-                            <th class="text-left">Gender</th>
-                            <th class="text-left">Age</th>
-                            <th class="text-left">Address</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Blood Group</th>
+                            <th class="text-center">Mobile</th>
+                            <th class="text-center">Gender</th>
+                            <th class="text-center">Age</th>
+                            <th class="text-center">Date</th>
+                            <th class="text-center">Address</th>
                             <th class="text-center">Actions</th>
                           </tr>
-
                         </thead>
                         <tbody>
                         <%
@@ -48,22 +47,25 @@
                             while (rs.next()) {
                         %>
                         <tr>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("name")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("bloodGroup")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("mobile")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("gender")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
                             <%= rs.getString("age")%>
                           </td>
-                          <td class="text-left">
+                          <td class="text-center">
+                            <%= rs.getString("date")%>
+                          </td>
+                          <td class="text-center">
                             <%= rs.getString("address")%>
                           </td>
                           <td class="text-center">
@@ -88,7 +90,7 @@
                 </div>
               </div>
               <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                <a href="" class="mdi mdi-heart text-blue">
+                <a href="createDonor.jsp" class="mdi mdi-heart text-blue">
                   Create
                 </a>
               </span>
