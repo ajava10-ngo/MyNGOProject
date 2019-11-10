@@ -45,8 +45,8 @@
              object.onreadystatechange = function () {
                 if (object.readyState === 4) {
                    var response = object.responseText;
-                   if (response === otp) {
-                      
+                   if (response === "Success") {
+                      window.location.href = "index.jsp";
                    } else {
                       err.innerHTML = response;
                    }

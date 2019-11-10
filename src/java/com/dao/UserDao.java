@@ -43,10 +43,10 @@ public class UserDao {
       return false;
    }
 
-   public boolean changeStatus(User user) {
+   public boolean verifyUser(User user) {
 
       try {
-         String sql = "UPDATE user SET status = 1 WHERE email = ?;";
+         String sql = "UPDATE user SET verified = 1 WHERE email = ?;";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
 

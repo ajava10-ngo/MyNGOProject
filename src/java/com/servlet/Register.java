@@ -40,7 +40,7 @@ public class Register extends HttpServlet {
 
             out.print(name + " : " + email + " : " + username + " : " + password + " : " + mobile + " : " + age + " : " + stockId + " : " + stateId + " : " + cityId + " : " + address);
 
-            user = new User(age, cityId, stateId, stockId, name, email, username, password, mobile, gender, address);
+            user = new User(age, cityId, stateId, age, stockId, name, email, username, password, mobile, gender, address);
 
             userDao = new UserDao();
             boolean isRegistered = userDao.register(user);
@@ -68,10 +68,10 @@ public class Register extends HttpServlet {
                user.setEmail(email);
 
                userDao = new UserDao();
-               boolean isChanged = userDao.changeStatus(user);
+               boolean isChanged = userDao.verifyUser(user);
 
                if (isChanged) {
-                  response.sendRedirect("index.jsp");
+                  out.print("Success");
                } else {
                   out.print("Status Not Changed...");
                }
