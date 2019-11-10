@@ -60,155 +60,155 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write('\n');
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "blocks/header.jsp", out, false);
       out.write("\n");
-      out.write("<!DOCTYPE html>\n");
+      out.write("    <!DOCTYPE html>\n");
       out.write("    <html>\n");
-      out.write("        <head>\n");
-      out.write("            <title>Registration Page</title>\n");
-      out.write("        </head>\n");
-      out.write("        <body>\n");
-      out.write("            <div class=\"container\">\n");
-      out.write("                <div class=\"row d-md-flex\">\n");
-      out.write("                    <div class=\"col-md-6 d-flex ftco-animate\">\n");
-      out.write("                        <div class=\"img img-2 align-self-stretch\" style=\"background-image: url(assets/images/bg_4.jpg);\"></div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-md-6 volunteer pl-md-5 ftco-animate\">\n");
-      out.write("                        <h3 class=\"mb-3\">Registration</h3>\n");
-      out.write("                        <form action=\"register\" method=\"post\" class=\"volunter-form\">\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("                                <input type=\"text\" name=\"name\" class=\"form-control\" placeholder=\"Name\" required=\"\" >\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("                                <input type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"Email\" required=\"\">\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("                                <input type=\"text\" name=\"username\" class=\"form-control\" placeholder=\"Username\" required=\"\">\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("                                <input type=\"password\" name=\"password\" class=\"form-control\" placeholder=\"Password\" required=\"\">\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("                                <input type=\"text\" name=\"mobile\" class=\"form-control\" placeholder=\"Mobile\" required=\"\">\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("                                <div class=\"form-control\">\n");
-      out.write("                                    <label class=\"label-gender\">Gender\n");
-      out.write("                                    </label>\n");
+      out.write("      <head>\n");
+      out.write("        <title>Registration Page</title>\n");
+      out.write("      </head>\n");
+      out.write("      <body>\n");
+      out.write("        <div class=\"container\">\n");
+      out.write("          <div class=\"row d-md-flex\">\n");
+      out.write("            <div class=\"col-md-6 d-flex ftco-animate\">\n");
+      out.write("              <div class=\"img img-2 align-self-stretch\" style=\"background-image: url(assets/images/bg_4.jpg);\"></div>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"col-md-6 volunteer pl-md-5 ftco-animate\">\n");
+      out.write("              <h3 class=\"mb-3\">Registration</h3>\n");
+      out.write("              <form action=\"register\" method=\"post\" class=\"volunter-form\">\n");
+      out.write("                <div class=\"form-group\">\n");
+      out.write("                  <input type=\"text\" name=\"name\" class=\"form-control\" placeholder=\"Name\" required=\"\" >\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"form-group\">\n");
+      out.write("                  <input type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"Email\" required=\"\">\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"form-group\">\n");
+      out.write("                  <input type=\"text\" name=\"username\" class=\"form-control\" placeholder=\"Username\" required=\"\">\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"form-group\">\n");
+      out.write("                  <input type=\"password\" name=\"password\" class=\"form-control\" placeholder=\"Password\" required=\"\">\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"form-group\">\n");
+      out.write("                  <input type=\"text\" name=\"mobile\" class=\"form-control\" placeholder=\"Mobile\" required=\"\">\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"form-group\">\n");
+      out.write("                  <div class=\"form-control\">\n");
+      out.write("                    <label class=\"label-gender\">Gender\n");
+      out.write("                    </label>\n");
       out.write("\n");
-      out.write("                                    <label class=\"gender-radio\">Male\n");
-      out.write("                                        <input type=\"radio\" name=\"gender\" value=\"Male\" required=\"\">\n");
-      out.write("                                        <span class=\"checkmark\"></span>\n");
-      out.write("                                    </label>\n");
+      out.write("                    <label class=\"gender-radio\">Male\n");
+      out.write("                      <input type=\"radio\" name=\"gender\" value=\"Male\" required=\"\">\n");
+      out.write("                      <span class=\"checkmark\"></span>\n");
+      out.write("                    </label>\n");
       out.write("\n");
-      out.write("                                    <label class=\"gender-radio\" >Female\n");
-      out.write("                                        <input type=\"radio\" name=\"gender\" value=\"Female\" required=\"\">\n");
-      out.write("                                        <span class=\"checkmark\"></span>\n");
-      out.write("                                    </label>\n");
-      out.write("                                </div>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("                                <input type=\"text\" name=\"age\" class=\"form-control\" placeholder=\"Age\" required=\"\">\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("                                <select class=\"custom-select\" name=\"stockId\" required=\"\">\n");
-      out.write("                                    <option value=\"\" selected=\"\">Select Blood Group</option>\n");
-      out.write("                                ");
+      out.write("                    <label class=\"gender-radio\" >Female\n");
+      out.write("                      <input type=\"radio\" name=\"gender\" value=\"Female\" required=\"\">\n");
+      out.write("                      <span class=\"checkmark\"></span>\n");
+      out.write("                    </label>\n");
+      out.write("                  </div>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"form-group\">\n");
+      out.write("                  <input type=\"text\" name=\"age\" class=\"form-control\" placeholder=\"Age\" required=\"\">\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"form-group\">\n");
+      out.write("                  <select class=\"custom-select\" name=\"stockId\" required=\"\">\n");
+      out.write("                    <option value=\"\" selected=\"\">Select Blood Group</option>\n");
+      out.write("                  ");
 
-                                    StockDao stockDao = new StockDao();
-                                    ResultSet rsStock = stockDao.getAllStock();
+                      StockDao stockDao = new StockDao();
+                      ResultSet rsStock = stockDao.getAllStock();
 
-                                    while (rsStock.next()) {
-                                
+                      while (rsStock.next()) {
+                  
       out.write("\n");
-      out.write("                                <option value=\"");
+      out.write("                  <option value=\"");
       out.print( rsStock.getString("stockId"));
       out.write("\" >\n");
-      out.write("                                    ");
+      out.write("                    ");
       out.print( rsStock.getString("bloodGroup"));
       out.write("\n");
-      out.write("                                </option>\n");
-      out.write("                                ");
+      out.write("                  </option>\n");
+      out.write("                  ");
 
-                                    }
-                                
+                      }
+                  
       out.write("\n");
-      out.write("                            </select>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <select class=\"custom-select\" name=\"stateId\" required=\"\">\n");
-      out.write("                                <option value=\"\" selected=\"\">Select State</option>\n");
-      out.write("                                ");
+      out.write("                </select>\n");
+      out.write("              </div>\n");
+      out.write("              <div class=\"form-group\">\n");
+      out.write("                <select class=\"custom-select\" name=\"stateId\" required=\"\">\n");
+      out.write("                  <option value=\"\" selected=\"\">Select State</option>\n");
+      out.write("                  ");
 
-                                    ResultSet rsState = null;
-                                    try {
-                                        StateDao stateDao = new StateDao();
+                      ResultSet rsState = null;
+                      try {
+                          StateDao stateDao = new StateDao();
 
-                                        rsState = stateDao.getAllState();
-                                    } catch (Exception e) {
-                                        out.print("Exception : " + e.toString());
-                                    }
-                                    while (rsState.next()) {
-                                
+                          rsState = stateDao.getAllState();
+                      } catch (Exception e) {
+                          out.print("Exception : " + e.toString());
+                      }
+                      while (rsState.next()) {
+                  
       out.write("\n");
-      out.write("                                <option value=\"");
+      out.write("                  <option value=\"");
       out.print( rsState.getInt("stateId"));
       out.write("\">\n");
-      out.write("                                    ");
+      out.write("                    ");
       out.print( rsState.getString("state"));
       out.write("\n");
-      out.write("                                </option>\n");
-      out.write("                                ");
+      out.write("                  </option>\n");
+      out.write("                  ");
 
-                                    }
-                                
+                      }
+                  
       out.write("\n");
-      out.write("                            </select>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <select class=\"custom-select\" name=\"cityId\" required=\"\">\n");
-      out.write("                                <option value=\"\">Select City</option>\n");
-      out.write("                                ");
+      out.write("                </select>\n");
+      out.write("              </div>\n");
+      out.write("              <div class=\"form-group\">\n");
+      out.write("                <select class=\"custom-select\" name=\"cityId\" required=\"\">\n");
+      out.write("                  <option value=\"\">Select City</option>\n");
+      out.write("                  ");
 
-                                    ResultSet rsCity = null;
-                                    stateId = 20;
-                                    try {
-                                        CityDao cityDao = new CityDao();
-                                        rsCity = cityDao.getAllCity(stateId);
-                                    } catch (Exception e) {
-                                        out.print("Exception : " + e.toString());
-                                    }
-                                    while (rsCity.next()) {
-                                
+                      ResultSet rsCity = null;
+                      stateId = 20;
+                      try {
+                          CityDao cityDao = new CityDao();
+                          rsCity = cityDao.getAllCity(stateId);
+                      } catch (Exception e) {
+                          out.print("Exception : " + e.toString());
+                      }
+                      while (rsCity.next()) {
+                  
       out.write("\n");
       out.write("\n");
-      out.write("                                <option value=\"");
+      out.write("                  <option value=\"");
       out.print( rsCity.getString("cityId"));
       out.write('"');
       out.write('>');
       out.print( rsCity.getString("city"));
       out.write("</option>\n");
       out.write("\n");
-      out.write("                                ");
+      out.write("                  ");
 
-                                    }
-                                
+                      }
+                  
       out.write("\n");
-      out.write("                            </select>\n");
-      out.write("                        </div>\n");
+      out.write("                </select>\n");
+      out.write("              </div>\n");
       out.write("\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <textarea name=\"address\" placeholder=\"Address\" class=\"form-control textarea\" required=\"\"></textarea>\n");
-      out.write("                        </div>\n");
+      out.write("              <div class=\"form-group\">\n");
+      out.write("                <textarea name=\"address\" placeholder=\"Address\" class=\"form-control textarea\" required=\"\"></textarea>\n");
+      out.write("              </div>\n");
       out.write("\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <input type=\"submit\" value=\"Register\" class=\"btn gradient-bg\">\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <a class=\"form-control-plaintext\" href=\"login.jsp\">Already Registered? Login Here</a>\n");
-      out.write("                        </div>\n");
-      out.write("                    </form>\n");
-      out.write("                </div>    \t\t\t\n");
-      out.write("            </div>\n");
+      out.write("              <div class=\"form-group\">\n");
+      out.write("                <input type=\"submit\" value=\"Register\" name=\"operation\" class=\"btn gradient-bg\">\n");
+      out.write("              </div>\n");
+      out.write("              <div class=\"form-group\">\n");
+      out.write("                <a class=\"form-control-plaintext\" href=\"login.jsp\">Already Registered? Login Here</a>\n");
+      out.write("              </div>\n");
+      out.write("            </form>\n");
+      out.write("          </div>    \t\t\t\n");
       out.write("        </div>\n");
+      out.write("      </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "blocks/footer.jsp", out, false);

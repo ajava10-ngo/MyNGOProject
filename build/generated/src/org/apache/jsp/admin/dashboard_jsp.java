@@ -3,6 +3,9 @@ package org.apache.jsp.admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import com.dao.DonorDao;
+import com.dao.EventDao;
+import com.model.Event;
 import com.dao.VolunteerDao;
 import java.sql.ResultSet;
 import com.dao.UserDao;
@@ -50,6 +53,9 @@ public final class dashboard_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
 
     int totalUser = 0;
     UserDao getUser = new UserDao();
@@ -63,6 +69,20 @@ public final class dashboard_jsp extends org.apache.jasper.runtime.HttpJspBase
     ResultSet resultSetVolunteer = volunteerDao.getAllVolunteer();
     while (resultSetVolunteer.next()) {
         totalVolunteer++;
+    }
+
+    int totalEvent = 0;
+    EventDao eventDao = new EventDao();
+    ResultSet resultSetEvent = volunteerDao.getAllVolunteer();
+    while (resultSetEvent.next()) {
+        totalEvent++;
+    }
+
+    int totalDonation = 0;
+    DonorDao donorDao = new DonorDao();
+    ResultSet resultSetDonor = donorDao.getAllDonor();
+    while (resultSetDonor.next()) {
+        totalDonation++;
     }
 
       out.write("\n");
@@ -102,14 +122,40 @@ public final class dashboard_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>\n");
       out.write("                    <div class=\"mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6\">\n");
       out.write("                      <div class=\"mdc-card py-3 pl-2 d-flex flex-row align-item-center\">\n");
+      out.write("                        <div class=\"mdc--tile mdc--tile-success rounded\">\n");
+      out.write("                          <i class=\"mdi mdi-basket text-white icon-md\"></i>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"text-wrapper pl-1\">\n");
+      out.write("                          <h3 class=\"mdc-typography--display1 font-weight-bold mb-1\">");
+      out.print( totalVolunteer );
+      out.write("</h3>\n");
+      out.write("                          <p class=\"font-weight-normal mb-0 mt-0\">Total Volunteer</p>\n");
+      out.write("                        </div>\n");
+      out.write("                      </div>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6\">\n");
+      out.write("                      <div class=\"mdc-card py-3 pl-2 d-flex flex-row align-item-center\">\n");
+      out.write("                        <div class=\"mdc--tile mdc--tile-warning rounded\">\n");
+      out.write("                          <i class=\"mdi mdi-ticket text-white icon-md\"></i> \n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"text-wrapper pl-1\">\n");
+      out.write("                          <h3 class=\"mdc-typography--display1 font-weight-bold mb-1\">");
+      out.print( totalEvent);
+      out.write("</h3>\n");
+      out.write("                          <p class=\"font-weight-normal mb-0 mt-0\">Total Events Done</p>\n");
+      out.write("                        </div>\n");
+      out.write("                      </div>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6\">\n");
+      out.write("                      <div class=\"mdc-card py-3 pl-2 d-flex flex-row align-item-center\">\n");
       out.write("                        <div class=\"mdc--tile mdc--tile-primary rounded\">\n");
       out.write("                          <i class=\"mdi mdi-account-star text-white icon-md\"></i>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"text-wrapper pl-1\">\n");
       out.write("                          <h3 class=\"mdc-typography--display1 font-weight-bold mb-1\">");
-      out.print( totalVolunteer);
+      out.print( totalDonation);
       out.write("</h3>\n");
-      out.write("                          <p class=\"font-weight-normal mb-0 mt-0\">Total Volunteers</p>\n");
+      out.write("                          <p class=\"font-weight-normal mb-0 mt-0\">Total Blood Donation</p>\n");
       out.write("                        </div>\n");
       out.write("                      </div>\n");
       out.write("                    </div>\n");
@@ -153,15 +199,15 @@ public final class dashboard_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <table class=\"table\">\n");
       out.write("                      <thead>\n");
       out.write("                        <tr>\n");
-      out.write("                          <th class=\"text-left\">Name</th>\n");
-      out.write("                          <th class=\"text-left\">Email</th>\n");
-      out.write("                          <th class=\"text-left\">Username</th>\n");
-      out.write("                          <th class=\"text-left\">Mobile</th>\n");
-      out.write("                          <th class=\"text-left\">Gender</th>\n");
-      out.write("                          <th class=\"text-left\">Age</th>\n");
-      out.write("                          <th class=\"text-left\">City</th>\n");
-      out.write("                          <th class=\"text-left\">State</th>\n");
-      out.write("                          <th class=\"text-left\">Address</th>\n");
+      out.write("                          <th class=\"text-center\">Name</th>\n");
+      out.write("                          <th class=\"text-center\">Email</th>\n");
+      out.write("                          <th class=\"text-center\">Username</th>\n");
+      out.write("                          <th class=\"text-center\">Mobile</th>\n");
+      out.write("                          <th class=\"text-center\">Gender</th>\n");
+      out.write("                          <th class=\"text-center\">Age</th>\n");
+      out.write("                          <th class=\"text-center\">City</th>\n");
+      out.write("                          <th class=\"text-center\">State</th>\n");
+      out.write("                          <th class=\"text-center\">Address</th>\n");
       out.write("                          <th class=\"text-center\">Actions</th>\n");
       out.write("                        </tr>\n");
       out.write("                      </thead>\n");
@@ -175,47 +221,47 @@ public final class dashboard_jsp extends org.apache.jasper.runtime.HttpJspBase
                         
       out.write("\n");
       out.write("                        <tr>\n");
-      out.write("                          <td class=\"text-left\">\n");
+      out.write("                          <td class=\"text-center\">\n");
       out.write("                            ");
       out.print( rs.getString("name"));
       out.write("\n");
       out.write("                          </td>\n");
-      out.write("                          <td class=\"text-left\">\n");
+      out.write("                          <td class=\"text-center\">\n");
       out.write("                            ");
       out.print( rs.getString("email"));
       out.write("\n");
       out.write("                          </td>\n");
-      out.write("                          <td class=\"text-left\">\n");
+      out.write("                          <td class=\"text-center\">\n");
       out.write("                            ");
       out.print( rs.getString("username"));
       out.write("\n");
       out.write("                          </td>\n");
-      out.write("                          <td class=\"text-left\">\n");
+      out.write("                          <td class=\"text-center\">\n");
       out.write("                            ");
       out.print( rs.getString("mobile"));
       out.write("\n");
       out.write("                          </td>\n");
-      out.write("                          <td class=\"text-left\">\n");
+      out.write("                          <td class=\"text-center\">\n");
       out.write("                            ");
       out.print( rs.getString("age"));
       out.write("\n");
       out.write("                          </td>\n");
-      out.write("                          <td class=\"text-left\">\n");
+      out.write("                          <td class=\"text-center\">\n");
       out.write("                            ");
       out.print( rs.getString("gender"));
       out.write("\n");
       out.write("                          </td>\n");
-      out.write("                          <td class=\"text-left\">\n");
+      out.write("                          <td class=\"text-center\">\n");
       out.write("                            ");
       out.print( rs.getString("cityId"));
       out.write("\n");
       out.write("                          </td>\n");
-      out.write("                          <td class=\"text-left\">\n");
+      out.write("                          <td class=\"text-center\">\n");
       out.write("                            ");
       out.print( rs.getString("stateId"));
       out.write("\n");
       out.write("                          </td>\n");
-      out.write("                          <td class=\"text-left\">\n");
+      out.write("                          <td class=\"text-center\">\n");
       out.write("                            ");
       out.print( rs.getString("address"));
       out.write("\n");
@@ -223,7 +269,7 @@ public final class dashboard_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                          <td>\n");
       out.write("                            <span class=\"col mdc-button\" data-mdc-auto-init=\"MDCRipple\">\n");
       out.write("                              <a href=\"../userController?operation=Remove&userId=");
-      out.print( rs.getString("userId") );
+      out.print( rs.getString("userId"));
       out.write("\" class=\"mdi mdi-heart text-blue\">\n");
       out.write("                                Remove\n");
       out.write("                              </a>\n");
