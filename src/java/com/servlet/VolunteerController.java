@@ -12,58 +12,68 @@ import javax.servlet.http.HttpServletResponse;
 
 public class VolunteerController extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        try {
-            String operation = request.getParameter("operation");
-            out.print(operation + "<br>");
+   @Override
+   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+           throws ServletException, IOException {
+      PrintWriter out = response.getWriter();
+      try {
+         String operation = request.getParameter("operation");
+         out.print(operation + "<br>");
 
-            if (operation.equals("Insert")) {
-                String userId = request.getParameter("userId");
+         if (operation.equals("Insert")) {
+            String userId = request.getParameter("userId");
 
-                String email = request.getParameter("email");
-                if (userId != null && email != null) {
-                    int uId = Integer.parseInt(userId);
-                    Volunteer volunteer = new Volunteer(uId);
-                    VolunteerDao volunteerDao = new VolunteerDao();
-                    boolean isInserted = volunteerDao.insertVolunteer(volunteer);
+            String email = request.getParameter("email");
+            if (userId != null && email != null) {
+               String prefix = "NGO";
+               String idCardNo = "0123456789";
+               StringBuilder sb = new StringBuilder(5);
 
-                    if (isInserted) {
-                        if (SendMailSSL.sendEmail(email)) {
-                            response.sendRedirect("admin/volunteerDetails.jsp");
-                        } else {
-                            out.print("Mail Not Sent");
-                        }
-                    } else {
-                        out.print("Not Success..");
-                    }
-                } else {
-                    out.print("Email or UserId is null");
-                }
-            } else if (operation.equals("Update")) {
-                String userId = request.getParameter("userId");
-            } else if (operation.equals("Remove")) {
+               for (int i = 0; i < 5; i++) {
+                  int index = (int) (idCardNo.length() * Math.random());
+                  sb.append(idCardNo.charAt(index));
+               }
+               idCardNo = prefix + sb;
+               System.out.println(idCardNo);
+               int uId = Integer.parseInt(userId);
+               Volunteer volunteer = new Volunteer(uId, idCardNo);
+               VolunteerDao volunteerDao = new VolunteerDao();
+               boolean isInserted = volunteerDao.insertVolunteer(volunteer);
 
-                String volunteerId = request.getParameter("volunteerId");
-                out.print(volunteerId + "<br>");
-
-                int vId = Integer.parseInt(volunteerId);
-                Volunteer volunteer = new Volunteer();
-                volunteer.setVolunteerId(vId);
-                VolunteerDao volunteerDao = new VolunteerDao();
-                boolean isRemoved = volunteerDao.removeVolunteer(volunteer);
-
-                out.print(isRemoved + "<br>");
-
-                if (isRemoved) {
-                    response.sendRedirect("admin/volunteerDetails.jsp");
-                }
+               if (isInserted) {
+                  if (SendMailSSL.sendEmail(email)) {
+                     response.sendRedirect("admin/volunteerDetails.jsp");
+                  } else {
+                     out.print("Mail Not Sent");
+                  }
+               } else {
+                  out.print("Not Success..");
+               }
+            } else {
+               out.print("Email or UserId is null");
             }
+         } else if (operation.equals("Update")) {
+            String userId = request.getParameter("userId");
+         } else if (operation.equals("Remove")) {
 
-        } catch (Exception e) {
-            out.print("Volunteer Controller Exception : " + e.toString());
-        }
-    }
+            String volunteerId = request.getParameter("volunteerId");
+            out.print(volunteerId + "<br>");
+
+            int vId = Integer.parseInt(volunteerId);
+            Volunteer volunteer = new Volunteer();
+            volunteer.setVolunteerId(vId);
+            VolunteerDao volunteerDao = new VolunteerDao();
+            boolean isRemoved = volunteerDao.removeVolunteer(volunteer);
+
+            out.print(isRemoved + "<br>");
+
+            if (isRemoved) {
+               response.sendRedirect("admin/volunteerDetails.jsp");
+            }
+         }
+
+      } catch (Exception e) {
+         out.print("Volunteer Controller Exception : " + e.toString());
+      }
+   }
 }

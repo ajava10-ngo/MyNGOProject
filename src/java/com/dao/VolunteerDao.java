@@ -34,11 +34,12 @@ public class VolunteerDao {
 
     public boolean insertVolunteer(Volunteer volunteer) {
         try {
-            String sql = "INSERT INTO volunteer (userId) VALUES (?);";
+            String sql = "INSERT INTO volunteer (userId, idCardNo) VALUES (?, ?);";
             con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             
             ps.setInt(1, volunteer.getUserId());
+            ps.setString(2, volunteer.getIdCardNo());
             
             int isInserted = ps.executeUpdate();
             

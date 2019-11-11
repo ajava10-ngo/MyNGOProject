@@ -146,14 +146,17 @@ DROP TABLE IF EXISTS `volunteer`;
 CREATE TABLE `volunteer` (
   `volunteerId` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
+  `post` varchar(20) NOT NULL DEFAULT 'empty',
+  `idCardNo` varchar(20) NOT NULL,
   PRIMARY KEY (`volunteerId`),
   UNIQUE KEY `userId` (`userId`),
+  UNIQUE KEY `idCardNo` (`idCardNo`),
   CONSTRAINT `volunteer_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 /*Data for the table `volunteer` */
 
-insert  into `volunteer`(`volunteerId`,`userId`) values (25,7),(27,9);
+insert  into `volunteer`(`volunteerId`,`userId`,`post`,`idCardNo`) values (25,7,'','NGO10214'),(29,9,'','NGO93272'),(31,15,'empty','NGO96220');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
