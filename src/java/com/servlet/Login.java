@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Login extends HttpServlet {
 
@@ -29,6 +30,9 @@ public class Login extends HttpServlet {
 
             UserDao userDao = new UserDao();
             ResultSet rs = userDao.login(user);
+            
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
 
             if (rs.next()) {
                 if (Integer.parseInt(rs.getString("type")) == 1) {

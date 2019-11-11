@@ -23,6 +23,10 @@
         <servlet-name>UserController</servlet-name>
         <servlet-class>com.servlet.UserController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VolunteerCardController</servlet-name>
+        <servlet-class>com.servlet.VolunteerCardController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -42,6 +46,10 @@
     <servlet-mapping>
         <servlet-name>UserController</servlet-name>
         <url-pattern>/userController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VolunteerCardController</servlet-name>
+        <url-pattern>/volunteerCardController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -6,6 +6,7 @@
 
 
 
+<%@page import="com.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,9 +28,10 @@
 <aside class="mdc-persistent-drawer mdc-persistent-drawer--open">
     <nav class="mdc-persistent-drawer__drawer">
         <div class="mdc-persistent-drawer__toolbar-spacer">
-            <a href="dashboard.jsp" class="brand-logo">
-                <img src="assets/images/logo.svg" alt="logo">
-            </a>
+            <%
+               User user = (User) session.getAttribute("user");
+            %>
+            <%= "Welcome " + user.getUsername() %>
         </div>
         <div class="mdc-list-group">
             <nav class="mdc-list mdc-drawer-menu">
