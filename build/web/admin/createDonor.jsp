@@ -4,6 +4,8 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.dao.StockDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -23,9 +25,9 @@
                   <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
                     <div class="mdc-card table-responsive">
                       <div class="table-heading px-2 px-1 border-bottom">
-                        <h1 class="mdc-card__title mdc-card__title--large">Create An Event</h1>
+                        <h1 class="mdc-card__title mdc-card__title--large">Enter Donor Details</h1>
                       </div>
-                      <form action="eventOperation.jsp" method="post">
+                      <form action="../donorController" method="post">
                         <div class="mdc-card">
                           <section class="mdc-card__supporting-text">
                             <div class="mdc-layout-grid__inner">
@@ -33,60 +35,60 @@
                                 <div class="template-demo">
                                   <div id="demo-tf-box-wrapper">
                                     <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                      <input name="event" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Name">
+                                      <input name="userId" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter UserId">
 
-                                    <div class="mdc-text-field__bottom-line"></div>
+                                      <div class="mdc-text-field__bottom-line"></div>
+                                    </div>
+                                    <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
+                                      Must be at least 8 characters
+                                    </p>
                                   </div>
-                                  <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
-                                    Must be at least 8 characters
-                                  </p>
+                                </div>
+                              </div>
+                              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
+                                <div class="template-demo">
+                                  <div id="demo-tf-box-wrapper">
+                                    <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
+                                      <input name="date" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Date">
+
+                                      <div class="mdc-text-field__bottom-line"></div>
+                                    </div>
+                                    <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
+                                      Must be at least 8 characters
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
+                                <div class="template-demo">
+                                  <div id="demo-tf-box-wrapper">
+                                    <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
+                                      <label>Male <input type="radio" name="gender" value="male"  id="tf-box" class="gender-radio" aria-controls="name-validation-message"></label>
+                                      <label>Female <input type="radio" name="gender" value="female" id="tf-box" class="gender-radio" aria-controls="name-validation-message"></label>
+                                      <div class="mdc-text-field__bottom-line"></div>
+                                    </div>
+                                    <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
+                                      Must be at least 8 characters
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
-                              <div class="template-demo">
-                                <div id="demo-tf-box-wrapper">
-                                  <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                    <input name="description" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Description">
+                            <div class="mdc-layout-grid__inner">
+                              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
+                                <div class="template-demo">
+                                  <div id="demo-tf-box-wrapper">
+                                    <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
+                                      <input name="age" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="">
 
-                                    <div class="mdc-text-field__bottom-line"></div>
+                                      <div class="mdc-text-field__bottom-line"></div>
+                                    </div>
+                                    <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
+                                      Must be at least 8 characters
+                                    </p>
                                   </div>
-                                  <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
-                                    Must be at least 8 characters
-                                  </p>
                                 </div>
                               </div>
-                            </div>
-                            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
-                              <div class="template-demo">
-                                <div id="demo-tf-box-wrapper">
-                                  <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                    <input name="date" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Date">
-
-                                    <div class="mdc-text-field__bottom-line"></div>
-                                  </div>
-                                  <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
-                                    Must be at least 8 characters
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="mdc-layout-grid__inner">
-                            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
-                              <div class="template-demo">
-                                <div id="demo-tf-box-wrapper">
-                                  <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                    <input name="time" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Time">
-
-                                    <div class="mdc-text-field__bottom-line"></div>
-                                  </div>
-                                  <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
-                                    Must be at least 8 characters
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
                             <%
 //                                if (eventId == 0) {
                             %>
@@ -94,7 +96,7 @@
                               <div class="template-demo">
                                 <div id="demo-tf-box-wrapper">
                                   <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                    <input name="volunteerId" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Volunteer">
+                                    <input name="" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="">
 
                                     <div class="mdc-text-field__bottom-line"></div>
                                   </div>
@@ -111,7 +113,7 @@
                               <div class="template-demo">
                                 <div id="demo-tf-box-wrapper">
                                   <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                    <input name="volunteerId" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Volunteer">
+                                    <input name="address" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="">
 
                                     <div class="mdc-text-field__bottom-line"></div>
                                   </div>
@@ -121,15 +123,27 @@
                                 </div>
                               </div>
                             </div>
-                            <%
-//                                }
+                            <%//                                }
                             %>
                             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
                               <div class="template-demo">
                                 <div id="demo-tf-box-wrapper">
                                   <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                    <input name="location" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Location">
 
+                                    <select class="custom-select" name="stockId" required="">
+                                      <option value="" selected="">Select Blood Group</option>
+                                      <%                      StockDao stockDao = new StockDao();
+                                          ResultSet rsStock = stockDao.getAllStock();
+
+                                          while (rsStock.next()) {
+                                      %>
+                                      <option value="<%= rsStock.getString("stockId")%>" >
+                                        <%= rsStock.getString("bloodGroup")%>
+                                      </option>
+                                      <%
+                                          }
+                                      %>
+                                    </select>
                                     <div class="mdc-text-field__bottom-line"></div>
                                   </div>
                                   <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
@@ -143,11 +157,7 @@
                             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
                               <div class="template-demo">
                                 <div id="demo-tf-box-wrapper">
-                                  <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                    <input name="sponsers" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Sponser">
 
-                                    <div class="mdc-text-field__bottom-line"></div>
-                                  </div>
                                   <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
                                     Must be at least 8 characters
                                   </p>
@@ -169,8 +179,7 @@
                               </div>
                             </div>
                           </div>
-                          <%
-//                          } else {
+                          <%//                          } else {
                           %>
                           <div class="mdc-layout-grid__inner">
                             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
@@ -178,14 +187,13 @@
                                 <div id="demo-tf-box-wrapper">
                                   <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
                                     <input type="hidden" value="" name="eventId">
-                                    <input type="submit" name="operation" value="Update" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message">
+                                    <!--<input type="submit" name="operation" value="Update" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message">-->
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <%
-//                              }
+                          <%//                              }
                           %>
                         </section>
                       </div>

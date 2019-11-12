@@ -21,19 +21,31 @@
           var qualification = document.getElementById("qualification");
           var passingYear = document.getElementById("passingYear");
           var profession = document.getElementById("profession");
-          
+
+          var cardDetails = document.getElementById("cardDetails");
+
           var method = "get";
           var url = "../volunteerCardController?idCardNo=" + idCardNo + "&city=" + city +
-                  "&state=" + state + "&mobile=" + mobile + "&qualification=" + 
+                  "&state=" + state + "&mobile=" + mobile + "&qualification=" +
                   qualification + "&passingYear=" + passingYear + "&proffession=" +
                   profession;
 
           object = new XMLHttpRequest();
           object.open(method, url);
-          
-          object.onreadystatechange 
+
+          object.onreadystatechange = function () {
+             if (object.readyState === 4) {
+                cardDetails.innerHtml = object.responseText;
+             }
+          };
 
        }
+    </script>
+
+    <script>
+       document.addEventListener("DOMContentLoaded", () => {
+          
+       });
     </script>
   </head>
   <body>
@@ -70,8 +82,8 @@
                           ResultSet rs = volunteerDao.getAllVolunteer();
                           while (rs.next()) {
                        %>
-                       <tr>
-                         <td class="text-center">
+                       <tr data-href="http://www.google.com/">
+                         <td class="text-center" >
                            <%= rs.getString("name")%>
                          </td>
                          <td class="text-center">
@@ -125,24 +137,32 @@
                      <table>
                        <thead>
                          <tr>
-                           <td class="mb-2">Volunteer Card No</td>
-                           <td class="mb-2">City</td>
-                           <td class="mb-2">State</td>
-                           <td class="mb-2">Mobile</td>
-                           <td class="mb-2">Qualification</td>
-                           <td class="mb-2">Year Of Passing</td>
-                           <td class="mb-2">Profession</td>
+                           <th class="mb-2" >Volunteer Card No</th>
+                         </tr>
+                         <tr>
+                           <th class="mb-2">City</th>
+                         </tr>
+                         <tr>
+                           <th class="mb-2">State</th>
+                         </tr>
+                         <tr>
+                           <th class="mb-2">Mobile</th>
+                         </tr>
+                         <tr>
+                           <th class="mb-2">Qualification</th>
+                         </tr>
+                         <tr>
+                           <th class="mb-2">Year Of Passing</th>
+                         </tr>
+                         <tr>
+                           <th class="mb-2">Profession</th>
                          </tr>
                        </thead>
-                       <tbody>
+                       <tbody id="cardDetails">
                          <tr>
-                           <td id="idCardNo"></td>
-                           <td id="city"></td>
-                           <td id="state"></td>
-                           <td id="mobile"></td>
-                           <td id="qualification"></td>
-                           <td id="passingYear"></td>
-                           <td id="profession"></td>
+                           <td>
+                             <p id="text"></p>
+                           </td>
                          </tr>
                        </tbody>
                      </table>

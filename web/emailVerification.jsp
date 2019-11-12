@@ -13,13 +13,20 @@
 <!DOCTYPE html>
 <%
    String email = "";
-   Random r = new Random();
    String generatedOtp = "";
 
    if (request.getParameter("email") != null) {
       email = request.getParameter("email");
 
-      generatedOtp = String.format("%4d", r.nextInt(1001));
+      String no = "0123456789";
+      StringBuilder sb = new StringBuilder(6);
+
+      for (int i = 0; i < 6; i++) {
+         int index = (int) (no.length() * Math.random());
+         sb.append(no.charAt(index));
+      }
+      generatedOtp = sb.toString();
+
       System.out.println("Value of i is : " + generatedOtp);
       EmailVerification verification = new EmailVerification(email, generatedOtp);
       SendMailSSL.sendEmail(verification);
@@ -46,7 +53,7 @@
                 if (object.readyState === 4) {
                    var response = object.responseText;
                    if (response === "Success") {
-                      window.location.href = "index.jsp";
+                      window.location.href = "login.jsp";
                    } else {
                       err.innerHTML = response;
                    }

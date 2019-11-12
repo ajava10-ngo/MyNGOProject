@@ -21,18 +21,3 @@
 </footer>
 <!-- partial -->
 <!-- body wrapper -->
-<!-- plugins:js -->
-<script src="node_modules/material-components-web/dist/material-components-web.min.js"></script>
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<!-- endinject -->
-<!-- Plugin js for this page-->
-<script src="node_modules/chart.assets/js/dist/Chart.min.js"></script>
-<script src="node_modules/progressbar.assets/js/dist/progressbar.min.js"></script>
-<!-- End plugin js for this page-->
-<!-- inject:js -->
-<script src="assets/js/misc.js"></script>
-<script src="assets/js/material.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<script src="assets/js/dashboard.js"></script>
-<!-- End custom js for this page-->
