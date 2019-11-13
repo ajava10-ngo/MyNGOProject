@@ -1,10 +1,12 @@
 package com.servlet;
 
+import com.dao.CityDao;
 import com.dao.UserDao;
-import com.model.EmailVerification;
+import com.model.City;
 import com.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -78,9 +80,20 @@ public class Register extends HttpServlet {
             } else {
                out.print("OTP is incorrect...");
             }
-
          } else if (operation.equals("ResendOTP")) {
             String email = request.getParameter("email");
+         } else if (operation.equals("SelectCity")) {
+            int stateId = Integer.parseInt(request.getParameter("stateId").trim());
+            City city = new City(stateId);
+
+            CityDao cityDao = new CityDao();
+            ResultSet rs = cityDao.getAllCity(city);
+
+            String data = null;
+            while (rs.next()) {
+               data += "<option value='" + rs.getString("cityId") + "'>" + rs.getString("city") + "</option>";
+            }
+            out.write(data.trim());
          }
       } catch (Exception e) {
          out.print("Register Exception : " + e.toString());

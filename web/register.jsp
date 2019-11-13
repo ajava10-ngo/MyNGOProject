@@ -10,14 +10,32 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.dao.StateDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-   int stateId = 0;
-%>
 <jsp:include page="blocks/header.jsp"></jsp:include>
    <!DOCTYPE html>
    <html>
      <head>
        <title>Registration Page</title>
+       <script>
+          function selectCity() {
+             var stateId = document.getElementById("stateId").value;
+             var cityId = document.getElementById("cityId");
+             var err = document.getElementById("err");
+
+             object = new XMLHttpRequest();
+
+             var method = "get";
+             var url = "register?operation=SelectCity&stateId=" + stateId;
+
+             object.open(method, url);
+
+             object.onreadystatechange = function () {
+                if (object.readyState === 4) {
+                   cityId.innerHTML = object.responseText;
+                }
+             };
+             object.send();
+          }
+       </script>
      </head>
      <body>
        <div class="container">
@@ -80,8 +98,8 @@
                </select>
              </div>
              <div class="form-group">
-               <select class="custom-select" name="stateId" required="">
-                 <option value="" selected="">Select State</option>
+               <select onchange="selectCity()" id="stateId" class="custom-select" name="stateId" required="">
+                 <option value="0" selected="">Select State</option>
                  <%
                     ResultSet rsState = null;
                     try {
@@ -93,7 +111,7 @@
                     }
                     while (rsState.next()) {
                  %>
-                 <option value="<%= rsState.getInt("stateId")%>">
+                 <option id="stateId" value="<%= rsState.getInt("stateId")%>">
                    <%= rsState.getString("state")%>
                  </option>
                  <%
@@ -102,26 +120,10 @@
                </select>
              </div>
              <div class="form-group">
-               <select class="custom-select" name="cityId" required="">
+               <select id="cityId" class="custom-select" name="cityId" required="">
                  <option value="">Select City</option>
-                 <%
-                    ResultSet rsCity = null;
-                    stateId = 20;
-                    try {
-                       CityDao cityDao = new CityDao();
-                       rsCity = cityDao.getAllCity(stateId);
-                    } catch (Exception e) {
-                       out.print("Exception : " + e.toString());
-                    }
-                    while (rsCity.next()) {
-                 %>
-
-                 <option value="<%= rsCity.getString("cityId")%>"><%= rsCity.getString("city")%></option>
-
-                 <%
-                    }
-                 %>
                </select>
+               <p id="err"></p>
              </div>
 
              <div class="form-group">

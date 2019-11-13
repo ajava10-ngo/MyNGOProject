@@ -4,6 +4,10 @@ public class City {
     
     private int cityId, stateId;
     private String city;
+    
+    public City(int stateId) {
+       this.stateId = stateId;
+    }
 
     public City(int cityId, int stateId, String city) {
         this.cityId = cityId;

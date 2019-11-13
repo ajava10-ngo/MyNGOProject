@@ -11,13 +11,13 @@ public class CityDao {
     
     private Connection con = null;
 
-    public ResultSet getAllCity(int stateId) {
+    public ResultSet getAllCity(City city) {
         try {
             String sql = "select * from city where stateId = ?;";
             con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             
-            ps.setInt(1, stateId);
+            ps.setInt(1, city.getStateId());
 
             ResultSet rs = ps.executeQuery();
 
