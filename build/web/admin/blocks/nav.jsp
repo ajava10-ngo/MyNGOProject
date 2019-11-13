@@ -26,17 +26,17 @@
   <nav class="mdc-persistent-drawer__drawer">
     <div class="mdc-persistent-drawer__toolbar-spacer">
       <%
-         User u = (User) session.getAttribute("user");
-         if (!u.equals(null)) {
-            User user = (User) session.getAttribute("user");
+//         User u = (User) session.getAttribute("user");
+//         if (!u.equals(null)) {
+//            User user = (User) session.getAttribute("user");
       %>
 
-      <%= user.getUsername()%>
+      <%--<%= // user.getUsername()%>--%>
 
       <%
-         } else {
-            response.sendRedirect("../login.jsp");
-         }
+//         } else {
+//            response.sendRedirect("../login.jsp");
+//         }
       %>
     </div>
     <div class="mdc-list-group">

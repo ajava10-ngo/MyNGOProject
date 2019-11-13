@@ -31,6 +31,29 @@ public class VolunteerDao {
         }
         return null;
     }
+    
+    public ResultSet getSingleVolunteer(Volunteer volunteer) {
+
+        try {
+            String sql = "SELECT * FROM USER INNER JOIN volunteer ON user.userID = volunteer.userId WHERE volunteer.volunteerId = ?;";
+            con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, volunteer.getVolunteerId());
+
+            ResultSet rs = ps.executeQuery();
+
+            return rs;
+        } catch (SQLException e) {
+            System.err.println("VolunteerDao Exception : " + e.toString());
+        } finally {
+            try {
+            } catch (Exception e) {
+                System.err.println("VolunteerDao Exception : " + e.toString());
+            }
+        }
+        return null;
+    }
 
     public boolean insertVolunteer(Volunteer volunteer) {
         try {

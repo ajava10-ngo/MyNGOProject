@@ -47,11 +47,11 @@ CREATE TABLE `donor` (
   KEY `stockId` (`stockId`),
   CONSTRAINT `donor_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`),
   CONSTRAINT `donor_ibfk_2` FOREIGN KEY (`stockId`) REFERENCES `stock` (`stockId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `donor` */
 
-insert  into `donor`(`donorId`,`userId`,`stockId`,`date`) values (1,6,3,'2019-02-09');
+insert  into `donor`(`donorId`,`userId`,`stockId`,`date`) values (3,6,5,'12-11-2019'),(4,21,3,'12-11-2019'),(6,20,8,'12-19-2019');
 
 /*Table structure for table `event` */
 
@@ -73,7 +73,22 @@ CREATE TABLE `event` (
 
 /*Data for the table `event` */
 
-insert  into `event`(`eventId`,`event`,`description`,`date`,`time`,`volunteerId`,`location`,`sponsers`) values (31,'Plantation','plant exhibition to exhibit about different types of plant species','12-11-2019','02:13 PM',25,'Indore','Universal Informatics');
+insert  into `event`(`eventId`,`event`,`description`,`date`,`time`,`volunteerId`,`location`,`sponsers`) values (31,'Plantation','Plant More Trees','12-11-2019','02:13 PM',25,'Indore','Universal Informatics');
+
+/*Table structure for table `profile` */
+
+DROP TABLE IF EXISTS `profile`;
+
+CREATE TABLE `profile` (
+  `profileId` int(11) NOT NULL AUTO_INCREMENT,
+  `qualification` varchar(30) DEFAULT NULL,
+  `passingYear` varchar(30) DEFAULT NULL,
+  `proffession` varchar(30) DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`profileId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `profile` */
 
 /*Table structure for table `state` */
 
@@ -98,11 +113,11 @@ CREATE TABLE `stock` (
   `available` int(11) NOT NULL,
   `bloodGroup` varchar(20) NOT NULL,
   PRIMARY KEY (`stockId`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 /*Data for the table `stock` */
 
-insert  into `stock`(`stockId`,`available`,`bloodGroup`) values (1,0,'A+'),(2,0,'A-'),(3,0,'B+'),(4,0,'B-'),(5,0,'O+'),(6,0,'O-'),(7,0,'AB+'),(8,0,'AB-');
+insert  into `stock`(`stockId`,`available`,`bloodGroup`) values (1,0,'A+'),(2,0,'A-'),(3,0,'B+'),(4,0,'B-'),(5,0,'O+'),(6,0,'O-'),(7,0,'AB+'),(8,0,'AB-'),(9,0,'');
 
 /*Table structure for table `user` */
 
@@ -117,7 +132,7 @@ CREATE TABLE `user` (
   `mobile` varchar(13) NOT NULL,
   `gender` varchar(6) NOT NULL,
   `age` int(11) NOT NULL,
-  `stockId` int(11) NOT NULL,
+  `stockId` int(11) DEFAULT '0',
   `stateId` int(11) NOT NULL,
   `cityId` int(11) NOT NULL,
   `address` varchar(200) NOT NULL,
@@ -133,11 +148,11 @@ CREATE TABLE `user` (
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`cityId`) REFERENCES `city` (`cityId`),
   CONSTRAINT `user_ibfk_2` FOREIGN KEY (`stockId`) REFERENCES `stock` (`stockId`),
   CONSTRAINT `user_ibfk_3` FOREIGN KEY (`stateId`) REFERENCES `state` (`stateId`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
-insert  into `user`(`userId`,`name`,`email`,`username`,`password`,`mobile`,`gender`,`age`,`stockId`,`stateId`,`cityId`,`address`,`type`,`verified`) values (1,'Ritesh Verma','recoonie.ritesh@gmail.com','rv@03','rv@03','9713891029','Male',23,5,20,705,'161 Anantpuri Colony, A.B. Road',1,1),(6,'asd','asd@gmail.com','asd@11','asd@11','9119900911','Male',19,5,20,705,'qweqewsdadqweqewewe',2,0),(7,'Pragati Patidar','pragatipatidar15@gamil.com','pragati@123','pragati@123','9978872882','Female',22,3,20,705,'bhawarkua',2,1),(9,'Gourav','gaurav@gmail.com','gaurav@123','gaurav@123','56466767','Male',23,5,20,705,'Bhawarkua',2,1),(10,'qwe','ajavango@gmail.com','qwe','qwe','123','Male',21,2,20,711,'qwe',2,1),(15,'zxc','zxc@gmail.com','zxc','zxc','744644546','Male',23,4,20,705,'zxc',2,1);
+insert  into `user`(`userId`,`name`,`email`,`username`,`password`,`mobile`,`gender`,`age`,`stockId`,`stateId`,`cityId`,`address`,`type`,`verified`) values (1,'Ritesh Verma','recoonie.ritesh@gmail.com','rv@03','rv@03','9713891029','Male',23,5,20,705,'161 Anantpuri Colony, A.B. Road',1,1),(6,'asd','asd@gmail.com','asd@11','asd@11','9119900911','Male',19,5,20,705,'qweqewsdadqweqewewe',2,0),(7,'Pragati Patidar','pragatipatidar15@gamil.com','pragati@123','pragati@123','9978872882','Female',22,3,20,705,'bhawarkua',2,1),(9,'Gourav','gaurav@gmail.com','gaurav@123','gaurav@123','56466767','Male',23,5,20,705,'Bhawarkua',2,1),(20,'abc','abc@gmail.com','abc','abc','9877676134','Male',23,8,20,705,'kall',2,1),(21,'poi','poi@gmail.com','poi','poi','99388377','Male',25,1,20,705,'miaiaddssdf',2,1);
 
 /*Table structure for table `volunteer` */
 
@@ -146,17 +161,17 @@ DROP TABLE IF EXISTS `volunteer`;
 CREATE TABLE `volunteer` (
   `volunteerId` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
-  `post` varchar(20) NOT NULL DEFAULT 'empty',
+  `post` varchar(20) NOT NULL DEFAULT 'member',
   `idCardNo` varchar(20) NOT NULL,
   PRIMARY KEY (`volunteerId`),
   UNIQUE KEY `userId` (`userId`),
   UNIQUE KEY `idCardNo` (`idCardNo`),
   CONSTRAINT `volunteer_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 
 /*Data for the table `volunteer` */
 
-insert  into `volunteer`(`volunteerId`,`userId`,`post`,`idCardNo`) values (25,7,'','NGO10214'),(29,9,'','NGO93272'),(31,15,'empty','NGO96220');
+insert  into `volunteer`(`volunteerId`,`userId`,`post`,`idCardNo`) values (25,7,'member','NGO10214'),(36,9,'member','NGO23234');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

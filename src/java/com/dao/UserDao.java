@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.connection.DBConnection;
+import com.model.Stock;
 import com.model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -90,10 +91,54 @@ public class UserDao {
       return null;
    }
 
+   public boolean updateBloodGroup(User user) {
+      try {
+         String sql = "UPDATE USER SET stockId = ? WHERE userID = ?;";
+         con = DBConnection.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql);
+
+         ps.setInt(1, user.getStockId());
+         ps.setInt(2, user.getUserId());
+
+         int isUpdated = ps.executeUpdate();
+
+         return isUpdated > 0;
+
+      } catch (SQLException e) {
+         System.err.println("UserDao Exception : " + e.toString());
+      } finally {
+         try {
+         } catch (Exception e) {
+            System.err.println("UserDao Exception : " + e.toString());
+         }
+      }
+      return false;
+   }
+
    public ResultSet getAllUser() {
+      try {
+         String sql = "SELECT * FROM USER where type = 2;";
+         con = DBConnection.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql);
+
+         ResultSet rs = ps.executeQuery();
+
+         return rs;
+      } catch (SQLException e) {
+         System.err.println("UserDao Exception : " + e.toString());
+      } finally {
+         try {
+         } catch (Exception e) {
+            System.err.println("UserDao Exception : " + e.toString());
+         }
+      }
+      return null;
+   }
+
+   public ResultSet getUserNotInVolunteer() {
 
       try {
-         String sql = "select * from user;";
+         String sql = "SELECT * FROM USER u WHERE NOT EXISTS(SELECT * FROM volunteer v WHERE u.userId = v.userId);";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
 

@@ -11,7 +11,7 @@ public class StockDao {
     public ResultSet getAllStock() {
         
         try {
-            String sql = "select * from stock;";
+            String sql = "select * from stock where stockId < 9;";
             con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();

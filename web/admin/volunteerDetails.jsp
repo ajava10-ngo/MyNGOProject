@@ -14,38 +14,24 @@
     <title>Volunteer Details</title>
     <script>
        function showIdCard() {
-          var idCardNo = document.getElementById("idCardNo");
-          var city = document.getElementById("city");
-          var state = document.getElementById("State");
-          var mobile = document.getElementById("mobile");
-          var qualification = document.getElementById("qualification");
-          var passingYear = document.getElementById("passingYear");
-          var profession = document.getElementById("profession");
 
-          var cardDetails = document.getElementById("cardDetails");
+          var volunteerCard = document.getElementById("volunteerCard");
+          var volunteerId = document.getElementById("volunteerId").value;
 
           var method = "get";
-          var url = "../volunteerCardController?idCardNo=" + idCardNo + "&city=" + city +
-                  "&state=" + state + "&mobile=" + mobile + "&qualification=" +
-                  qualification + "&passingYear=" + passingYear + "&proffession=" +
-                  profession;
+          var url = "../volunteerCardController?volunteerId=" + volunteerId;
 
           object = new XMLHttpRequest();
           object.open(method, url);
 
           object.onreadystatechange = function () {
              if (object.readyState === 4) {
-                cardDetails.innerHtml = object.responseText;
+                volunteerCard.innerHtml = object.responseText;
+                alert(object.responseText);
              }
           };
-
+          object.send();
        }
-    </script>
-
-    <script>
-       document.addEventListener("DOMContentLoaded", () => {
-          
-       });
     </script>
   </head>
   <body>
@@ -74,6 +60,7 @@
                            <th class="text-center">State</th>
                            <th class="text-center">Address</th>
                            <th class="text-center">Actions</th>
+                           <th class="text-center">Details</th>
                          </tr>
                        </thead>
                        <tbody>
@@ -82,7 +69,7 @@
                           ResultSet rs = volunteerDao.getAllVolunteer();
                           while (rs.next()) {
                        %>
-                       <tr data-href="http://www.google.com/">
+                       <tr>
                          <td class="text-center" >
                            <%= rs.getString("name")%>
                          </td>
@@ -110,11 +97,21 @@
                          <td class="text-center">
                            <%= rs.getString("address")%>
                          </td>
-                         <td >
+                         <td hidden="" class="text-center">
+                           <input id="volunteerId" type="hidden" value="<%= rs.getString("volunteerId")%>">
+                         </td>
+                         <td>
                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
                              <a href="../volunteerController?operation=Remove&volunteerId=<%= rs.getString("volunteerId")%>" class="mdi mdi-heart text-blue">
                                Remove
                              </a>
+                           </span>
+                         </td>
+                         <td >
+                           <span class="col mdc-button" data-mdc-auto-init="MDCRipple" >
+                             <button class="mdi mdi-heart text-blue" onclick="showIdCard()">
+                               Details
+                             </button>
                            </span>
                          </td>
                        </tr>
@@ -129,43 +126,12 @@
                  <div class="mdc-card card--with-avatar">
                    <section class="mdc-card__primary">
                      <div class="card__avatar"><img src="assets/images/faces/face1.jpg" alt=""></div>
-                     <h1 class="mdc-card__title">Volunteer Name</h1>
-                     <h2 class="mdc-card__subtitle">@post</h2>
+                     <h1 id="volunteerCard" class="mdc-card__title">Volunteer Name</h1>
+                     <h2  class="mdc-card__subtitle">@post</h2>
                      <span class="social__icon-badge mdc-twitter mdi mdi-twitter"></span>
                    </section>
-                   <section class="mdc-card__supporting-text pt-1">
-                     <table>
-                       <thead>
-                         <tr>
-                           <th class="mb-2" >Volunteer Card No</th>
-                         </tr>
-                         <tr>
-                           <th class="mb-2">City</th>
-                         </tr>
-                         <tr>
-                           <th class="mb-2">State</th>
-                         </tr>
-                         <tr>
-                           <th class="mb-2">Mobile</th>
-                         </tr>
-                         <tr>
-                           <th class="mb-2">Qualification</th>
-                         </tr>
-                         <tr>
-                           <th class="mb-2">Year Of Passing</th>
-                         </tr>
-                         <tr>
-                           <th class="mb-2">Profession</th>
-                         </tr>
-                       </thead>
-                       <tbody id="cardDetails">
-                         <tr>
-                           <td>
-                             <p id="text"></p>
-                           </td>
-                         </tr>
-                       </tbody>
-                     </table>
+                   <section class="mdc-card__supporting-text pt-1" >
+                     <p ></p>
                    </section>
                    <section class="mdc-card__social-footer bg-blue">
                      <div class="col">

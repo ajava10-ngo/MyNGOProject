@@ -2,7 +2,7 @@ package com.model;
 
 public class User {
 
-   private int userId, age, cityId, stateId, type, stockId;
+   private int userId, age, cityId, stateId, type, stockId = 0;
    private String name, email, username, password, mobile, gender, address;
    private boolean verified = false;
 

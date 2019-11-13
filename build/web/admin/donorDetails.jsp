@@ -35,7 +35,7 @@
                             <th class="text-center">Mobile</th>
                             <th class="text-center">Gender</th>
                             <th class="text-center">Age</th>
-                            <th class="text-center">Date</th>
+                            <th class="text-center">Donation Date</th>
                             <th class="text-center">Address</th>
                             <th class="text-center">Actions</th>
                           </tr>
