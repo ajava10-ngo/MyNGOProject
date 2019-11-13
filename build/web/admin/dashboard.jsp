@@ -12,8 +12,6 @@
 <%@page import="com.dao.UserDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-
-   
    int totalUser = 0;
    UserDao getUser = new UserDao();
    ResultSet resultSetUser = getUser.getAllUser();
@@ -192,8 +190,8 @@
                          </td>
                          <td>
                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                             <a href="../userController?operation=Remove&userId=<%= rs.getString("userId")%>" class="mdi mdi-heart text-blue">
-                               Remove
+                             <a href="../userController?operation=Inactive&userId=<%= rs.getString("userId")%>" class="mdi mdi-heart text-blue">
+                               Inactive
                              </a>
                            </span>
                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple">

@@ -117,7 +117,7 @@ public class UserDao {
 
    public ResultSet getAllUser() {
       try {
-         String sql = "SELECT * FROM USER where type = 2;";
+         String sql = "SELECT * FROM USER where type = 2 AND verified = 1;";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
 
@@ -158,7 +158,7 @@ public class UserDao {
 
    public boolean removeUser(User user) {
       try {
-         String sql = "DELETE FROM user WHERE userId = ?;";
+         String sql = "UPDATE user SET verified = 0 WHERE userId = ?;";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
 

@@ -14,20 +14,19 @@
     <title>Volunteer Details</title>
     <script>
        function showIdCard() {
-
-          var volunteerCard = document.getElementById("volunteerCard");
+          var cardDetails = document.getElementById("cardDetails");
           var volunteerId = document.getElementById("volunteerId").value;
+
+          object = new XMLHttpRequest();
 
           var method = "get";
           var url = "../volunteerCardController?volunteerId=" + volunteerId;
 
-          object = new XMLHttpRequest();
           object.open(method, url);
 
           object.onreadystatechange = function () {
              if (object.readyState === 4) {
-                volunteerCard.innerHtml = object.responseText;
-                alert(object.responseText);
+                cardDetails.innerHTML = object.responseText;
              }
           };
           object.send();
@@ -109,9 +108,9 @@
                          </td>
                          <td >
                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple" >
-                             <button class="mdi mdi-heart text-blue" onclick="showIdCard()">
+                             <a class="mdi mdi-heart text-blue" onclick="showIdCard()">
                                Details
-                             </button>
+                             </a>
                            </span>
                          </td>
                        </tr>
@@ -126,12 +125,12 @@
                  <div class="mdc-card card--with-avatar">
                    <section class="mdc-card__primary">
                      <div class="card__avatar"><img src="assets/images/faces/face1.jpg" alt=""></div>
-                     <h1 id="volunteerCard" class="mdc-card__title">Volunteer Name</h1>
-                     <h2  class="mdc-card__subtitle">@post</h2>
+                     <h1 class="mdc-card__title">Volunteer ID Card</h1>
+                     <h2  class="mdc-card__subtitle"></h2>
                      <span class="social__icon-badge mdc-twitter mdi mdi-twitter"></span>
                    </section>
                    <section class="mdc-card__supporting-text pt-1" >
-                     <p ></p>
+                     <p id="cardDetails" ></p>
                    </section>
                    <section class="mdc-card__social-footer bg-blue">
                      <div class="col">

@@ -11,37 +11,37 @@ import javax.servlet.http.HttpServletResponse;
 
 public class UserController extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+   @Override
+   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+           throws ServletException, IOException {
 
-        PrintWriter out = response.getWriter();
-        String operation = request.getParameter("operation");
-        out.print(operation + "<br>");
-        try {
-            if (operation.equals("Remove")) {
-                String userId = request.getParameter("userId");
+      PrintWriter out = response.getWriter();
+      String operation = request.getParameter("operation");
+      out.print(operation + "<br>");
+      try {
+         if (operation.equals("Inactive")) {
+            String userId = request.getParameter("userId");
 
-                if (userId != null) {
-                    int uId = Integer.parseInt(userId);
-                    
-                    User user = new User();
-                    user.setUserId(uId);
-                    
-                    UserDao userDao = new UserDao();
-                    
-                    boolean isRemoved = userDao.removeUser(user);
-                    
-                    if (isRemoved) {
-                        response.sendRedirect("admin/dashboard.jsp");
-                    } else {
-                        out.print("Error Occured");
-                    }
-                }
+            if (userId != null) {
+               int uId = Integer.parseInt(userId);
+
+               User user = new User();
+               user.setUserId(uId);
+
+               UserDao userDao = new UserDao();
+
+               boolean isRemoved = userDao.removeUser(user);
+
+               if (isRemoved) {
+                  response.sendRedirect("admin/dashboard.jsp");
+               } else {
+                  out.print("Error Occured");
+               }
             }
+         }
 
-        } catch (Exception e) {
-            out.print("User Controller Exception : " + e.toString());
-        }
-    }
+      } catch (Exception e) {
+         out.print("User Controller Exception : " + e.toString());
+      }
+   }
 }

@@ -35,7 +35,7 @@ public class VolunteerDao {
     public ResultSet getSingleVolunteer(Volunteer volunteer) {
 
         try {
-            String sql = "SELECT * FROM USER INNER JOIN volunteer ON user.userID = volunteer.userId WHERE volunteer.volunteerId = ?;";
+            String sql = "SELECT * FROM ((stock INNER JOIN USER ON stock.stockId = user.stockId) INNER JOIN volunteer ON volunteer.userId = user.userId) WHERE volunteer.volunteerId = ?;";
             con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             

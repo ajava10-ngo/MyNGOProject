@@ -20,26 +20,23 @@ public class VolunteerCardController extends HttpServlet {
       try {
 
          int volunteerId = Integer.parseInt(request.getParameter("volunteerId"));
-//         String idCardNo = request.getParameter("idCardNo");
-//         String city = request.getParameter("city");
-//         String state = request.getParameter("state");
-//         String mobile = request.getParameter("mobile");
-//         String qualification = request.getParameter("qualification");
-//         String passingYear = request.getParameter("passingYear");
-//         String proffession = request.getParameter("proffession");
 
          Volunteer volunteer = new Volunteer();
          volunteer.setVolunteerId(volunteerId);
 
          VolunteerDao volunteerDao = new VolunteerDao();
          ResultSet rs = volunteerDao.getSingleVolunteer(volunteer);
-         
+
          String data = "";
 
-         while (rs.next()) {
-
-            data += "Name : " + rs.getString("name");
-         }
+         rs.next();
+         data += "<br><br>";
+         data += "Volunteer ID : " + rs.getString("idCardNo") + "<br><br>";
+         data += "Name : " + rs.getString("name") + "<br><br>";
+         data += "Email : " + rs.getString("email") + "<br><br>";
+         data += "Mobile : " + rs.getString("mobile") + "<br><br>";
+         data += "Age : " + rs.getString("age") + "<br><br>";
+         data += "Blood Group : " + rs.getString("bloodGroup") + "<br><br>";
 
          out.print(data);
 
