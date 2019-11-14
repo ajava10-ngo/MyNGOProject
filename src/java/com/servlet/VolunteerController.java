@@ -36,8 +36,10 @@ public class VolunteerController extends HttpServlet {
                idCardNo = prefix + sb;
                System.out.println(idCardNo);
                int uId = Integer.parseInt(userId);
+               
                Volunteer volunteer = new Volunteer(uId, idCardNo);
                VolunteerDao volunteerDao = new VolunteerDao();
+               
                boolean isInserted = volunteerDao.insertVolunteer(volunteer);
 
                if (isInserted) {
@@ -62,6 +64,7 @@ public class VolunteerController extends HttpServlet {
             int vId = Integer.parseInt(volunteerId);
             Volunteer volunteer = new Volunteer();
             volunteer.setVolunteerId(vId);
+            
             VolunteerDao volunteerDao = new VolunteerDao();
             boolean isRemoved = volunteerDao.removeVolunteer(volunteer);
 

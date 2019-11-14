@@ -11,9 +11,9 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendMailSSL {
-   
+
    public static boolean sendEmail(EmailVerification verification) {
-      
+
       try {
          Properties properties = new Properties();
 
@@ -47,7 +47,7 @@ public class SendMailSSL {
       }
       return false;
    }
-   
+
    public static boolean sendEmail(String recepient) {
 
       try {

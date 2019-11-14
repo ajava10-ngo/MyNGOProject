@@ -30,7 +30,7 @@ public class UserController extends HttpServlet {
 
                UserDao userDao = new UserDao();
 
-               boolean isRemoved = userDao.removeUser(user);
+               boolean isRemoved = userDao.inactiveUser(user);
 
                if (isRemoved) {
                   response.sendRedirect("admin/dashboard.jsp");

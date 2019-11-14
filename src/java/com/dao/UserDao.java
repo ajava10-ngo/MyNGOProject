@@ -156,7 +156,7 @@ public class UserDao {
       return null;
    }
 
-   public boolean removeUser(User user) {
+   public boolean inactiveUser(User user) {
       try {
          String sql = "UPDATE user SET verified = 0 WHERE userId = ?;";
          con = DBConnection.getConnection();

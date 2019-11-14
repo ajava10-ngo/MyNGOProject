@@ -16,6 +16,8 @@
        function showIdCard() {
           var cardDetails = document.getElementById("cardDetails");
           var volunteerId = document.getElementById("volunteerId").value;
+          
+//          alert(volunteerId);
 
           object = new XMLHttpRequest();
 
@@ -96,9 +98,7 @@
                          <td class="text-center">
                            <%= rs.getString("address")%>
                          </td>
-                         <td hidden="" class="text-center">
-                           <input id="volunteerId" type="hidden" value="<%= rs.getString("volunteerId")%>">
-                         </td>
+                           
                          <td>
                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
                              <a href="../volunteerController?operation=Remove&volunteerId=<%= rs.getString("volunteerId")%>" class="mdi mdi-heart text-blue">
@@ -108,7 +108,8 @@
                          </td>
                          <td >
                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple" >
-                             <a class="mdi mdi-heart text-blue" onclick="showIdCard()">
+                             <input id="volunteerId" type="hidden" value="<%= rs.getString("volunteerId")%>">
+                             <a class="mdi mdi-heart text-blue" onchange="" onclick="showIdCard()">
                                Details
                              </a>
                            </span>

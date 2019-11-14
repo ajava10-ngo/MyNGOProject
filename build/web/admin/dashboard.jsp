@@ -156,7 +156,7 @@
                      <tbody>
                        <%
                           UserDao userDao = new UserDao();
-                          ResultSet rs = userDao.getAllUser();
+                          ResultSet rs = userDao.getUserNotInVolunteer();
                           while (rs.next()) {
                              if (Integer.parseInt(rs.getString("type")) != 1) {
                        %>
