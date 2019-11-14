@@ -18,7 +18,6 @@ public class VolunteerCardController extends HttpServlet {
       PrintWriter out = response.getWriter();
 
       try {
-
          int volunteerId = Integer.parseInt(request.getParameter("volunteerId"));
 
          Volunteer volunteer = new Volunteer();
@@ -33,10 +32,10 @@ public class VolunteerCardController extends HttpServlet {
          data += "<br><br>";
          data += "Volunteer ID : " + rs.getString("idCardNo") + "<br><br>";
          data += "Name : " + rs.getString("name") + "<br><br>";
-         data += "Email : " + rs.getString("email") + "<br><br>";
+         data += "City : " + rs.getString("city") + "<br><br>";
+         data += "State : " + rs.getString("state") + "<br><br>";
          data += "Mobile : " + rs.getString("mobile") + "<br><br>";
-         data += "Age : " + rs.getString("age") + "<br><br>";
-         data += "Blood Group : " + rs.getString("bloodGroup") + "<br><br>";
+         data += "Qualification : " + rs.getString("qualification");
 
          out.print(data);
 
