@@ -15,9 +15,9 @@
     <script>
        function showIdCard() {
           var cardDetails = document.getElementById("cardDetails");
-          var volunteerId = document.getElementById("volunteerId").value;
+          var volunteerId = document.getElementById("volunteerId").innerHTML;
           
-//          alert(volunteerId);
+           alert(volunteerId);
 
           object = new XMLHttpRequest();
 
@@ -67,6 +67,8 @@
                        <tbody>
                        <%
                           VolunteerDao volunteerDao = new VolunteerDao();
+                      //ArrayList<Volunteer> al = volunteerDao.getAllVolunteer();
+                          
                           ResultSet rs = volunteerDao.getAllVolunteer();
                           while (rs.next()) {
                        %>
@@ -108,7 +110,7 @@
                          </td>
                          <td >
                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple" >
-                             <input id="volunteerId" type="hidden" value="<%= rs.getString("volunteerId")%>">
+                             <a id="volunteerId" hidden="" ><%= rs.getString("volunteerId")%></a>
                              <a class="mdi mdi-heart text-blue" onchange="" onclick="showIdCard()">
                                Details
                              </a>
