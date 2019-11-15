@@ -4,6 +4,8 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.model.Stock"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.StockDao"%>
 <%@page import="com.dao.CityDao"%>
 <%@page import="java.io.PrintWriter"%>
@@ -84,13 +86,16 @@
                  <select class="custom-select" name="stockId">
                    <option value="9" selected="">Select Blood Group</option>
                  <%
+                    Stock stock = new Stock();
                     StockDao stockDao = new StockDao();
-                    ResultSet rsStock = stockDao.getAllStock();
-
-                    while (rsStock.next()) {
+                    
+                    ArrayList<Stock> al = stockDao.getAllStock();
+                    
+                    for (int i = 0; i < al.size(); i++) {
+                       stock = al.get(i);
                  %>
-                 <option value="<%= rsStock.getString("stockId")%>" >
-                   <%= rsStock.getString("bloodGroup")%>
+                 <option value="<%= stock.getStockId() %>" >
+                   <%= stock.getBloodGroup() %>
                  </option>
                  <%
                     }

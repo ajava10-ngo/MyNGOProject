@@ -5,8 +5,26 @@ public class User {
    private int userId, age, cityId, stateId, type, stockId = 0;
    private String name, email, username, password, mobile, gender, address;
    private boolean verified = false;
+   private Volunteer volunteer;
+   private State state;
+   private City city;
 
    public User() {}
+
+   public User(int userId, int age, String name, String email, String username, String mobile, String gender, String address, Volunteer volunteer, State state, City city) {
+      // For iterate all volunteer details 
+      this.userId = userId;
+      this.age = age;
+      this.name = name;
+      this.email = email;
+      this.username = username;
+      this.mobile = mobile;
+      this.gender = gender;
+      this.address = address;
+      this.volunteer = volunteer;
+      this.state = state;
+      this.city = city;
+   }
 
    public User(int userId, int age, int cityId, int stateId, int type, int stockId, String name, String email, String username, String password, String mobile, String gender, String address) {
       this.userId = userId;
@@ -37,6 +55,30 @@ public class User {
       this.mobile = mobile;
       this.gender = gender;
       this.address = address;
+   }
+
+   public Volunteer getVolunteer() {
+      return volunteer;
+   }
+
+   public void setVolunteer(Volunteer volunteer) {
+      this.volunteer = volunteer;
+   }
+
+   public State getState() {
+      return state;
+   }
+
+   public void setState(State state) {
+      this.state = state;
+   }
+
+   public City getCity() {
+      return city;
+   }
+
+   public void setCity(City city) {
+      this.city = city;
    }
 
    public boolean isVerified() {

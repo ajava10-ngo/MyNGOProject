@@ -82,6 +82,7 @@ public class Register extends HttpServlet {
             }
          } else if (operation.equals("ResendOTP")) {
             String email = request.getParameter("email");
+            response.sendRedirect("emailVerification.jsp?email=" + email);
          } else if (operation.equals("SelectCity")) {
             int stateId = Integer.parseInt(request.getParameter("stateId").trim());
             City city = new City(stateId);

@@ -93,7 +93,7 @@ public class UserDao {
 
    public boolean updateBloodGroup(User user) {
       try {
-         String sql = "UPDATE USER SET stockId = ? WHERE userID = ?;";
+         String sql = "UPDATE user SET stockId = ? WHERE userID = ?;";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
 
@@ -117,7 +117,7 @@ public class UserDao {
 
    public ResultSet getAllUser() {
       try {
-         String sql = "SELECT * FROM USER where type = 2 AND verified = 1;";
+         String sql = "SELECT * FROM user where type = 2 AND verified = 1;";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
 
@@ -138,7 +138,7 @@ public class UserDao {
    public ResultSet getUserNotInVolunteer() {
 
       try {
-         String sql = "SELECT * FROM USER u WHERE NOT EXISTS(SELECT * FROM volunteer v WHERE u.userId = v.userId);";
+         String sql = "SELECT * FROM USER WHERE NOT EXISTS(SELECT * FROM volunteer WHERE (user.userId = volunteer.userId)) AND user.verified  = 1 AND user.type = 2;";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
 

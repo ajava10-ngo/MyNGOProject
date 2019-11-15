@@ -4,6 +4,14 @@ public class Stock {
 
     private int stockId, available;
     private String bloodGroup;
+    
+    public Stock() {}
+    
+    public Stock(int stockId, int available, String bloodGroup) {
+        this.stockId = stockId;
+        this.available = available;
+        this.bloodGroup = bloodGroup;
+    }
 
     public Stock(int available, String bloodGroup) {
         this.available = available;

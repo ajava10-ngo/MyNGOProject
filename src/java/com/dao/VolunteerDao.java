@@ -1,26 +1,60 @@
 package com.dao;
 
 import com.connection.DBConnection;
+import com.model.City;
+import com.model.State;
+import com.model.User;
 import com.model.Volunteer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class VolunteerDao {
 
    private Connection con = null;
 
-   public ResultSet getAllVolunteer() {
+   public ArrayList<User> getAllVolunteer() {
 
       try {
-         String sql = "SELECT * FROM user inner join volunteer on user.userId = volunteer.userId;";
+         ArrayList alList = new ArrayList<>();
+         ArrayList al = new ArrayList();
+         
+         String sql = "SELECT * FROM user, volunteer, city, state WHERE user.userId = volunteer.userId AND user.cityId = city.cityId AND user.stateId = state.stateId;";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
 
          ResultSet rs = ps.executeQuery();
+         
+         while(rs.next()) {
+            
+            int volunteerId = rs.getInt("volunteerId");
+            int userId = rs.getInt("userId");
+            String post = rs.getString("post");
+            String idCardNo = rs.getString("idCardNo");
+            
+            String name = rs.getString("name");
+            String email = rs.getString("email");
+            String username = rs.getString("username");
+            String mobile = rs.getString("mobile");
+            String gender = rs.getString("gender");
+            int age = rs.getInt("age");
+            String address = rs.getString("address");
+            String state = rs.getString("state");
+            String city = rs.getString("city");
+            
+            Volunteer volunteer = new Volunteer(volunteerId, userId, post, idCardNo);
+            State stateObj = new State(state);
+            City cityObj = new City(city);
+            
+            User user = new User(userId, age, name, email, username, mobile, gender, address, volunteer, stateObj, cityObj);
+            
+            alList.add(user);
+            
+         }
 
-         return rs;
+         return alList;
       } catch (SQLException e) {
          System.err.println("VolunteerDao Exception : " + e.toString());
       } finally {

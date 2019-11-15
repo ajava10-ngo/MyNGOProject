@@ -51,15 +51,6 @@ public class EventDao {
             ps.setString(6, event.getLocation());
             ps.setString(7, event.getSponsers());
             ps.setInt(8, event.getEventId());
-            
-            System.out.println(event.getEventId());
-            System.out.println(event.getEvent());
-            System.out.println(event.getDescription());
-            System.out.println(event.getDate());
-            System.out.println(event.getTime());
-            System.out.println(event.getVolunteerId());
-            System.out.println(event.getLocation());
-            System.out.println(event.getSponsers());
 
             int isInserted = ps.executeUpdate();
 

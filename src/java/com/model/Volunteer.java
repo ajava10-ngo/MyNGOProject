@@ -7,8 +7,14 @@ public class Volunteer {
     private String post;
     private String idCardNo;
 
-    public Volunteer() {
-    }
+    public Volunteer() {}
+    
+    public Volunteer(int volunteerId, int userId, String post, String idCardNo) {
+      this.volunteerId = volunteerId;
+      this.userId = userId;
+      this.idCardNo = idCardNo;
+      this.post = post;
+   }
 
     public Volunteer(int userId) {
        this.userId = userId;

@@ -4,6 +4,10 @@ public class State {
     
     private int stateId;
     private String state;
+    
+    public State(String state) {
+       this.state = state;
+    }
 
     public State(int stateId, String state) {
         this.stateId = stateId;

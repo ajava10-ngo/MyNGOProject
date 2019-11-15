@@ -4,6 +4,7 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.DonorDao"%>
 <%@page import="com.dao.EventDao"%>
 <%@page import="com.model.Event"%>
@@ -21,14 +22,12 @@
 
    int totalVolunteer = 0;
    VolunteerDao volunteerDao = new VolunteerDao();
-   ResultSet resultSetVolunteer = volunteerDao.getAllVolunteer();
-   while (resultSetVolunteer.next()) {
-      totalVolunteer++;
-   }
+   ArrayList alVolunteer = volunteerDao.getAllVolunteer();
+   totalVolunteer = alVolunteer.size();
 
    int totalEvent = 0;
    EventDao eventDao = new EventDao();
-   ResultSet resultSetEvent = volunteerDao.getAllVolunteer();
+   ResultSet resultSetEvent = eventDao.getAllEvent();
    while (resultSetEvent.next()) {
       totalEvent++;
    }
@@ -64,7 +63,7 @@
                          </div>
                          <div class="text-wrapper pl-1">
                            <h3 class="mdc-typography--display1 font-weight-bold mb-1"><%= totalUser%></h3>
-                         <p class="font-weight-normal mb-0 mt-0">Total User</p>
+                         <p class="font-weight-normal mb-0 mt-0">Total Active User</p>
                        </div>
                      </div>
                    </div>
@@ -158,7 +157,6 @@
                           UserDao userDao = new UserDao();
                           ResultSet rs = userDao.getUserNotInVolunteer();
                           while (rs.next()) {
-                             if (Integer.parseInt(rs.getString("type")) != 1) {
                        %>
                        <tr>
                          <td class="text-center">
@@ -202,7 +200,6 @@
                          </td>
                        </tr>
                        <%
-                             }
                           }
                        %>
                      </tbody>

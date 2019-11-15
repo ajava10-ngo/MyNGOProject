@@ -4,6 +4,9 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.model.User"%>
+<%@page import="com.model.Volunteer"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.dao.VolunteerDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,11 +16,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Volunteer Details</title>
     <script>
-       function showIdCard() {
+       function showIdCard(volunteerId) {
           var cardDetails = document.getElementById("cardDetails");
-          var volunteerId = document.getElementById("volunteerId").innerHTML;
           
-           alert(volunteerId);
+          alert(volunteerId);
 
           object = new XMLHttpRequest();
 
@@ -66,52 +68,52 @@
                        </thead>
                        <tbody>
                        <%
+                          User user = new User();
                           VolunteerDao volunteerDao = new VolunteerDao();
-                      //ArrayList<Volunteer> al = volunteerDao.getAllVolunteer();
-                          
-                          ResultSet rs = volunteerDao.getAllVolunteer();
-                          while (rs.next()) {
+                          ArrayList<User> al = volunteerDao.getAllVolunteer();
+
+                          for (int i = 0; i < al.size(); i++) {
+                             user = al.get(i);
                        %>
                        <tr>
                          <td class="text-center" >
-                           <%= rs.getString("name")%>
+                           <%= user.getName()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("email")%>
+                           <%= user.getEmail()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("username")%>
+                           <%= user.getUsername()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("mobile")%>
+                           <%= user.getMobile()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("age")%>
+                           <%= user.getAge()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("gender")%>
+                           <%= user.getGender()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("cityId")%>
+                           <%= user.getCity().getCity()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("stateId")%>
+                           <%= user.getState().getState()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("address")%>
+                           <%= user.getAddress()%>
                          </td>
-                           
+
                          <td>
                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                             <a href="../volunteerController?operation=Remove&volunteerId=<%= rs.getString("volunteerId")%>" class="mdi mdi-heart text-blue">
+                             <a href="../volunteerController?operation=Remove&volunteerId=<%= user.getVolunteer().getVolunteerId()%>" class="mdi mdi-heart text-blue">
                                Remove
                              </a>
                            </span>
                          </td>
                          <td >
                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple" >
-                             <a id="volunteerId" hidden="" ><%= rs.getString("volunteerId")%></a>
-                             <a class="mdi mdi-heart text-blue" onchange="" onclick="showIdCard()">
+                             <a class="mdi mdi-heart text-blue" onchange="" onclick="showIdCard(<%= user.getVolunteer().getVolunteerId()%>)">
                                Details
                              </a>
                            </span>
