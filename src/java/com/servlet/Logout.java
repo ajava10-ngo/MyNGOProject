@@ -15,23 +15,27 @@ public class Logout extends HttpServlet {
            throws ServletException, IOException {
       response.setContentType("text/html;charset=UTF-8");
       try (PrintWriter out = response.getWriter()) {
-         
+
          HttpSession session = request.getSession();
          User user = (User) session.getAttribute("user");
-         
-         
+
          out.println("<!DOCTYPE html>");
          out.println("<html>");
          out.println("<head>");
-         out.println("<title></title>");         
+         out.println("<title></title>");
          out.println("</head>");
          out.println("<body>");
-         out.println("<h1>" + user.getUsername() + "</h1>");
-         
+
+         if (session != null) {
+            out.println("<h1>" + user.getUsername() + "</h1>");
+         } else {
+            response.sendRedirect("login.jsp");
+         }
+
          session.removeAttribute("user");
          session.invalidate();
          response.sendRedirect("login.jsp");
-         
+
          out.println("</body>");
          out.println("</html>");
       }

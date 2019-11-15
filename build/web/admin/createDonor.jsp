@@ -4,6 +4,8 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.model.Stock"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.UserDao"%>
 <%@page import="com.dao.DonorDao"%>
 <%@page import="java.sql.ResultSet"%>
@@ -36,7 +38,7 @@
                                <div class="template-demo">
                                  <div id="demo-tf-box-wrapper">
                                    <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                     <input name="userId" value="" list="browsers" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Name">
+                                     <input name="userId" list="browsers" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Name">
                                      <datalist id="browsers">
                                      <%
                                         UserDao userDao = new UserDao();
@@ -82,12 +84,15 @@
                                  <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
                                    <select name="stockId" class="mdc-select__surface">
                                      <option value="0">Select Blood Group</option>
-                                     <%StockDao stockDao = new StockDao();
-                                        ResultSet rs = stockDao.getAllStock();
-                                        while (rs.next()) {
+                                     <%
+                                        StockDao stockDao = new StockDao();
+                                        ArrayList<Stock> alStock = stockDao.getAllStock();
+                                        Stock stock = new Stock();
+                                        for (int i = 0; i < alStock.size(); i++) {
+                                           stock = alStock.get(i);
                                      %>
 
-                                     <option value="<%= rs.getString("stockId")%>"><%= rs.getString("bloodGroup")%></option>
+                                     <option value="<%= stock.getStockId()%>"><%= stock.getBloodGroup()%></option>
 
                                      <%
                                         }

@@ -12,7 +12,9 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/dao/DonorDao.java</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/web/admin/createDonor.jsp</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/dao/StockDao.java</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/servlet/Logout.java</file>
         </group>
     </open-files>
 </project-private>
