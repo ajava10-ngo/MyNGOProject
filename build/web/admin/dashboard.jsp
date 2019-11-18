@@ -4,6 +4,7 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.model.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.DonorDao"%>
 <%@page import="com.dao.EventDao"%>
@@ -13,12 +14,26 @@
 <%@page import="com.dao.UserDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+
+   response.setHeader("Cache-Control", "no-cache");
+   response.setHeader("Cache-Control", "no-store");
+   response.setHeader("Pragma", "no-cache");
+   response.setDateHeader("Expires", 0);
+   
+   if (session.getAttribute("user") == null) {
+      response.sendRedirect("../login.jsp");
+   }
+
+   if (session != null) {
+      User user = (User) session.getAttribute("user");
+   } else {
+      response.sendRedirect("../login.jsp");
+   }
+
    int totalUser = 0;
    UserDao getUser = new UserDao();
-   ResultSet resultSetUser = getUser.getAllUser();
-   while (resultSetUser.next()) {
-      totalUser++;
-   }
+   ArrayList<User> alUser = getUser.getAllUser();
+   totalUser = alUser.size();
 
    int totalVolunteer = 0;
    VolunteerDao volunteerDao = new VolunteerDao();
@@ -27,17 +42,13 @@
 
    int totalEvent = 0;
    EventDao eventDao = new EventDao();
-   ResultSet resultSetEvent = eventDao.getAllEvent();
-   while (resultSetEvent.next()) {
-      totalEvent++;
-   }
+   ArrayList<Event> alEvent = eventDao.getAllEvent();
+   totalEvent = alEvent.size();
 
    int totalDonation = 0;
    DonorDao donorDao = new DonorDao();
-   ResultSet resultSetDonor = donorDao.getAllDonor();
-   while (resultSetDonor.next()) {
-      totalDonation++;
-   }
+   ArrayList<User> alDonor = donorDao.getAllDonor();
+   totalDonation = alDonor.size();
 %>
 <!DOCTYPE html>
 <html>
@@ -155,45 +166,47 @@
                      <tbody>
                        <%
                           UserDao userDao = new UserDao();
-                          ResultSet rs = userDao.getUserNotInVolunteer();
-                          while (rs.next()) {
+                          User user = new User();
+                          ArrayList<User> al = userDao.getUserNotInVolunteer();
+                          for (int i = 0; i < al.size(); i++) {
+                             user = al.get(i);
                        %>
                        <tr>
                          <td class="text-center">
-                           <%= rs.getString("name")%>
+                           <%= user.getName()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("email")%>
+                           <%= user.getEmail()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("username")%>
+                           <%= user.getUsername()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("mobile")%>
+                           <%= user.getMobile()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("age")%>
+                           <%= user.getAge()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("gender")%>
+                           <%= user.getGender()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("cityId")%>
+                           <%= user.getAge()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("stateId")%>
+                           <%= user.getState().getState()%>
                          </td>
                          <td class="text-center">
-                           <%= rs.getString("address")%>
+                           <%= user.getCity().getCity()%>
                          </td>
                          <td>
                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                             <a href="../userController?operation=Inactive&userId=<%= rs.getString("userId")%>" class="mdi mdi-heart text-blue">
+                             <a href="../userController?operation=Inactive&userId=<%= user.getUserId()%>" class="mdi mdi-heart text-blue">
                                Inactive
                              </a>
                            </span>
                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                             <a href="../volunteerController?operation=Insert&userId=<%= rs.getString("userId")%>&email=<%= rs.getString("email")%>" class="mdi mdi-heart text-blue">
+                             <a href="../volunteerController?operation=Insert&userId=<%= user.getUserId()%>&email=<%= user.getEmail()%>" class="mdi mdi-heart text-blue">
                                Make_Volunteer
                              </a>
                            </span>

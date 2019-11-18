@@ -12,9 +12,15 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/web/admin/createDonor.jsp</file>
-            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/dao/StockDao.java</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/servlet/Register.java</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/model/User.java</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/servlet/Login.java</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/dao/UserDao.java</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/dao/CityDao.java</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/dao/VolunteerDao.java</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/model/Donor.java</file>
             <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/servlet/Logout.java</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/dao/DonorDao.java</file>
         </group>
     </open-files>
 </project-private>

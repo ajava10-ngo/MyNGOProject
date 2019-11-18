@@ -10,6 +10,16 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.dao.VolunteerDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+   response.setHeader("Cache-Control", "no-cache");
+   response.setHeader("Cache-Control", "no-store");
+   response.setHeader("Pragma", "no-cache");
+   response.setDateHeader("Expires", 0);
+
+   if (session.getAttribute("user") == null) {
+      response.sendRedirect("../login.jsp");
+   }
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,9 +28,7 @@
     <script>
        function showIdCard(volunteerId) {
           var cardDetails = document.getElementById("cardDetails");
-          
-          alert(volunteerId);
-
+//          alert(volunteerId);
           object = new XMLHttpRequest();
 
           var method = "get";
@@ -113,6 +121,7 @@
                          </td>
                          <td >
                            <span class="col mdc-button" data-mdc-auto-init="MDCRipple" >
+
                              <a class="mdi mdi-heart text-blue" onchange="" onclick="showIdCard(<%= user.getVolunteer().getVolunteerId()%>)">
                                Details
                              </a>

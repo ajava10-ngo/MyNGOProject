@@ -4,10 +4,21 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.EventDao"%>
 <%@page import="com.model.Event"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+   response.setHeader("Cache-Control", "no-cache");
+   response.setHeader("Cache-Control", "no-store");
+   response.setHeader("Pragma", "no-cache");
+   response.setDateHeader("Expires", 0);
+
+   if (session.getAttribute("user") == null) {
+      response.sendRedirect("../login.jsp");
+   }
+%>
 <!DOCTYPE html>
 <%
    Event event = new Event();
@@ -21,14 +32,15 @@
       event.setEventId(eventId);
 
       EventDao eventDao = new EventDao();
-      event = eventDao.getSingleEvent(event);
+      ArrayList<Event> al = eventDao.getSingleEvent(event);
+      event = al.get(0);
    }
 %>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Create Event</title>
-    
+
   </head>
   <body>
 
@@ -85,7 +97,7 @@
                                <div id="demo-tf-box-wrapper">
                                  <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
                                    <input name="date" value="<%= event.getDate()%>" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Date">
-                                    
+
                                    <div class="mdc-text-field__bottom-line"></div>
                                  </div>
                                  <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">

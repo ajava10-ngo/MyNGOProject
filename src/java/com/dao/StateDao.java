@@ -6,29 +6,39 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class StateDao {
 
-    private Connection con = null;
+   private Connection con = null;
 
-    public ResultSet getAllState() {
-        try {
-            String sql = "select * from state;";
-            con = DBConnection.getConnection();
-            PreparedStatement ps = con.prepareStatement(sql);
+   public ArrayList<State> getAllState() {
+      try {
+         ArrayList<State> al = new ArrayList<>();
+         State stateObj;
+         String sql = "select * from state;";
+         con = DBConnection.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql);
 
-            ResultSet rs = ps.executeQuery();
+         ResultSet rs = ps.executeQuery();
+         while (rs.next()) {
+            int stateId = rs.getInt("stateId");
+            String state = rs.getString("state");
 
-            return rs;
-        } catch (SQLException e) {
+            stateObj = new State(stateId, state);
+
+            al.add(stateObj);
+         }
+
+         return al;
+      } catch (SQLException e) {
+         System.err.println("StateDao Exception : " + e.toString());
+      } finally {
+         try {
+         } catch (Exception e) {
             System.err.println("StateDao Exception : " + e.toString());
-        } finally {
-            try {
-//                con.close();
-            } catch (Exception e) {
-                System.err.println("StateDao Exception : " + e.toString());
-            }
-        }
-        return null;
-    }
+         }
+      }
+      return null;
+   }
 }

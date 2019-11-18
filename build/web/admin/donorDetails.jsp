@@ -4,10 +4,22 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.model.User"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.dao.DonorDao"%>
 <%@page import="com.model.Donor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+   response.setHeader("Cache-Control", "no-cache");
+   response.setHeader("Cache-Control", "no-store");
+   response.setHeader("Pragma", "no-cache");
+   response.setDateHeader("Expires", 0);
+
+   if (session.getAttribute("user") == null) {
+      response.sendRedirect("../login.jsp");
+   }
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -43,30 +55,32 @@
                         <tbody>
                         <%
                             DonorDao donorDao = new DonorDao();
-                            ResultSet rs = donorDao.getAllDonor();
-                            while (rs.next()) {
+                            ArrayList<User> al = donorDao.getAllDonor();
+                            User user = new User();
+                            for (int i = 0; i < al.size(); i++) {
+                               user = al.get(i);
                         %>
                         <tr>
                           <td class="text-center">
-                            <%= rs.getString("name")%>
+                            <%= user.getName()%>
                           </td>
                           <td class="text-center">
-                            <%= rs.getString("bloodGroup")%>
+                            <%= user.getStock().getBloodGroup()%>
                           </td>
                           <td class="text-center">
-                            <%= rs.getString("mobile")%>
+                            <%= user.getMobile()%>
                           </td>
                           <td class="text-center">
-                            <%= rs.getString("gender")%>
+                            <%= user.getGender()%>
                           </td>
                           <td class="text-center">
-                            <%= rs.getString("age")%>
+                            <%= user.getAge()%>
                           </td>
                           <td class="text-center">
-                            <%= rs.getString("date")%>
+                            <%= user.getDonor().getDate()%>
                           </td>
                           <td class="text-center">
-                            <%= rs.getString("address")%>
+                            <%= user.getAddress()%>
                           </td>
                           <td class="text-center">
                             <span class="col mdc-button" data-mdc-auto-init="MDCRipple">

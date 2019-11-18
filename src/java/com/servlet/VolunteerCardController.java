@@ -1,10 +1,12 @@
 package com.servlet;
 
 import com.dao.VolunteerDao;
+import com.model.User;
 import com.model.Volunteer;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,18 +26,20 @@ public class VolunteerCardController extends HttpServlet {
          volunteer.setVolunteerId(volunteerId);
 
          VolunteerDao volunteerDao = new VolunteerDao();
-         ResultSet rs = volunteerDao.getSingleVolunteer(volunteer);
+         ArrayList<User> al = volunteerDao.getSingleVolunteer(volunteer);
+
+         User user = al.get(0);
 
          String data = "";
 
-         rs.next();
          data += "<br><br>";
-         data += "Volunteer ID : " + rs.getString("idCardNo") + "<br><br>";
-         data += "Name : " + rs.getString("name") + "<br><br>";
-         data += "City : " + rs.getString("city") + "<br><br>";
-         data += "State : " + rs.getString("state") + "<br><br>";
-         data += "Mobile : " + rs.getString("mobile") + "<br><br>";
-         data += "Qualification : " + rs.getString("qualification");
+         data += "Volunteer ID : " + user.getVolunteer().getIdCardNo() + "<br><br>";
+         data += "Name : " + user.getName() + "<br><br>";
+         data += "City : " + user.getCity().getCity() + "<br><br>";
+         data += "State : " + user.getState().getState() + "<br><br>";
+         data += "Mobile : " + user.getMobile() + "<br><br>";
+         data += "Qualification : " + user.getProfile().getQualification() + "<br><br>";
+         data += "Profession : " + user.getProfile().getProfession();
 
          out.print(data);
 

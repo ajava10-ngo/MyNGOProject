@@ -7,6 +7,7 @@ import com.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +26,6 @@ public class Register extends HttpServlet {
 
       try {
          String operation = request.getParameter("operation");
-//         out.print(operation);
          if (operation.equals("Register")) {
 
             String name = request.getParameter("name");
@@ -42,7 +42,7 @@ public class Register extends HttpServlet {
 
             out.print(name + " : " + email + " : " + username + " : " + password + " : " + mobile + " : " + age + " : " + stockId + " : " + stateId + " : " + cityId + " : " + address);
 
-            user = new User(age, cityId, stateId, age, stockId, name, email, username, password, mobile, gender, address);
+            user = new User(name, email, username, password, mobile, gender, age, stockId, stateId, cityId, address);
 
             userDao = new UserDao();
             boolean isRegistered = userDao.register(user);
@@ -58,11 +58,6 @@ public class Register extends HttpServlet {
 
             String enteredOtp = request.getParameter("otp").trim();
             String email = request.getParameter("email").trim();
-
-            System.out.println("Operation : " + operation);
-            System.out.println("GeneratedOtp : " + verification);
-            System.out.println("EnteredOtp : " + enteredOtp);
-            System.out.println("Email : " + email);
 
             if (verification.equals(enteredOtp)) {
 
@@ -88,12 +83,20 @@ public class Register extends HttpServlet {
             City city = new City(stateId);
 
             CityDao cityDao = new CityDao();
-            ResultSet rs = cityDao.getAllCity(city);
+            ArrayList<City> al = cityDao.getAllCity(city);
 
-            String data = null;
-            while (rs.next()) {
-               data += "<option value='" + rs.getString("cityId") + "'>" + rs.getString("city") + "</option>";
+            String data = "";
+
+            for (int i = 0; i < al.size(); i++) {
+               city = al.get(i);
+               System.out.println("City" + city.getCity());
+
+               data += "<option value=''>" + city.getCity() + "</option>";
             }
+
+//            while (rs.next()) {
+//               data += "<option value='" + rs.getString("cityId") + "'>" + rs.getString("city") + "</option>";
+//            }
             out.write(data.trim());
          }
       } catch (Exception e) {

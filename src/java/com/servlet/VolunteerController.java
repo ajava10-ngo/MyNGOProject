@@ -25,11 +25,12 @@ public class VolunteerController extends HttpServlet {
 
             String email = request.getParameter("email");
             if (userId != null && email != null) {
+               
                String prefix = "NGO";
                String idCardNo = "0123456789";
                StringBuilder sb = new StringBuilder(5);
 
-               for (int i = 0; i < 5; i++) {
+               for (int i = 0; i < sb.length(); i++) {
                   int index = (int) (idCardNo.length() * Math.random());
                   sb.append(idCardNo.charAt(index));
                }
@@ -74,7 +75,6 @@ public class VolunteerController extends HttpServlet {
                response.sendRedirect("admin/volunteerDetails.jsp");
             }
          }
-
       } catch (Exception e) {
          out.print("Volunteer Controller Exception : " + e.toString());
       }

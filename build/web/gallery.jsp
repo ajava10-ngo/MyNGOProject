@@ -14,7 +14,7 @@
        <title>Images</title>
      </head>
      <body>
-       <img src="assets/images/blood donation-1.jpg">
+       <img src="assets/images/blood-donation-1.jpg">
        <img src="assets/images/blood-donation-3.jpg">
        <img src="assets/images/blood-donation-4.jpg">
        <img src="assets/images/blood-donation-2.jpg">

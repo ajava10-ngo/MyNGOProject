@@ -4,6 +4,7 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.model.State"%>
 <%@page import="com.model.Stock"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.StockDao"%>
@@ -88,14 +89,14 @@
                  <%
                     Stock stock = new Stock();
                     StockDao stockDao = new StockDao();
-                    
+
                     ArrayList<Stock> al = stockDao.getAllStock();
-                    
+
                     for (int i = 0; i < al.size(); i++) {
                        stock = al.get(i);
                  %>
-                 <option value="<%= stock.getStockId() %>" >
-                   <%= stock.getBloodGroup() %>
+                 <option value="<%= stock.getStockId()%>" >
+                   <%= stock.getBloodGroup()%>
                  </option>
                  <%
                     }
@@ -106,18 +107,15 @@
                <select onchange="selectCity()" id="stateId" class="custom-select" name="stateId" required="">
                  <option value="0" selected="">Select State</option>
                  <%
-                    ResultSet rsState = null;
-                    try {
-                       StateDao stateDao = new StateDao();
+                    StateDao stateDao = new StateDao();
 
-                       rsState = stateDao.getAllState();
-                    } catch (Exception e) {
-                       out.print("Exception : " + e.toString());
-                    }
-                    while (rsState.next()) {
+                    ArrayList<State> arrayList = stateDao.getAllState();
+                    State state = new State();
+                    for (int i = 0; i < arrayList.size(); i++) {
+                       state = arrayList.get(i);
                  %>
-                 <option id="stateId" value="<%= rsState.getInt("stateId")%>">
-                   <%= rsState.getString("state")%>
+                 <option id="stateId" value="<%= state.getStateId()%>">
+                   <%= state.getState()%>
                  </option>
                  <%
                     }

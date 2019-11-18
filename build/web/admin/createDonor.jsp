@@ -4,6 +4,7 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.model.User"%>
 <%@page import="com.model.Stock"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.UserDao"%>
@@ -11,6 +12,16 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.dao.StockDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+   response.setHeader("Cache-Control", "no-cache");
+   response.setHeader("Cache-Control", "no-store");
+   response.setHeader("Pragma", "no-cache");
+   response.setDateHeader("Expires", 0);
+
+   if (session.getAttribute("user") == null) {
+      response.sendRedirect("../login.jsp");
+   }
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -41,12 +52,14 @@
                                      <input name="userId" list="browsers" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Name">
                                      <datalist id="browsers">
                                      <%
+                                        User user = new User();
                                         UserDao userDao = new UserDao();
-                                        ResultSet rsUser = userDao.getAllUser();
-                                        while (rsUser.next()) {
+                                        ArrayList<User> al = userDao.getAllUser();
+                                        for (int i = 0; i < al.size(); i++) {
+                                           user = al.get(i);
                                      %>
-                                     <option value="<%= rsUser.getString("userId")%> ">
-                                       <%= rsUser.getString("name")%>
+                                     <option value="<%= user.getUserId()%> ">
+                                       <%= user.getName()%>
                                      </option>
 
                                      <%

@@ -6,7 +6,7 @@ public class Volunteer {
     private int userId;
     private String post;
     private String idCardNo;
-
+    
     public Volunteer() {}
     
     public Volunteer(int volunteerId, int userId, String post, String idCardNo) {

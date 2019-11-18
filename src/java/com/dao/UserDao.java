@@ -1,12 +1,14 @@
 package com.dao;
 
 import com.connection.DBConnection;
-import com.model.Stock;
+import com.model.City;
+import com.model.State;
 import com.model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class UserDao {
 
@@ -67,10 +69,11 @@ public class UserDao {
       return false;
    }
 
-   public ResultSet login(User user) {
+   public ArrayList<User> login(User user) {
 
       try {
-         String sql = "select * from user where username = ? and password = ?;";
+         ArrayList<User> al = new ArrayList<>();
+         String sql = "SELECT * FROM user, state, city WHERE user.stateId = state.stateId AND user.cityId = city.cityId AND user.username = ? AND user.password = ?;";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
 
@@ -79,7 +82,34 @@ public class UserDao {
 
          ResultSet rs = ps.executeQuery();
 
-         return rs;
+         if (rs.next()) {
+
+            int userId = rs.getInt("userId");
+            String name = rs.getString("name");
+            String email = rs.getString("email");
+            String username = rs.getString("username");
+            String password = rs.getString("password");
+            String mobile = rs.getString("mobile");
+            String gender = rs.getString("gender");
+            int age = rs.getInt("age");
+            int stockId = rs.getInt("stockId");
+            int stateId = rs.getInt("stateId");
+            int cityId = rs.getInt("cityId");
+            String address = rs.getString("address");
+            int type = rs.getInt("type");
+            int verified = rs.getInt("verified");
+
+            String state = rs.getString("state");
+            String city = rs.getString("city");
+
+            State stateObj = new State(state);
+            City cityObj = new City(city);
+
+            user = new User(userId, name, email, username, password, mobile, gender, age, stockId, stateId, cityId, address, type, verified, null, stateObj, cityObj, null, null, null);
+            al.add(user);
+         }
+
+         return al;
       } catch (SQLException e) {
          System.err.println("UserDao Exception : " + e.toString());
       } finally {
@@ -115,15 +145,37 @@ public class UserDao {
       return false;
    }
 
-   public ResultSet getAllUser() {
+   public ArrayList<User> getAllUser() {
       try {
+         ArrayList<User> al = new ArrayList<>();
+
          String sql = "SELECT * FROM user where type = 2 AND verified = 1;";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
 
          ResultSet rs = ps.executeQuery();
+         while (rs.next()) {
 
-         return rs;
+            int userId = rs.getInt("userId");
+            String name = rs.getString("name");
+            String email = rs.getString("email");
+            String username = rs.getString("username");
+            String password = rs.getString("password");
+            String mobile = rs.getString("mobile");
+            String gender = rs.getString("gender");
+            int age = rs.getInt("age");
+            int stockId = rs.getInt("stockId");
+            int stateId = rs.getInt("stateId");
+            int cityId = rs.getInt("cityId");
+            String address = rs.getString("address");
+            int type = rs.getInt("type");
+            int verified = rs.getInt("verified");
+
+            User user = new User(userId, name, email, username, password, mobile, gender, age, stockId, stateId, cityId, address, type, verified);
+            al.add(user);
+         }
+
+         return al;
       } catch (SQLException e) {
          System.err.println("UserDao Exception : " + e.toString());
       } finally {
@@ -135,16 +187,42 @@ public class UserDao {
       return null;
    }
 
-   public ResultSet getUserNotInVolunteer() {
+   public ArrayList<User> getUserNotInVolunteer() {
 
       try {
-         String sql = "SELECT * FROM USER WHERE NOT EXISTS(SELECT * FROM volunteer WHERE (user.userId = volunteer.userId)) AND user.verified  = 1 AND user.type = 2;";
+         ArrayList<User> al = new ArrayList<>();
+         String sql = "SELECT * FROM user, state, city WHERE NOT EXISTS(SELECT * FROM volunteer WHERE (user.userId = volunteer.userId)) AND user.verified  = 1 AND user.type = 2 AND user.cityId = city.cityId AND user.stateId = state.stateId;";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
 
          ResultSet rs = ps.executeQuery();
+         while (rs.next()) {
 
-         return rs;
+            int userId = rs.getInt("userId");
+            String name = rs.getString("name");
+            String email = rs.getString("email");
+            String username = rs.getString("username");
+            String password = rs.getString("password");
+            String mobile = rs.getString("mobile");
+            String gender = rs.getString("gender");
+            int age = rs.getInt("age");
+            int stockId = rs.getInt("stockId");
+            int stateId = rs.getInt("stateId");
+            int cityId = rs.getInt("cityId");
+            String address = rs.getString("address");
+            int type = rs.getInt("type");
+            int verified = rs.getInt("verified");
+            String state = rs.getString("state");
+            String city = rs.getString("city");
+
+            State stateObj = new State(state);
+            City cityObj = new City(city);
+
+            User user = new User(userId, name, email, username, password, mobile, gender, age, stockId, stateId, cityId, address, type, verified, null, stateObj, cityObj, null, null, null);
+            al.add(user);
+         }
+
+         return al;
       } catch (SQLException e) {
          System.err.println("UserDao Exception : " + e.toString());
       } finally {
