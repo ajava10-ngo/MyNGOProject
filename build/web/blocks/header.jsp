@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
-
     <header class="site-header">
       <div class="top-header-bar">
         <div class="container">
@@ -44,7 +43,7 @@
               <div class="donate-btn">
                 <a href="login.jsp">Donate Now</a>
               </div><!-- .donate-btn -->
-            </div><!-- .col -->
+            </div><!-- .col -->            
           </div><!-- .row -->
         </div><!-- .container -->
       </div><!-- .top-header-bar -->

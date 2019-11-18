@@ -31,20 +31,19 @@ public class Login extends HttpServlet {
          ArrayList<User> al = userDao.login(user);
 
          user = al.get(0);
+         HttpSession session = request.getSession();
+         session.setAttribute("user", user);
 
          if (user != null) {
             if (user.getType() == 1) {
-               HttpSession session = request.getSession();
-               session.setAttribute("user", user);
                response.sendRedirect("admin/dashboard.jsp");
             } else {
-               response.sendRedirect("donateNow.jsp");
+               response.sendRedirect("user/donateNow.jsp");
             }
          } else {
             out.print("Invalid Username or Password ");
             response.sendRedirect("login.jsp");
          }
-
       } catch (Exception e) {
          out.print("Login Servlet Exception : " + e.toString());
       }

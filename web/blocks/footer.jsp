@@ -105,6 +105,5 @@
 <script type='text/javascript' src='assets/js/jquery.countTo.min.js'></script>
 <script type='text/javascript' src='assets/js/jquery.barfiller.js'></script>
 <script type='text/javascript' src='assets/js/custom.js'></script>
-
 </body>
 </html>
