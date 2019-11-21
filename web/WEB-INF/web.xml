@@ -34,8 +34,11 @@
     <servlet>
         <servlet-name>DonorController</servlet-name>
         <servlet-class>com.servlet.DonorController</servlet-class>
-    </servlet>    
-    
+    </servlet>
+    <servlet>
+        <servlet-name>StockController</servlet-name>
+        <servlet-class>com.servlet.StockController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -68,7 +71,10 @@
         <servlet-name>DonorController</servlet-name>
         <url-pattern>/donorController</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>StockController</servlet-name>
+        <url-pattern>/stockController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

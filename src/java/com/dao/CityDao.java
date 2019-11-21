@@ -18,20 +18,14 @@ public class CityDao {
          String sql = "select * from city where stateId = ?;";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
-
          ps.setInt(1, cityObj.getStateId());
-
          ResultSet rs = ps.executeQuery();
-
          while (rs.next()) {
             int cityId = rs.getInt("cityId");
             String city = rs.getString("city");
             int stateId = rs.getInt("stateId");
-
             cityObj = new City(cityId, stateId, city);
-
             al.add(cityObj);
-
          }
          return al;
       } catch (Exception e) {

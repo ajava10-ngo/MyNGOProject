@@ -18,16 +18,12 @@ public class Register extends HttpServlet {
 
    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
-
       PrintWriter out = response.getWriter();
-
       User user;
       UserDao userDao;
-
       try {
          String operation = request.getParameter("operation");
          if (operation.equals("Register")) {
-
             String name = request.getParameter("name");
             String email = request.getParameter("email");
             String username = request.getParameter("username");
@@ -39,8 +35,6 @@ public class Register extends HttpServlet {
             int stateId = Integer.parseInt(request.getParameter("stateId"));
             int cityId = Integer.parseInt(request.getParameter("cityId"));
             String address = request.getParameter("address");
-
-            out.print(name + " : " + email + " : " + username + " : " + password + " : " + mobile + " : " + age + " : " + stockId + " : " + stateId + " : " + cityId + " : " + address);
 
             user = new User(name, email, username, password, mobile, gender, age, stockId, stateId, cityId, address);
 
@@ -89,14 +83,8 @@ public class Register extends HttpServlet {
 
             for (int i = 0; i < al.size(); i++) {
                city = al.get(i);
-               System.out.println("City" + city.getCity());
-
-               data += "<option value=''>" + city.getCity() + "</option>";
+               data += "<option value='" + city.getCityId() + "'>" + city.getCity() + "</option>";
             }
-
-//            while (rs.next()) {
-//               data += "<option value='" + rs.getString("cityId") + "'>" + rs.getString("city") + "</option>";
-//            }
             out.write(data.trim());
          }
       } catch (Exception e) {

@@ -3,6 +3,7 @@ package com.dao;
 import com.connection.DBConnection;
 import com.model.City;
 import com.model.State;
+import com.model.Stock;
 import com.model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 public class UserDao {
 
    private Connection con = null;
+
+   private static Connection con1 = null;
 
    public boolean register(User user) {
 
@@ -39,6 +42,7 @@ public class UserDao {
          System.err.println("UserDao Exception : " + e.toString());
       } finally {
          try {
+            con.close();
          } catch (Exception e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
@@ -62,6 +66,7 @@ public class UserDao {
          System.err.println("UserDao Exception : " + e.toString());
       } finally {
          try {
+            con.close();
          } catch (Exception e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
@@ -73,7 +78,7 @@ public class UserDao {
 
       try {
          ArrayList<User> al = new ArrayList<>();
-         String sql = "SELECT * FROM user, state, city WHERE user.stateId = state.stateId AND user.cityId = city.cityId AND user.username = ? AND user.password = ?;";
+         String sql = "SELECT * FROM user, state, city, stock WHERE user.stateId = state.stateId AND user.cityId = city.cityId AND user.stockId = stock.stockId AND user.username = ? AND user.password = ?;";
          con = DBConnection.getConnection();
          PreparedStatement ps = con.prepareStatement(sql);
 
@@ -98,22 +103,24 @@ public class UserDao {
             String address = rs.getString("address");
             int type = rs.getInt("type");
             int verified = rs.getInt("verified");
+            String bloodGroup = rs.getString("bloodGroup");
 
             String state = rs.getString("state");
             String city = rs.getString("city");
 
+            Stock stock = new Stock(stockId, 0, bloodGroup);
             State stateObj = new State(state);
             City cityObj = new City(city);
 
-            user = new User(userId, name, email, username, password, mobile, gender, age, stockId, stateId, cityId, address, type, verified, null, stateObj, cityObj, null, null, null);
+            user = new User(userId, name, email, username, password, mobile, gender, age, stockId, stateId, cityId, address, type, verified, null, stateObj, cityObj, null, null, stock);
             al.add(user);
          }
-
          return al;
       } catch (SQLException e) {
          System.err.println("UserDao Exception : " + e.toString());
       } finally {
          try {
+            con.close();
          } catch (Exception e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
@@ -138,6 +145,7 @@ public class UserDao {
          System.err.println("UserDao Exception : " + e.toString());
       } finally {
          try {
+            con.close();
          } catch (Exception e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
@@ -180,6 +188,7 @@ public class UserDao {
          System.err.println("UserDao Exception : " + e.toString());
       } finally {
          try {
+            con.close();
          } catch (Exception e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
@@ -227,6 +236,7 @@ public class UserDao {
          System.err.println("UserDao Exception : " + e.toString());
       } finally {
          try {
+            con.close();
          } catch (Exception e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
@@ -249,8 +259,105 @@ public class UserDao {
          }
       } catch (Exception e) {
          System.err.println("UserDao Exception : " + e.toString());
+      } finally {
+         try {
+            con.close();
+         } catch (Exception e) {
+            System.err.println("UserDao Exception : " + e.toString());
+         }
       }
       return false;
    }
 
+   public boolean updateUser(User user) {
+      try {
+         String sql = "UPDATE user SET NAME = ?, email = ?, mobile = ?, age = ?, stockId = ?, stateId = ?, cityId = ?, address = ? WHERE userId = ?;";
+         con = DBConnection.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql);
+
+         ps.setString(1, user.getName());
+         ps.setString(2, user.getEmail());
+         ps.setString(3, user.getMobile());
+         ps.setInt(4, user.getAge());
+         ps.setInt(5, user.getStockId());
+         ps.setInt(6, user.getStateId());
+         ps.setInt(7, user.getCityId());
+         ps.setString(8, user.getAddress());
+         ps.setInt(9, user.getUserId());
+
+         int isRemoved = ps.executeUpdate();
+
+         if (isRemoved > 0) {
+            return true;
+         }
+      } catch (Exception e) {
+         System.err.println("UserDao Exception : " + e.toString());
+      } finally {
+         try {
+            con.close();
+         } catch (Exception e) {
+            System.err.println("UserDao Exception : " + e.toString());
+         }
+      }
+      return false;
+   }
+
+//   public ArrayList<User> getSingleUser(User user) {
+//      try {
+//         ArrayList<User> al = new ArrayList<>();
+//
+//         String sql = "SELECT * FROM user, stock, city, state WHERE user.stateId = "
+//                 + "state.stateId AND user.cityId = city.cityId AND user.stockId = "
+//                 + "stock.stockId AND user.userId = ?;";
+//         con = DBConnection.getConnection();
+//         PreparedStatement ps = con.prepareStatement(sql);
+//
+//         ps.setInt(1, user.getUserId());
+//
+//         ResultSet rs = ps.executeQuery();
+//         while (rs.next()) {
+//            // User
+//            int userId = rs.getInt("userId");
+//            String name = rs.getString("name");
+//            String email = rs.getString("email");
+//            String username = rs.getString("username");
+//            String password = rs.getString("password");
+//            String mobile = rs.getString("mobile");
+//            String gender = rs.getString("gender");
+//            int age = rs.getInt("age");
+//            String address = rs.getString("address");
+//            int type = rs.getInt("type");
+//            int verified = rs.getInt("verified");
+//
+//            // Stock
+//            int stockId = rs.getInt("stockId");
+//            String bloodGroup = rs.getString("bloodGroup");
+//
+//            // State
+//            int stateId = rs.getInt("stateId");
+//            String state = rs.getString("state");
+//
+//            // City
+//            int cityId = rs.getInt("cityId");
+//            String city = rs.getString("city");
+//
+//            Stock stock = new Stock(0, bloodGroup);
+//            State stateObj = new State(state);
+//            City cityObj = new City(city);
+//            user = new User(userId, name, email, username, password, mobile, gender, age, stockId, stateId, cityId, address, type, verified, null, stateObj, cityObj, null, null, stock);
+//            al.add(user);
+//         }
+//
+//         return al;
+//      } catch (SQLException e) {
+//         System.err.println("UserDao Exception : " + e.toString());
+//      } finally {
+//         try {
+//            con.close();
+//         } catch (Exception e) {
+//            System.err.println("UserDao Exception : " + e.toString());
+//         }
+//      }
+//      return null;
+//   }
 }

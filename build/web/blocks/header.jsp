@@ -41,7 +41,19 @@
 
             <div class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
               <div class="donate-btn">
+                
+                <%
+                   if (session.getAttribute("user") != null) {
+                %>
+                <a href="user/donateNow.jsp">Donate Now</a>
+                <a href="logout">Logout</a>
+                <%
+                   } else {
+                %>
                 <a href="login.jsp">Donate Now</a>
+                <%
+                   }
+                %>
               </div><!-- .donate-btn -->
             </div><!-- .col -->            
           </div><!-- .row -->

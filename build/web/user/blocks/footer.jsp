@@ -31,10 +31,10 @@
 
           <ul>
             <li><a href="#">Privacy Policy</a></li>
-            <li><a href="../login.jsp">Become  a Volunteer</a></li>
-            <li><a href="../login.jsp">Donate</a></li>
+            <li><a href="login.jsp">Become  a Volunteer</a></li>
+            <li><a href="login.jsp">Donate</a></li>
 <!--            <li><a href="#">Testimonials</a></li>-->
-            <li><a href="../causes.jsp">Causes</a></li>
+            <li><a href="causes.jsp">Causes</a></li>
 
           </ul>
         </div><!-- .col -->
@@ -68,7 +68,7 @@
 
             <ul>
               <li><i class="fa fa-phone"></i><span>7471125381</span></li>
-              <li><i class="fa fa-envelope"></i><span>ajavango@gmail.com</span></li>
+              <li><i class="fa fa-envelope"></i><span>ajava10@ngo.com</span></li>
               <li><i class="fa fa-map-marker"></i><span>Universal Informatics ,A.B Road Bhawarkuwa ,Indore</span></li>
             </ul>
           </div><!-- .foot-contact -->
@@ -96,15 +96,5 @@
     </div><!-- .container -->
   </div><!-- .footer-bar -->
 </footer><!-- .site-footer -->
-
-<script type='text/javascript' src='assets/js/jquery.js'></script>
-<script type='text/javascript' src='assets/js/jquery.collapsible.min.js'></script>
-<script type='text/javascript' src='assets/js/swiper.min.js'></script>
-<script type='text/javascript' src='assets/js/jquery.countdown.min.js'></script>
-<script type='text/javascript' src='assets/js/circle-progress.min.js'></script>
-<script type='text/javascript' src='assets/js/jquery.countTo.min.js'></script>
-<script type='text/javascript' src='assets/js/jquery.barfiller.js'></script>
-<script type='text/javascript' src='assets/js/custom.js'></script>
-
 </body>
 </html>

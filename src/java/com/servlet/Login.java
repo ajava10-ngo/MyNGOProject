@@ -13,15 +13,16 @@ import javax.servlet.http.HttpSession;
 
 public class Login extends HttpServlet {
 
-   @Override
-   protected void doPost(HttpServletRequest request, HttpServletResponse response)
+   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
-
       PrintWriter out = response.getWriter();
       try {
 
          String username = request.getParameter("username");
          String password = request.getParameter("password");
+
+         System.out.println("Username : " + username);
+         System.out.println("Password : " + password);
 
          User user = new User();
          user.setUsername(username);
@@ -30,22 +31,35 @@ public class Login extends HttpServlet {
          UserDao userDao = new UserDao();
          ArrayList<User> al = userDao.login(user);
 
-         user = al.get(0);
-         HttpSession session = request.getSession();
-         session.setAttribute("user", user);
-
-         if (user != null) {
-            if (user.getType() == 1) {
-               response.sendRedirect("admin/dashboard.jsp");
-            } else {
-               response.sendRedirect("user/donateNow.jsp");
+         if (!al.isEmpty()) {
+            user = al.get(0);
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            if (user != null) {
+               if (user.getType() == 1) {
+                  out.print("Admin");
+               } else if (user.getVerified() == 1) {
+                  out.print("User");
+               } else {
+                  out.print("Verify");
+               }
             }
          } else {
-            out.print("Invalid Username or Password ");
-            response.sendRedirect("login.jsp");
+            out.println("Invalid Username or Password");
          }
       } catch (Exception e) {
          out.print("Login Servlet Exception : " + e.toString());
       }
+   }
+
+   @Override
+   protected void doPost(HttpServletRequest request, HttpServletResponse response)
+           throws ServletException, IOException {
+
+   }
+
+   @Override
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      processRequest(request, response);
    }
 }

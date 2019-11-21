@@ -23,9 +23,18 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <script type='text/javascript' src='assets/js/jquery.js'></script>
+    <script type='text/javascript' src='assets/js/jquery.collapsible.min.js'></script>
+    <script type='text/javascript' src='assets/js/swiper.min.js'></script>
+    <script type='text/javascript' src='assets/js/jquery.countdown.min.js'></script>
+    <script type='text/javascript' src='assets/js/circle-progress.min.js'></script>
+    <script type='text/javascript' src='assets/js/jquery.countTo.min.js'></script>
+    <script type='text/javascript' src='assets/js/jquery.barfiller.js'></script>
+    <script type='text/javascript' src='assets/js/custom.js'></script>
+
   </head>
   <body>
-
     <header class="site-header">
       <div class="top-header-bar">
         <div class="container">
@@ -34,22 +43,29 @@
               <div class="header-bar-email">
                 MAIL: <a href="#">ajava@ngo.com</a>
               </div><!-- .header-bar-email -->
-
               <div class="header-bar-text">
                 <p>PHONE: <span>7471126354</span></p>
               </div><!-- .header-bar-text -->
             </div><!-- .col -->
-
             <div class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
               <div class="donate-btn">
-                <a href="../login.jsp">Donate Now</a>
+                <%
+                   if (session.getAttribute("user") != null) {
+                %>
+                <a href="donateNow.jsp">Donate Now</a>
                 <a href="../logout">Logout</a>
+                <%
+                } else {
+                %>
+                <a href="../login.jsp">Donate Now</a>
+                <%
+                   }
+                %>
               </div><!-- .donate-btn -->
-            </div><!-- .col -->
+            </div><!-- .col -->            
           </div><!-- .row -->
         </div><!-- .container -->
       </div><!-- .top-header-bar -->
-
       <div class="nav-bar">
         <div class="container">
           <div class="row">
@@ -57,19 +73,14 @@
               <div class="site-branding d-flex align-items-center">
                 <a class="d-block" href="index.jsp" rel="home"><img class="d-block" src="assets/images/logo.png" alt="logo"></a>
               </div><!-- .site-branding -->
-
               <nav class="site-navigation d-flex justify-content-end align-items-center">
                 <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
-                  <li class="current-menu-item"><a href="index.jsp">Home</a></li>
-                  <li><a href="../aboutUs.jsp">About us</a></li>
-                  <li><a href="../causes.jsp">Causes</a></li>
-                  <li><a href="../gallery.jsp">Gallery</a></li>
-                  <li><a href="../news.jsp">News</a></li>
-                  <li><a href="../contact.jsp">Contact</a></li>
-                  <li><a href="../login.jsp">Login</a></li>
+                  <li class="current-menu-item"><a href="../index.jsp">Home</a></li>
+                  <li><a href="donateNow.jsp">Donate Now</a></li>
+                  <li><a href="#">Suggestion</a></li>
+                  <li><a href="updateProfile.jsp">Update Profile</a></li>
                 </ul>
               </nav><!-- .site-navigation -->
-
               <div class="hamburger-menu d-lg-none">
                 <span></span>
                 <span></span>

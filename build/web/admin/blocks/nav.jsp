@@ -25,7 +25,16 @@
 <aside class="mdc-persistent-drawer mdc-persistent-drawer--open">
   <nav class="mdc-persistent-drawer__drawer">
     <div class="mdc-persistent-drawer__toolbar-spacer">
+      <%
+         if (session.getAttribute("user") != null) {
+            User user = (User) session.getAttribute("user");
 
+      %>
+
+      <h4><%= user.getName()%></h4>
+      <%
+         }
+      %>
     </div>
     <div class="mdc-list-group">
       <nav class="mdc-list mdc-drawer-menu">

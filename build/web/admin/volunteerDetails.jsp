@@ -28,8 +28,8 @@
     <script>
        function showIdCard(volunteerId) {
           var cardDetails = document.getElementById("cardDetails");
-//          alert(volunteerId);
-          object = new XMLHttpRequest();
+
+         object = new XMLHttpRequest();
 
           var method = "get";
           var url = "../volunteerCardController?volunteerId=" + volunteerId;

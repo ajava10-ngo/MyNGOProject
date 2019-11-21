@@ -15,7 +15,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="blocks/header.jsp"></jsp:include>
    <!DOCTYPE html>
-
    <title>Registration Page</title>
    <script>
       function selectCity() {
@@ -112,7 +111,7 @@
                 for (int i = 0; i < arrayList.size(); i++) {
                    state = arrayList.get(i);
              %>
-             <option id="stateId" value="<%= state.getStateId()%>">
+             <option value="<%= state.getStateId()%>">
                <%= state.getState()%>
              </option>
              <%

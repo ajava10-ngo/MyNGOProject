@@ -4,6 +4,8 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.dao.UserDao"%>
+<%@page import="com.model.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.EventDao"%>
 <%@page import="com.model.Event"%>
@@ -130,8 +132,23 @@
                              <div class="template-demo">
                                <div id="demo-tf-box-wrapper">
                                  <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                   <input name="volunteerId" value="" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Volunteer">
+                                   <input name="volunteerId" list="browsers" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Volunteer">
+                                   <datalist id="browsers">
+                                     <%
+                                        User user = new User();
+                                        UserDao userDao = new UserDao();
+                                        ArrayList<User> al = userDao.getAllUser();
+                                        for (int i = 0; i < al.size(); i++) {
+                                           user = al.get(i);
+                                     %>
+                                     <option value="<%= user.getUserId()%>">
+                                       <%= user.getName()%>
+                                     </option>
 
+                                     <%
+                                        }
+                                     %>
+                                   </datalist>
                                    <div class="mdc-text-field__bottom-line"></div>
                                  </div>
                                  <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
@@ -149,8 +166,24 @@
                              <div class="template-demo">
                                <div id="demo-tf-box-wrapper">
                                  <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                   <input name="volunteerId" value="<%= event.getVolunteerId()%>" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Volunteer">
+                                   <input name="volunteerId" list="browsers" value="<%= event.getVolunteerId() %>" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Volunteer">
+                                   <datalist id="browsers">
+                                     <%
+                                        User user = new User();
+                                        UserDao userDao = new UserDao();
+                                        ArrayList<User> al = userDao.getAllUser();
+                                        for (int i = 0; i < al.size(); i++) {
+                                           user = al.get(i);
+                                     %>
+                                     <option value="<%= user.getUserId()%> ">
+                                       <%= user.getName()%>
+                                     </option>
 
+                                     <%
+                                        }
+                                     %>
+                                   </datalist>
+                                   
                                    <div class="mdc-text-field__bottom-line"></div>
                                  </div>
                                  <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
