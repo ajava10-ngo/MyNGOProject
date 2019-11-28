@@ -6,7 +6,6 @@ import com.model.City;
 import com.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -86,6 +85,31 @@ public class Register extends HttpServlet {
                data += "<option value='" + city.getCityId() + "'>" + city.getCity() + "</option>";
             }
             out.write(data.trim());
+         } else if (operation.equals("checkEUM")) {
+            String email = request.getParameter("email").trim();
+            String username = request.getParameter("username").trim();
+            String mobile = request.getParameter("mobile").trim();
+            
+//            System.out.println("Username : " + username);
+//            System.out.println("Mobile : " + mobile);
+
+            user = new User();
+            user.setEmail(email);
+            user.setUsername(username);
+            user.setMobile(mobile);
+
+            userDao = new UserDao();
+            String res = userDao.checkEUM(user);
+            
+            if (res.equals("Email")) {
+               out.print("Email");
+            } else if (res.equals("Username")) {
+               out.print("Username");
+            } else if (res.equals("Mobile")) {
+               out.print("Mobile");
+            } else {
+               out.print("");
+            }
          }
       } catch (Exception e) {
          out.print("Register Exception : " + e.toString());

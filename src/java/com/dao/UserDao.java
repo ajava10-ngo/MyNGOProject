@@ -302,62 +302,51 @@ public class UserDao {
       return false;
    }
 
-//   public ArrayList<User> getSingleUser(User user) {
-//      try {
-//         ArrayList<User> al = new ArrayList<>();
-//
-//         String sql = "SELECT * FROM user, stock, city, state WHERE user.stateId = "
-//                 + "state.stateId AND user.cityId = city.cityId AND user.stockId = "
-//                 + "stock.stockId AND user.userId = ?;";
-//         con = DBConnection.getConnection();
-//         PreparedStatement ps = con.prepareStatement(sql);
-//
-//         ps.setInt(1, user.getUserId());
-//
-//         ResultSet rs = ps.executeQuery();
-//         while (rs.next()) {
-//            // User
-//            int userId = rs.getInt("userId");
-//            String name = rs.getString("name");
-//            String email = rs.getString("email");
-//            String username = rs.getString("username");
-//            String password = rs.getString("password");
-//            String mobile = rs.getString("mobile");
-//            String gender = rs.getString("gender");
-//            int age = rs.getInt("age");
-//            String address = rs.getString("address");
-//            int type = rs.getInt("type");
-//            int verified = rs.getInt("verified");
-//
-//            // Stock
-//            int stockId = rs.getInt("stockId");
-//            String bloodGroup = rs.getString("bloodGroup");
-//
-//            // State
-//            int stateId = rs.getInt("stateId");
-//            String state = rs.getString("state");
-//
-//            // City
-//            int cityId = rs.getInt("cityId");
-//            String city = rs.getString("city");
-//
-//            Stock stock = new Stock(0, bloodGroup);
-//            State stateObj = new State(state);
-//            City cityObj = new City(city);
-//            user = new User(userId, name, email, username, password, mobile, gender, age, stockId, stateId, cityId, address, type, verified, null, stateObj, cityObj, null, null, stock);
-//            al.add(user);
-//         }
-//
-//         return al;
-//      } catch (SQLException e) {
-//         System.err.println("UserDao Exception : " + e.toString());
-//      } finally {
-//         try {
-//            con.close();
-//         } catch (Exception e) {
-//            System.err.println("UserDao Exception : " + e.toString());
-//         }
-//      }
-//      return null;
-//   }
+   public String checkEUM(User user) {
+      try {
+         if (!user.getEmail().equals("")) {
+            System.out.println("Email : " + user.getEmail());
+            String sql = "SELECT email FROM user WHERE email = ?;";
+            con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, user.getEmail());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+               return "Email";
+            }
+         } else if (!user.getUsername().equals("")) {
+            System.out.println("Username : " + user.getUsername());
+            String sql = "SELECT username FROM user WHERE username = ?;";
+            con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, user.getUsername());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+               return "Username";
+            }
+         } else if (!user.getMobile().equals("")) {
+            System.out.println("Mobile : " + user.getMobile());
+            String sql = "SELECT mobile FROM user WHERE mobile = ?;";
+            con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, user.getMobile());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+               return "Mobile";
+            }
+         }
+      } catch (SQLException e) {
+         System.err.println("UserDao Exception : " + e.toString());
+      } finally {
+         try {
+            con.close();
+         } catch (Exception e) {
+            System.err.println("UserDao Exception : " + e.toString());
+         }
+      }
+      return "";
+   }
 }

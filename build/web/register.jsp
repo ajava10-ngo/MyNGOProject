@@ -36,8 +36,41 @@
          };
          object.send();
       }
-   </script>
 
+      function checkEUM() {
+         var email = document.getElementById("email").value;
+         var username = document.getElementById("username").value;
+         var mobile = document.getElementById("mobile").value;
+
+         var chEmail = document.getElementById("chEmail");
+         var chUsername = document.getElementById("chUsername");
+         var chMobile = document.getElementById("chMobile");
+
+         object = new XMLHttpRequest();
+
+         var method = "get";
+         var url = "register?operation=checkEUM&email=" + email + "&username=" + username + "&mobile=" + mobile;
+
+         object.open(method, url);
+         object.onreadystatechange = function () {
+            if (object.readyState === 4) {
+               var response = object.responseText;
+               if (response === "Email") {
+                  chEmail.innerHTML = "<span style='color : red'>Email Already Exists<span>";
+               } else if (response === "Username") {
+                  chUsername.innerHTML = "<span style='color : red'>Username Already Exists<span>";
+               } else if (response === "Mobile") {
+                  chMobile.innerHTML = "<span style='color : red'>Mobile No Already Exists<span>";
+               } else if (response === "") {
+                  chMobile.innerHTML = "";
+                  chUsername.innerHTML = "";
+                  chEmail.innerHTML = "";
+               }
+            }
+         };
+         object.send();
+      }
+   </script>
    <div class="container">
      <div class="row d-md-flex">
        <div class="col-md-6 d-flex ftco-animate">
@@ -50,17 +83,20 @@
              <input type="text" name="name" class="form-control" placeholder="Name" required="" >
            </div>
            <div class="form-group">
-             <input type="email" name="email" class="form-control" placeholder="Email" required="">
+             <input type="email" id="email" name="email" onkeyup="checkEUM()" class="form-control" placeholder="Email" required="">
            </div>
+           <p id="chEmail"></p>
            <div class="form-group">
-             <input type="text" name="username" class="form-control" placeholder="Username" required="">
+             <input type="text" id="username" name="username" onkeyup="checkEUM()" class="form-control" placeholder="Username" required="">
            </div>
+           <p id="chUsername"></p>
            <div class="form-group">
              <input type="password" name="password" class="form-control" placeholder="Password" required="">
            </div>
            <div class="form-group">
-             <input type="text" name="mobile" class="form-control" placeholder="Mobile" required="">
+             <input type="text" id="mobile" name="mobile" onkeyup="checkEUM()" class="form-control" placeholder="Mobile" required="">
            </div>
+           <p id="chMobile"></p>
            <div class="form-group">
              <div class="form-control">
                <label class="label-gender">Gender
@@ -125,7 +161,6 @@
            </select>
            <p id="err"></p>
          </div>
-
          <div class="form-group">
            <textarea name="address" placeholder="Address" class="form-control textarea" required=""></textarea>
          </div>

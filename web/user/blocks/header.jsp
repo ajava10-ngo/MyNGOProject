@@ -52,7 +52,6 @@
                 <%
                    if (session.getAttribute("user") != null) {
                 %>
-                <a href="donateNow.jsp">Donate Now</a>
                 <a href="../logout">Logout</a>
                 <%
                 } else {
