@@ -17,7 +17,7 @@
          object = new XMLHttpRequest();
 
          var method = "get";
-         var url = "login?username=" + username + "&password=" + password;
+         var url = "loginController?username=" + username + "&password=" + password;
 
          object.open(method, url);
 
@@ -29,7 +29,7 @@
                } else if (response === "User") {
                   window.location.href = "user/donateNow.jsp";
                } else if (response === "Verify") {
-                  
+                  window.location.href = "emailVerification.jsp";
                } else {
                   err.innerHTML = "<span style='color : red'>" + response + "<span>";
                }

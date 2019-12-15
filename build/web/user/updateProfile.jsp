@@ -18,14 +18,16 @@
    response.setHeader("Pragma", "no-cache");
    response.setDateHeader("Expires", 0);
 
+   User user = new User();
+
    if (session.getAttribute("user") == null) {
       response.sendRedirect("../login.jsp");
-   }
+   } else {
+      user = (User) session.getAttribute("user");
+
 %>
 <!DOCTYPE html>
-<%
-   User user = (User) session.getAttribute("user");
-%>
+
 <jsp:include page="blocks/header.jsp"></jsp:include>
    <title>Update Profile Page</title>
    <script>
@@ -126,3 +128,6 @@
    </div>
 </div>
 <jsp:include page="blocks/footer.jsp"></jsp:include>
+<%
+   }
+%>

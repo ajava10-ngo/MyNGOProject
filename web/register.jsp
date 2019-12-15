@@ -25,7 +25,7 @@
          object = new XMLHttpRequest();
 
          var method = "get";
-         var url = "register?operation=SelectCity&stateId=" + stateId;
+         var url = "registerController?operation=SelectCity&stateId=" + stateId;
 
          object.open(method, url);
 
@@ -49,7 +49,7 @@
          object = new XMLHttpRequest();
 
          var method = "get";
-         var url = "register?operation=checkEUM&email=" + email + "&username=" + username + "&mobile=" + mobile;
+         var url = "registerController?operation=checkEUM&email=" + email + "&username=" + username + "&mobile=" + mobile;
 
          object.open(method, url);
          object.onreadystatechange = function () {
@@ -78,7 +78,7 @@
        </div>
        <div class="col-md-6 volunteer pl-md-5 ftco-animate">
          <h3 class="mb-3">Registration</h3>
-         <form action="register" method="post" class="volunter-form">
+         <form action="registerController" method="post" class="volunter-form">
            <div class="form-group">
              <input type="text" name="name" class="form-control" placeholder="Name" required="" >
            </div>

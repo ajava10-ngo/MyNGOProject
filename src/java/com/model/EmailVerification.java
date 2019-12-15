@@ -5,7 +5,8 @@ public class EmailVerification {
    private String email;
    private String otp;
 
-   public EmailVerification() {}
+   public EmailVerification() {
+   }
 
    public EmailVerification(String email, String otp) {
       this.email = email;

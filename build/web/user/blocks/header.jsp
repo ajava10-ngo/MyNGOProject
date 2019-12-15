@@ -32,7 +32,6 @@
     <script type='text/javascript' src='assets/js/jquery.countTo.min.js'></script>
     <script type='text/javascript' src='assets/js/jquery.barfiller.js'></script>
     <script type='text/javascript' src='assets/js/custom.js'></script>
-
   </head>
   <body>
     <header class="site-header">
@@ -52,7 +51,7 @@
                 <%
                    if (session.getAttribute("user") != null) {
                 %>
-                <a href="../logout">Logout</a>
+                <a href="../logoutController">Logout</a>
                 <%
                 } else {
                 %>

@@ -1,3 +1,4 @@
+<%@page import="com.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,14 +42,21 @@
 
             <div class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
               <div class="donate-btn">
-                
+
                 <%
                    if (session.getAttribute("user") != null) {
+                      User user = new User();
+                      if (user.getVerified() == 1) {
                 %>
                 <a href="user/donateNow.jsp">Donate Now</a>
-                <a href="logout">Logout</a>
+                <a href="logoutController">Logout</a>
                 <%
-                   } else {
+                } else {
+                %>
+                <a href="logoutController">Logout</a>
+                <%
+                   }
+                } else {
                 %>
                 <a href="login.jsp">Donate Now</a>
                 <%

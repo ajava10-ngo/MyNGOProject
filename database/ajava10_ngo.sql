@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2019 at 08:51 AM
+-- Generation Time: Dec 15, 2019 at 07:19 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -1536,7 +1536,9 @@ INSERT INTO `donor` (`donorId`, `userId`, `stockId`, `date`) VALUES
 (3, 6, 5, '12-11-2019'),
 (4, 21, 3, '12-11-2019'),
 (6, 20, 8, '12-19-2019'),
-(7, 21, 3, '12-11-2019');
+(7, 21, 3, '12-11-2019'),
+(8, 7, 2, '12-11-2019'),
+(9, 7, 2, '12-11-2019');
 
 -- --------------------------------------------------------
 
@@ -1555,6 +1557,13 @@ CREATE TABLE `event` (
   `sponsers` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`eventId`, `event`, `description`, `date`, `time`, `volunteerId`, `location`, `sponsers`) VALUES
+(33, 'Plantation123', 'Plant More Trees', '20-11-2019', '02:13 PM', 51, 'Indoreee', 'Universal Informatics');
+
 -- --------------------------------------------------------
 
 --
@@ -1565,7 +1574,7 @@ CREATE TABLE `profile` (
   `profileId` int(11) NOT NULL,
   `qualification` varchar(30) NOT NULL,
   `passingYear` varchar(30) NOT NULL,
-  `proffession` varchar(30) DEFAULT 'N/Y',
+  `profession` varchar(30) DEFAULT 'N/Y',
   `image` varchar(100) DEFAULT NULL,
   `volunteerId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1574,9 +1583,31 @@ CREATE TABLE `profile` (
 -- Dumping data for table `profile`
 --
 
-INSERT INTO `profile` (`profileId`, `qualification`, `passingYear`, `proffession`, `image`, `volunteerId`) VALUES
-(1, 'BE', '2018', 'N/Y', NULL, 51),
-(2, 'B.com', '2019', 'N/Y', NULL, 57);
+INSERT INTO `profile` (`profileId`, `qualification`, `passingYear`, `profession`, `image`, `volunteerId`) VALUES
+(1, 'BE', '2018', 'Web Developer', NULL, 51),
+(2, 'B.com', '2019', 'N/Y', NULL, 57),
+(3, 'BBA', '2017', 'N/Y', NULL, 64),
+(4, 'BCA', '2010', 'Network Architect', NULL, 65),
+(5, 'BE', '2018', 'Desktop Support Engineer', NULL, 66);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `request`
+--
+
+CREATE TABLE `request` (
+  `requestId` int(11) NOT NULL,
+  `subject` varchar(40) DEFAULT NULL,
+  `userId` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `request`
+--
+
+INSERT INTO `request` (`requestId`, `subject`, `userId`) VALUES
+(1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1687,14 +1718,16 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `name`, `email`, `username`, `password`, `mobile`, `gender`, `age`, `stockId`, `stateId`, `cityId`, `address`, `type`, `verified`) VALUES
 (1, 'Ritesh Verma', 'recoonie.ritesh@gmail.com', 'rv@03', 'rv@03', '9713891029', 'Male', 23, 5, 20, 705, '161 Anantpuri Colony, A.B. Road', 1, 1),
-(6, 'asd', 'asd@gmail.com', 'asd@11', 'asd@11', '9119900911', 'Male', 19, 5, 20, 705, 'qweqewsdadqweqewewe', 2, 0),
-(7, 'Pragati Patidar', 'pragatipatidar15@gamil.com', 'pragati@123', 'pragati@123', '9978872882', 'Female', 22, 3, 20, 705, 'bhawarkua', 2, 1),
+(6, 'asd', 'asd@gmail.com', 'asd@11', 'asd@11', '9119900911', 'Male', 19, 5, 20, 705, 'qweqewsdadqweqewewe', 2, 1),
+(7, 'Pragati Patidar', 'pragatipatidar15@gamil.com', 'pragati@123', 'pragati@123', '9978872882', 'Female', 22, 2, 20, 705, 'bhawarkua', 2, 1),
 (9, 'Gourav', 'gaurav@gmail.com', 'gaurav@123', 'gaurav@123', '56466767', 'Male', 23, 5, 20, 705, 'Bhawarkua', 2, 1),
-(20, 'abc', 'abc@gmail.com', 'abc', 'abc', '9877676134', 'Male', 23, 8, 20, 705, 'kall', 2, 1),
-(21, 'poi', 'poi@gmail.com', 'poi', 'poi', '99388377', 'Male', 25, 3, 20, 705, 'miaiaddssdf', 2, 1),
-(22, 'kashyap', 'kashoopatel80@gmail.com', 'Lusifer', '12345', '9760261658', 'Male', 21, 5, 12, 396, 'swe5erty', 2, 0),
+(20, 'Karthik Verma', 'iamkarthikverma@gmail.com', 'abc', 'abc', '9877676134', 'Male', 23, 2, 20, 705, '123 - East Vishnu colony', 2, 1),
+(21, 'poi', 'poi@gmail.com', 'poi', 'poi', '33', 'Male', 25, 3, 20, 705, 'miaiaddssdf', 2, 1),
+(22, 'kashyap', 'kashoopatel80@gmail.com', 'Lusifer', '12345', '9760261658', 'Male', 21, 5, 12, 396, 'swe5erty', 2, 1),
 (25, 'adnan', 'adnansheikh080@gmail.com', 'faddy', '1234', '8602767669', 'Male', 21, 7, 20, 705, 'sdfghjklkjh', 2, 1),
-(26, 'Akshay', 'akhaykuppamahajan95@gmail.com', 'akshay@123', 'akshay@123', '8908908900', 'Male', 11, 1, 20, 705, 'sudama nagar', 2, 0);
+(26, 'Akshay', 'akhaykuppamahajan95@gmail.com', 'akshay@123', 'akshay@123', '8908908900', 'Male', 11, 1, 20, 705, 'sudama nagar', 2, 1),
+(27, 'Ankit Joshi', 'joshiankit11@gmail.com', 'ankitjoshi11', 'ankitjoshi11', '9927773722', 'Male', 23, 4, 20, 705, 'Sudama Nagar', 2, 0),
+(34, 'Aniket Verma', 'akverma123123@gmail.com', 'averma', 'averma', '8982884750', 'Male', 23, 1, 11, 332, 'Madgao', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -1716,7 +1749,9 @@ CREATE TABLE `volunteer` (
 INSERT INTO `volunteer` (`volunteerId`, `userId`, `post`, `idCardNo`) VALUES
 (51, 7, 'member', 'NGO36305'),
 (57, 25, 'member', 'NGO73957'),
-(58, 6, 'member', 'NGO76042');
+(64, 26, 'member', 'NGO97088'),
+(65, 21, 'member', 'NGO39450'),
+(66, 34, 'member', 'NGO56850');
 
 --
 -- Indexes for dumped tables
@@ -1750,6 +1785,13 @@ ALTER TABLE `event`
 ALTER TABLE `profile`
   ADD PRIMARY KEY (`profileId`),
   ADD KEY `volunteerId` (`volunteerId`);
+
+--
+-- Indexes for table `request`
+--
+ALTER TABLE `request`
+  ADD PRIMARY KEY (`requestId`),
+  ADD KEY `userId` (`userId`);
 
 --
 -- Indexes for table `state`
@@ -1797,19 +1839,25 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT for table `donor`
 --
 ALTER TABLE `donor`
-  MODIFY `donorId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `donorId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `eventId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `eventId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profileId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `profileId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `request`
+--
+ALTER TABLE `request`
+  MODIFY `requestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `state`
@@ -1827,13 +1875,13 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `volunteer`
 --
 ALTER TABLE `volunteer`
-  MODIFY `volunteerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `volunteerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- Constraints for dumped tables
@@ -1863,6 +1911,12 @@ ALTER TABLE `event`
 --
 ALTER TABLE `profile`
   ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`volunteerId`) REFERENCES `volunteer` (`volunteerId`);
+
+--
+-- Constraints for table `request`
+--
+ALTER TABLE `request`
+  ADD CONSTRAINT `request_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`);
 
 --
 -- Constraints for table `user`

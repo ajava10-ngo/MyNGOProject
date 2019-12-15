@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:include page="blocks/header.jsp"></jsp:include>
-
    <title>About Us</title>
    <div class="welcome-wrap">
      <div class="container">
