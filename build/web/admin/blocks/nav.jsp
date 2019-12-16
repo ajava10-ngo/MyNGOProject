@@ -22,15 +22,20 @@
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <!-- endinject -->
 <link rel="shortcut icon" href="assets/images/favicon.png" />
+<script src="assets/js/misc.js"></script>
+<script src="assets/js/material.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap-progressbar.min.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="js/dashboard.js"></script>
 <aside class="mdc-persistent-drawer mdc-persistent-drawer--open">
   <nav class="mdc-persistent-drawer__drawer">
     <div class="mdc-persistent-drawer__toolbar-spacer">
       <%
          if (session.getAttribute("user") != null) {
             User user = (User) session.getAttribute("user");
-
       %>
-
       <h4><%= user.getName()%></h4>
       <%
          }
@@ -127,11 +132,9 @@
                   Register
                 </a>
               </div>
-
             </nav>
           </div>
         </div>
-
       </nav>
     </div>
   </nav>

@@ -90,6 +90,10 @@ public class RegisterController extends HttpServlet {
             String email = request.getParameter("email").trim();
             String username = request.getParameter("username").trim();
             String mobile = request.getParameter("mobile").trim();
+            
+            System.out.println("Email:" + email + ":");
+            System.out.println("Username:" + username + ":");
+            System.out.println("Mobile:" + mobile + ":");
 
             user = new User();
             user.setEmail(email);

@@ -42,10 +42,17 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Create Event</title>
+    <link rel="stylesheet" href="assets/css/jquery.datetimepicker.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery.datetimepicker.full.js"></script>
+    <script src="assets/js/jquery-3.4.1.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.datetimepicker.full.min.js"></script>
   </head>
   <body>
-
     <div class="body-wrapper">
       <jsp:include page="blocks/nav.jsp"></jsp:include>
       <jsp:include page="blocks/header.jsp"></jsp:include>
@@ -98,8 +105,18 @@
                              <div class="template-demo">
                                <div id="demo-tf-box-wrapper">
                                  <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                   <input name="date" value="<%= event.getDate()%>" type="text" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Date">
-
+                                   <input name="date" value="<%= event.getDate()%>" type="text" id="datepicker" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Date">
+                                   <script>
+                                      $('#datepicker').datetimepicker({
+                                         timepicker: false,
+                                         datepicker: true,
+                                         format: 'Y-m-d',
+                                         value: '2019-01-01',
+                                         hours12: true,
+                                         step: 5
+                                      });
+                                   </script>
+                                   
                                    <div class="mdc-text-field__bottom-line"></div>
                                  </div>
                                  <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
@@ -166,7 +183,7 @@
                              <div class="template-demo">
                                <div id="demo-tf-box-wrapper">
                                  <div id="tf-box-example" class="mdc-text-field mdc-text-field--box w-100">
-                                   <input name="volunteerId" list="browsers" value="<%= event.getVolunteerId() %>" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Volunteer">
+                                   <input name="volunteerId" list="browsers" value="<%= event.getVolunteerId()%>" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Volunteer">
                                    <datalist id="browsers">
                                      <%
                                         User user = new User();
@@ -183,7 +200,7 @@
                                         }
                                      %>
                                    </datalist>
-                                   
+
                                    <div class="mdc-text-field__bottom-line"></div>
                                  </div>
                                  <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" id="name-validation-msg">
@@ -261,7 +278,9 @@
                             }
                          %>
                        </section>
-                     </div>
+                     </div>                  
+
+
                    </form>
                  </div>
                </div>
@@ -271,6 +290,7 @@
                  Event Details
                </a>
              </span>
+
            </div>
          </main>
          <jsp:include page="blocks/footer.jsp"></jsp:include>
