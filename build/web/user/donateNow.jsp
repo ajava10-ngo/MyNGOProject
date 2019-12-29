@@ -18,14 +18,27 @@
 <!DOCTYPE html>
 <jsp:include page="blocks/header.jsp"></jsp:include>
    <title>Donate Now</title>
-   <script>
-      $(function () {
-         $("#desc").hide();
-         $("#other").on("click", function () {
-            $("#desc").toggle();
+   <!--   <link rel="stylesheet" href="assets/css/jquery.datetimepicker.min.css">
+      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+   
+      <script src="assets/js/jquery.js"></script>
+      <script src="assets/js/jquery.datetimepicker.full.js"></script>
+      <script src="assets/js/jquery-3.4.1.js"></script>
+      <script src="assets/js/popper.min.js"></script>
+      <script src="assets/js/bootstrap.min.js"></script>
+      <script src="assets/js/jquery.datetimepicker.full.min.js"></script>
+      <script>
+         $('#datepicker').datetimepicker({
+            timepicker: false,
+            datepicker: true,
+            format: 'Y-m-d',
+            value: '2019-01-01',
+            hours12: true,
+            step: 5
          });
-      });
-   </script>
+      </script>-->
+
+
    <div class="contact-page-wrap">
      <div class="container">
        <div class="row">
@@ -58,12 +71,12 @@
              </div>
              <header class="entry-header d-flex flex-wrap justify-content-between align-items-center">
                <div class="header-elements">
-                 <h2 class="entry-title"><a href="#">Donate Food</a></h2>
+                 <h2 class="entry-title"><a href="../requestController?req=Food">Donate Food</a></h2>
                  <div class="post-metas d-flex flex-wrap align-items-center">
                  </div>
                </div>
                <div class="donate-icon">
-                 <a href="#"><img src="assets/images/donate-icon.png" alt=""></a>
+                 <a href="../requestController?req=Food"><img src="assets/images/donate-icon.png" alt=""></a>
                </div>
              </header>
              <div class="entry-content mt-5">
@@ -96,9 +109,14 @@
          </div><!-- .col -->
          <div class="col-12 col-lg-7" id="desc">
            <form  action="" method="post" class="contact-form">
-             <textarea rows="15" cols="6" placeholder="Description" name="description"></textarea>
+             <input type="text" name="reqType" placeholder="Request Type">
+             <input type="text" name="reqFor" placeholder="Request For">
+             <input type="text" name="date" id="datepicker" placeholder="Date">
+             <input type="text" name="time" placeholder="Time">
+             <textarea rows="5" cols="6" name="location" placeholder="Location"></textarea>
+             <textarea rows="7" cols="6" name="description" placeholder="Description"></textarea>
              <span>
-               <input class="btn gradient-bg" type="submit" value="Donate">
+               <input class="btn gradient-bg" type="submit" name="req" value="Donate">
              </span>
            </form><!-- .contact-form -->
          </div><!-- .col -->

@@ -29,7 +29,7 @@
           <i class="material-icons">notifications</i>
           <span class="dropdown-count">3</span>
         </a>
-        <div class="mdc-simple-menu mdc-simple-menu--right" tabindex="-1" id="notification-menu">
+        <div class="mdc-simple-menu mdc-simple-menu--right" tabindex="4" id="notification-menu">
           <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
             <li class="mdc-list-item" role="menuitem" tabindex="0">
               <i class="material-icons mdc-theme--primary mr-1">email</i>

@@ -45,7 +45,6 @@
        </div>
        <div class="col-md-6 volunteer pl-md-5 ftco-animate">
          <h3 class="mb-3">Login</h3>
-         <form action="" method="" class="volunter-form">
            <div class="form-group">
              <input id="username" type="text" name="username" class="form-control" placeholder="Username" required="">
            </div>
@@ -59,7 +58,6 @@
            <div class="form-group">
              <a class="form-control-plaintext" href="register.jsp">Not Registered? Register Here</a>
            </div>
-         </form>
        </div>    			
      </div>
    </div>

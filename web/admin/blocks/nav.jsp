@@ -8,27 +8,24 @@
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Demo Dash</title>
-<!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Dashboard</title>
-<!-- plugins:css -->
-<link rel="stylesheet" href="node_modules/mdi/css/materialdesignicons.min.css">
-<!-- endinject -->
-<!-- plugin css for this page -->
-<!-- End plugin css for this page -->
-<!-- inject:css -->
+
+<!--<link rel="stylesheet" href="assets/css/materialdesignicons.min.css">-->
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<!-- endinject -->
-<link rel="shortcut icon" href="assets/images/favicon.png" />
+
+<!--<link rel="shortcut icon" href="assets/images/favicon.png"/>-->
+
 <script src="assets/js/misc.js"></script>
 <script src="assets/js/material.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap-progressbar.min.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<script src="js/dashboard.js"></script>
+<!--<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/dashboard.js"></script>
+<script src="assets/js/popper.min.js"></script>-->
+
 <aside class="mdc-persistent-drawer mdc-persistent-drawer--open">
   <nav class="mdc-persistent-drawer__drawer">
     <div class="mdc-persistent-drawer__toolbar-spacer">

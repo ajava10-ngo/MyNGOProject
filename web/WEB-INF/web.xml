@@ -39,6 +39,10 @@
         <servlet-name>StockController</servlet-name>
         <servlet-class>com.servlet.StockController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RequestController</servlet-name>
+        <servlet-class>com.servlet.RequestController</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -75,6 +79,10 @@
     <servlet-mapping>
         <servlet-name>StockController</servlet-name>
         <url-pattern>/stockController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestController</servlet-name>
+        <url-pattern>/requestController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
