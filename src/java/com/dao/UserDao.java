@@ -15,8 +15,6 @@ public class UserDao {
 
    private Connection con = null;
 
-   private static Connection con1 = null;
-
    public boolean register(User user) {
 
       try {
@@ -43,7 +41,7 @@ public class UserDao {
       } finally {
          try {
             con.close();
-         } catch (Exception e) {
+         } catch (SQLException e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
       }
@@ -67,7 +65,7 @@ public class UserDao {
       } finally {
          try {
             con.close();
-         } catch (Exception e) {
+         } catch (SQLException e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
       }
@@ -121,7 +119,7 @@ public class UserDao {
       } finally {
          try {
             con.close();
-         } catch (Exception e) {
+         } catch (SQLException e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
       }
@@ -146,7 +144,7 @@ public class UserDao {
       } finally {
          try {
             con.close();
-         } catch (Exception e) {
+         } catch (SQLException e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
       }
@@ -189,7 +187,7 @@ public class UserDao {
       } finally {
          try {
             con.close();
-         } catch (Exception e) {
+         } catch (SQLException e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
       }
@@ -197,7 +195,6 @@ public class UserDao {
    }
 
    public ArrayList<User> getUserNotInVolunteer() {
-
       try {
          ArrayList<User> al = new ArrayList<>();
          String sql = "SELECT * FROM user, state, city WHERE NOT EXISTS(SELECT * FROM volunteer WHERE (user.userId = volunteer.userId)) AND user.verified  = 1 AND user.type = 2 AND user.cityId = city.cityId AND user.stateId = state.stateId;";
@@ -237,7 +234,7 @@ public class UserDao {
       } finally {
          try {
             con.close();
-         } catch (Exception e) {
+         } catch (SQLException e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
       }
@@ -257,12 +254,12 @@ public class UserDao {
          if (isRemoved > 0) {
             return true;
          }
-      } catch (Exception e) {
+      } catch (SQLException e) {
          System.err.println("UserDao Exception : " + e.toString());
       } finally {
          try {
             con.close();
-         } catch (Exception e) {
+         } catch (SQLException e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
       }
@@ -290,12 +287,12 @@ public class UserDao {
          if (isRemoved > 0) {
             return true;
          }
-      } catch (Exception e) {
+      } catch (SQLException e) {
          System.err.println("UserDao Exception : " + e.toString());
       } finally {
          try {
             con.close();
-         } catch (Exception e) {
+         } catch (SQLException e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
       }
@@ -305,7 +302,6 @@ public class UserDao {
    public String checkEUM(User user) {
       try {
          if (!user.getEmail().equals("")) {
-            System.out.println("Email : " + user.getEmail());
             String sql = "SELECT email FROM user WHERE email = ?;";
             con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
@@ -315,7 +311,8 @@ public class UserDao {
             while (rs.next()) {
                return "Email";
             }
-         } else if (!user.getUsername().equals("")) {
+         }
+         if (!user.getUsername().equals("")) {
             System.out.println("Username : " + user.getUsername());
             String sql = "SELECT username FROM user WHERE username = ?;";
             con = DBConnection.getConnection();
@@ -326,7 +323,8 @@ public class UserDao {
             while (rs.next()) {
                return "Username";
             }
-         } else if (!user.getMobile().equals("")) {
+         }
+         if (!user.getMobile().equals("")) {
             System.out.println("Mobile : " + user.getMobile());
             String sql = "SELECT mobile FROM user WHERE mobile = ?;";
             con = DBConnection.getConnection();
@@ -343,7 +341,7 @@ public class UserDao {
       } finally {
          try {
             con.close();
-         } catch (Exception e) {
+         } catch (SQLException e) {
             System.err.println("UserDao Exception : " + e.toString());
          }
       }

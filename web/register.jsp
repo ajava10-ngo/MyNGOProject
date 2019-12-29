@@ -36,7 +36,6 @@
          };
          object.send();
       }
-
       function checkEUM() {
          var email = document.getElementById("email").value;
          var username = document.getElementById("username").value;
@@ -101,12 +100,10 @@
              <div class="form-control">
                <label class="label-gender">Gender
                </label>
-
                <label class="gender-radio">Male
                  <input type="radio" name="gender" value="Male" required="">
                  <span class="checkmark"></span>
                </label>
-
                <label class="gender-radio" >Female
                  <input type="radio" name="gender" value="Female" required="">
                  <span class="checkmark"></span>

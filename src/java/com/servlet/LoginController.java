@@ -32,7 +32,6 @@ public class LoginController extends HttpServlet {
             user = al.get(0);
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            System.out.println("LoginController Email : " + user.getEmail());
             if (user != null) {
                if (user.getType() == 1) {
                   out.print("Admin");

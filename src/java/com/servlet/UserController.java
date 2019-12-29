@@ -11,13 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class UserController extends HttpServlet {
 
    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
       response.setContentType("text/html;charset=UTF-8");
-
       PrintWriter out = response.getWriter();
       String operation = request.getParameter("operation");
       out.print(operation + "<br>");
@@ -54,19 +54,10 @@ public class UserController extends HttpServlet {
             String mobile = request.getParameter("mobile");
             int age = Integer.parseInt(request.getParameter("age"));
             int stockId = Integer.parseInt(request.getParameter("stockId"));
+            System.out.println("UserController : " + stockId);
             int stateId = Integer.parseInt(request.getParameter("stateId"));
             int cityId = Integer.parseInt(request.getParameter("cityId"));
             String address = request.getParameter("address");
-
-            System.out.println("UserId : " + userId);
-            System.out.println("Name : " + name);
-            System.out.println("Email : " + email);
-            System.out.println("Mobile : " + mobile);
-            System.out.println("Age : " + age);
-            System.out.println("StockId : " + stockId);
-            System.out.println("StateId : " + stateId);
-            System.out.println("CityId : " + cityId);
-            System.out.println("Address : " + address);
 
             User user = new User(userId, name, email, null, null, mobile, null, age, stockId, stateId, cityId, address, 2, 1);
 
@@ -74,8 +65,15 @@ public class UserController extends HttpServlet {
             boolean isUpdated = userDao.updateUser(user);
 
             if (isUpdated) {
-               out.print("<h1>Profile Updated</h1>");
-               out.print("<h1><a href='logout'>Login Again</></h1>");
+               HttpSession session = request.getSession();
+
+               if (session.getAttribute("user") == null) {
+                  response.sendRedirect("login.jsp");
+               } else {
+                  session.removeAttribute("user");
+                  session.invalidate();
+                  response.sendRedirect("login.jsp");
+               }
             } else {
                out.print("<h1>Error Occured</h1>");
             }

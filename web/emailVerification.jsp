@@ -63,7 +63,7 @@
                if (response === "Success") {
                   window.location.href = "user/donateNow.jsp";
                } else {
-                  err.innerHTML = response;
+                  err.innerHTML = "<span style='color : red'>"+response+"<span>";
                }
             }
          };

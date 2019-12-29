@@ -24,7 +24,6 @@
       response.sendRedirect("../login.jsp");
    } else {
       user = (User) session.getAttribute("user");
-
 %>
 <!DOCTYPE html>
 
@@ -39,8 +38,8 @@
          object = new XMLHttpRequest();
 
          var method = "get";
-         var url = "../register?operation=SelectCity&stateId=" + stateId;
-
+         var url = "../registerController?operation=SelectCity&stateId=" + stateId;
+//         alert(stateId);
          object.open(method, url);
 
          object.onreadystatechange = function () {
@@ -93,7 +92,7 @@
          </div>
          <div class="form-group">
            <select onchange="selectCity()" id="stateId" class="custom-select" name="stateId" required="">
-             <option value="<%= user.getState().getStateId()%>" selected=""><%= user.getState().getState()%></option>
+             <option value="<%= user.getStateId()%>" selected=""><%= user.getState().getState()%></option>
              <%
                 StateDao stateDao = new StateDao();
 
@@ -112,7 +111,7 @@
          </div>
          <div class="form-group">
            <select id="cityId" class="custom-select" name="cityId" required="">
-             <option value="<%= user.getCity().getCityId()%>"><%= user.getCity().getCity()%></option>
+             <option value="<%= user.getCityId()%>"><%= user.getCity().getCity()%></option>
            </select>
            <p id="err"></p>
          </div>
