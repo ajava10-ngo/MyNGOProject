@@ -19,36 +19,32 @@
    response.setHeader("Cache-Control", "no-store");
    response.setHeader("Pragma", "no-cache");
    response.setDateHeader("Expires", 0);
-   
+
    if (session.getAttribute("user") == null) {
       response.sendRedirect("../login.jsp");
-   }
-
-   if (session != null) {
-      User user = (User) session.getAttribute("user");
    } else {
-      response.sendRedirect("../login.jsp");
-   }
+      User user = (User) session.getAttribute("user");
+      if (user.getType() == 1) {
 
-   int totalUser = 0;
-   UserDao getUser = new UserDao();
-   ArrayList<User> alUser = getUser.getAllUser();
-   totalUser = alUser.size();
+         int totalUser = 0;
+         UserDao getUser = new UserDao();
+         ArrayList<User> alUser = getUser.getAllUser();
+         totalUser = alUser.size();
 
-   int totalVolunteer = 0;
-   VolunteerDao volunteerDao = new VolunteerDao();
-   ArrayList alVolunteer = volunteerDao.getAllVolunteer();
-   totalVolunteer = alVolunteer.size();
+         int totalVolunteer = 0;
+         VolunteerDao volunteerDao = new VolunteerDao();
+         ArrayList alVolunteer = volunteerDao.getAllVolunteer();
+         totalVolunteer = alVolunteer.size();
 
-   int totalEvent = 0;
-   EventDao eventDao = new EventDao();
-   ArrayList<Event> alEvent = eventDao.getAllEvent();
-   totalEvent = alEvent.size();
+         int totalEvent = 0;
+         EventDao eventDao = new EventDao();
+         ArrayList<Event> alEvent = eventDao.getAllEvent();
+         totalEvent = alEvent.size();
 
-   int totalDonation = 0;
-   DonorDao donorDao = new DonorDao();
-   ArrayList<User> alDonor = donorDao.getAllDonor();
-   totalDonation = alDonor.size();
+         int totalDonation = 0;
+         DonorDao donorDao = new DonorDao();
+         ArrayList<User> alDonor = donorDao.getAllDonor();
+         totalDonation = alDonor.size();
 %>
 <!DOCTYPE html>
 <html>
@@ -166,7 +162,7 @@
                      <tbody>
                        <%
                           UserDao userDao = new UserDao();
-                          User user = new User();
+                          user = new User();
                           ArrayList<User> al = userDao.getUserNotInVolunteer();
                           for (int i = 0; i < al.size(); i++) {
                              user = al.get(i);
@@ -224,7 +220,13 @@
          </main>
          <!--content-->
          <jsp:include page="blocks/footer.jsp"></jsp:include>
+         </div>
       </div>
-    </div>
-  </body>
-</html>
+    </body>
+  </html>
+<%
+      } else {
+         response.sendRedirect("../login.jsp");
+      }
+   }
+%>

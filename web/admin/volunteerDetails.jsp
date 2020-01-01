@@ -18,7 +18,9 @@
 
    if (session.getAttribute("user") == null) {
       response.sendRedirect("../login.jsp");
-   }
+   } else {
+      User user = (User) session.getAttribute("user");
+      if (user.getType() == 1) {
 %>
 <!DOCTYPE html>
 <html>
@@ -29,7 +31,7 @@
        function showIdCard(volunteerId) {
           var cardDetails = document.getElementById("cardDetails");
 
-         object = new XMLHttpRequest();
+          object = new XMLHttpRequest();
 
           var method = "get";
           var url = "../volunteerCardController?volunteerId=" + volunteerId;
@@ -76,10 +78,9 @@
                        </thead>
                        <tbody>
                        <%
-                          User user = new User();
+                          user = new User();
                           VolunteerDao volunteerDao = new VolunteerDao();
                           ArrayList<User> al = volunteerDao.getAllVolunteer();
-
                           for (int i = 0; i < al.size(); i++) {
                              user = al.get(i);
                        %>
@@ -162,7 +163,13 @@
            </div>
          </main>
          <jsp:include page="blocks/footer.jsp"></jsp:include>
+         </div>
       </div>
-    </div>
-  </body>
-</html>
+    </body>
+  </html>
+<%
+      } else {
+         response.sendRedirect("../login.jsp");
+      }
+   }
+%>

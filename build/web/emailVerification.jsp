@@ -20,31 +20,30 @@
    if (session.getAttribute("user") == null) {
       response.sendRedirect("login.jsp");
    } else {
-%>
+      User user = (User) session.getAttribute("user");
+      if (user.getVerified() == 0) {
+         String email = "";
+         String generatedOtp = "";
 
-<%
-   String email = "";
-   String generatedOtp = "";
+         email = user.getEmail();
+         System.out.println("emailVerification Email : " + user.getEmail());
 
-   User user = (User) session.getAttribute("user");
-   email = user.getEmail();
-   System.out.println("emailVerification Email : " + user.getEmail());
+         String no = "0123456789";
+         StringBuilder sb = new StringBuilder(6);
 
-   String no = "0123456789";
-   StringBuilder sb = new StringBuilder(6);
+         for (int i = 0; i < 6; i++) {
+            int index = (int) (no.length() * Math.random());
+            sb.append(no.charAt(index));
+         }
+         generatedOtp = sb.toString();
 
-   for (int i = 0; i < 6; i++) {
-      int index = (int) (no.length() * Math.random());
-      sb.append(no.charAt(index));
-   }
-   generatedOtp = sb.toString();
+         System.out.println("Value of i is : " + generatedOtp);
 
-   System.out.println("Value of i is : " + generatedOtp);
+         EmailVerification verification = new EmailVerification(email, generatedOtp);
+         SendMailSSL.sendEmail(verification);
 
-   EmailVerification verification = new EmailVerification(email, generatedOtp);
-   SendMailSSL.sendEmail(verification);
+         session.setAttribute("EmailVerification", verification);
 
-   session.setAttribute("EmailVerification", verification);
 %>
 <title>Email Verification</title>
 <jsp:include page="blocks/header.jsp"></jsp:include>
@@ -56,14 +55,14 @@
          var err = document.getElementById("err");
 
          object = new XMLHttpRequest();
-         object.open("post", "registerController?operation=Verify&email=" + email + "&otp=" + otp);
+         object.open("get", "registerController?operation=Verify&email=" + email + "&otp=" + otp);
          object.onreadystatechange = function () {
             if (object.readyState === 4) {
                var response = object.responseText;
                if (response === "Success") {
                   window.location.href = "user/donateNow.jsp";
                } else {
-                  err.innerHTML = "<span style='color : red'>"+response+"<span>";
+                  err.innerHTML = "<span style='color : red'>" + response + "<span>";
                }
             }
          };
@@ -93,5 +92,6 @@
 </div>
 <jsp:include page="blocks/footer.jsp"></jsp:include>
 <%
+      }
    }
 %>

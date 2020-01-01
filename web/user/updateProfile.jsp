@@ -24,6 +24,9 @@
       response.sendRedirect("../login.jsp");
    } else {
       user = (User) session.getAttribute("user");
+      if (user.getVerified() == 0) {
+         response.sendRedirect("../emailVerification.jsp");
+      }
 %>
 <!DOCTYPE html>
 
@@ -39,7 +42,6 @@
 
          var method = "get";
          var url = "../registerController?operation=SelectCity&stateId=" + stateId;
-//         alert(stateId);
          object.open(method, url);
 
          object.onreadystatechange = function () {
@@ -127,6 +129,4 @@
    </div>
 </div>
 <jsp:include page="blocks/footer.jsp"></jsp:include>
-<%
-   }
-%>
+<% }%>

@@ -69,7 +69,7 @@
           <div class="row">
             <div class="col-12 d-flex flex-wrap justify-content-between align-items-center">
               <div class="site-branding d-flex align-items-center">
-                <a class="d-block" href="index.jsp" rel="home"><img class="d-block" src="assets/images/logo.png" alt="logo"></a>
+                <a class="d-block" href="../index.jsp" rel="home"><img class="d-block" src="assets/images/logo.png" alt="logo"></a>
               </div><!-- .site-branding -->
               <nav class="site-navigation d-flex justify-content-end align-items-center">
                 <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">

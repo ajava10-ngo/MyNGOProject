@@ -4,7 +4,23 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+   response.setHeader("Cache-Control", "no-cache");
+   response.setHeader("Cache-Control", "no-store");
+   response.setHeader("Pragma", "no-cache");
+   response.setDateHeader("Expires", 0);
+
+   if (session.getAttribute("user") != null) {
+      User user = (User) session.getAttribute("user");
+      if (user.getType() == 1) {
+         response.sendRedirect("admin/dashboard.jsp");
+      } else {
+         response.sendRedirect("user/donateNow.jsp");
+      }
+   }
+%>
 <jsp:include page="blocks/header.jsp"></jsp:include>
    <!DOCTYPE html>
    <title>Login Page</title>
@@ -45,19 +61,19 @@
        </div>
        <div class="col-md-6 volunteer pl-md-5 ftco-animate">
          <h3 class="mb-3">Login</h3>
-           <div class="form-group">
-             <input id="username" type="text" name="username" class="form-control" placeholder="Username" required="">
-           </div>
-           <div class="form-group">
-             <input id="password" type="password" name="password" class="form-control" placeholder="Password" required="">
-           </div>
-           <div class="form-group">
-             <input type="button" value="Login" onclick="validateLogin()" class="btn gradient-bg">
-           </div>
-           <p id="err"></p>
-           <div class="form-group">
-             <a class="form-control-plaintext" href="register.jsp">Not Registered? Register Here</a>
-           </div>
+         <div class="form-group">
+           <input id="username" type="text" name="username" class="form-control" placeholder="Username" required="">
+         </div>
+         <div class="form-group">
+           <input id="password" type="password" name="password" class="form-control" placeholder="Password" required="">
+         </div>
+         <div class="form-group">
+           <input type="button" value="Login" onclick="validateLogin()" class="btn gradient-bg">
+         </div>
+         <p id="err"></p>
+         <div class="form-group">
+           <a class="form-control-plaintext" href="register.jsp">Not Registered? Register Here</a>
+         </div>
        </div>    			
      </div>
    </div>

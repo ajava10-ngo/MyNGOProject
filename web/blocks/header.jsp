@@ -39,10 +39,8 @@
                 <p>PHONE: <span>7471126354</span></p>
               </div><!-- .header-bar-text -->
             </div><!-- .col -->
-
             <div class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
               <div class="donate-btn">
-
                 <%
                    if (session.getAttribute("user") != null) {
                       User user = new User();
@@ -84,7 +82,13 @@
                   <li><a href="gallery.jsp">Gallery</a></li>
                   <li><a href="news.jsp">News</a></li>
                   <li><a href="contact.jsp">Contact</a></li>
+                    <%
+                       if (session.getAttribute("user") == null) {
+                    %>
                   <li><a href="login.jsp">Login</a></li>
+                  <%
+                       }
+                  %>
                 </ul>
               </nav><!-- .site-navigation -->
 

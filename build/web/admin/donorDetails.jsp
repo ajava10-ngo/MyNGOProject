@@ -18,7 +18,9 @@
 
    if (session.getAttribute("user") == null) {
       response.sendRedirect("../login.jsp");
-   }
+   } else {
+      User user = (User) session.getAttribute("user");
+      if (user.getType() == 1) {
 %>
 <!DOCTYPE html>
 <html>
@@ -56,7 +58,7 @@
                        <%
                           DonorDao donorDao = new DonorDao();
                           ArrayList<User> al = donorDao.getAllDonor();
-                          User user = new User();
+                          user = new User();
                           for (int i = 0; i < al.size(); i++) {
                              user = al.get(i);
                        %>
@@ -121,3 +123,9 @@
     </div>
   </body>
 </html>
+<%
+      } else {
+         response.sendRedirect("../login.jsp");
+      }
+   }
+%>

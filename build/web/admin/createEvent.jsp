@@ -19,7 +19,9 @@
 
    if (session.getAttribute("user") == null) {
       response.sendRedirect("../login.jsp");
-   }
+   } else {
+      User user = (User) session.getAttribute("user");
+      if (user.getType() == 1) {
 %>
 <!DOCTYPE html>
 <%
@@ -152,7 +154,7 @@
                                    <input name="volunteerId" list="browsers" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Volunteer">
                                    <datalist id="browsers">
                                      <%
-                                        User user = new User();
+                                        user = new User();
                                         UserDao userDao = new UserDao();
                                         ArrayList<User> al = userDao.getAllUser();
                                         for (int i = 0; i < al.size(); i++) {
@@ -186,7 +188,7 @@
                                    <input name="volunteerId" list="browsers" value="<%= event.getVolunteerId()%>" id="tf-box" class="mdc-text-field__input" aria-controls="name-validation-message" placeholder="Enter Volunteer">
                                    <datalist id="browsers">
                                      <%
-                                        User user = new User();
+                                        user = new User();
                                         UserDao userDao = new UserDao();
                                         ArrayList<User> al = userDao.getAllUser();
                                         for (int i = 0; i < al.size(); i++) {
@@ -298,3 +300,9 @@
     </div>
   </body>
 </html>
+<%
+      } else {
+         response.sendRedirect("../login.jsp");
+      }
+   }
+%>

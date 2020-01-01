@@ -4,6 +4,7 @@
     Author     : PRAGATI
 --%>
 
+<%@page import="com.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
    response.setHeader("Cache-Control", "no-cache");
@@ -13,32 +14,15 @@
 
    if (session.getAttribute("user") == null) {
       response.sendRedirect("../login.jsp");
-   }
+         } else {
+      User user = (User) session.getAttribute("user");
+      if (user.getVerified() == 0) {
+         response.sendRedirect("../emailVerification.jsp");
+      }
 %>
 <!DOCTYPE html>
 <jsp:include page="blocks/header.jsp"></jsp:include>
    <title>Donate Now</title>
-   <!--   <link rel="stylesheet" href="assets/css/jquery.datetimepicker.min.css">
-      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-   
-      <script src="assets/js/jquery.js"></script>
-      <script src="assets/js/jquery.datetimepicker.full.js"></script>
-      <script src="assets/js/jquery-3.4.1.js"></script>
-      <script src="assets/js/popper.min.js"></script>
-      <script src="assets/js/bootstrap.min.js"></script>
-      <script src="assets/js/jquery.datetimepicker.full.min.js"></script>
-      <script>
-         $('#datepicker').datetimepicker({
-            timepicker: false,
-            datepicker: true,
-            format: 'Y-m-d',
-            value: '2019-01-01',
-            hours12: true,
-            step: 5
-         });
-      </script>-->
-
-
    <div class="contact-page-wrap">
      <div class="container">
        <div class="row">
@@ -124,3 +108,7 @@
      </div><!-- .container -->
    </div>
 <jsp:include page="blocks/footer.jsp"></jsp:include>
+
+<%
+   }
+%>

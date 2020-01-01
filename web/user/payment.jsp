@@ -4,6 +4,7 @@
     Author     : root
 --%>
 
+<%@page import="com.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
    response.setHeader("Cache-Control", "no-cache");
@@ -13,7 +14,11 @@
 
    if (session.getAttribute("user") == null) {
       response.sendRedirect("../login.jsp");
-   }
+   } else {
+      User user = (User) session.getAttribute("user");
+      if (user.getVerified() == 0) {
+         response.sendRedirect("../emailVerification.jsp");
+      }
 %>
 <!DOCTYPE html>
 <jsp:include page="blocks/header.jsp"></jsp:include>
@@ -91,3 +96,5 @@
 
    </div>
 <jsp:include page="blocks/footer.jsp"></jsp:include>
+<% }
+%>

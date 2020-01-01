@@ -5,18 +5,18 @@
             <url>web/emailVerification.jsp</url>
             <bookmark id="1">
                 <name/>
-                <line>50</line>
+                <line>48</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/servlet/LogoutController.java</file>
-            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/servlet/UserController.java</file>
-            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/dao/UserDao.java</file>
-            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/src/java/com/servlet/RegisterController.java</file>
-            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/web/user/updateProfile.jsp</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/web/user/blocks/header.jsp</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/web/blocks/header.jsp</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/web/user/donateNow.jsp</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/web/emailVerification.jsp</file>
+            <file>file:/C:/Java%20Program/Class%20Program/NGO%20Project/MyNGOProject/web/login.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:include page="blocks/header.jsp"></jsp:include>
-
    <title>Causes</title>
    <div class="page-header">
      <div class="container">
@@ -18,7 +17,6 @@
        </div><!-- .row -->
      </div><!-- .container -->
    </div><!-- .page-header -->
-
    <div class="featured-cause">
      <div class="container">
        <div class="row">
@@ -28,33 +26,27 @@
            </div><!-- .section-heading -->
          </div><!-- .col -->
        </div><!-- .row -->
-
        <div class="row">
          <div class="col-12 col-lg-6">
            <div class="cause-wrap d-flex flex-wrap justify-content-between">
              <figure class="m-0">
                <img src="assets/images/featured-causes.jpg" alt="">
              </figure>
-
              <div class="cause-content-wrap">
                <header class="entry-header d-flex flex-wrap align-items-center">
                  <h3 class="entry-title w-100 m-0"><a href="#">Fundraiser for Kids</a></h3>
-
                  <div class="posted-date">
                    <a href="#">Aug 25, 2018 </a>
                  </div><!-- .posted-date -->
-
                  <div class="cats-links">
                    <a href="#">Ball Room New York</a>
                  </div><!-- .cats-links -->
                </header><!-- .entry-header -->
-
                <div class="entry-content">
                  <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus vestib ulum mauris. Lorem ipsum dolor sit amet, consectetur.</p>
                </div><!-- .entry-content -->
-
                <div class="entry-footer mt-5">
-                 <a href="login.jsp" class="btn gradient-bg mr-2">Donate Now</a>
+                 <a href="user/donateNow.jsp" class="btn gradient-bg mr-2">Donate Now</a>
                </div><!-- .entry-footer -->
              </div><!-- .cause-content-wrap -->
 
@@ -104,7 +96,7 @@
                </div><!-- .entry-content -->
 
                <div class="entry-footer mt-5">
-                 <a href="login.jsp" class="btn gradient-bg mr-2">Donate Now</a>
+                 <a href="user/donateNow.jsp" class="btn gradient-bg mr-2">Donate Now</a>
                </div><!-- .entry-footer -->
              </div><!-- .cause-content-wrap -->
 
@@ -142,7 +134,7 @@
                <img src="assets/images/cause-1.jpg" alt="">
 
                <div class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100">
-                 <a href="login.jsp" class="btn gradient-bg mr-2">Donate Now</a>
+                 <a href="user/donateNow.jsp" class="btn gradient-bg mr-2">Donate Now</a>
                </div><!-- .figure-overlay -->
              </figure>
 
@@ -184,7 +176,7 @@
                <img src="assets/images/cause-2.jpg" alt="">
 
                <div class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100">
-                 <a href="login.jsp" class="btn gradient-bg mr-2">Donate Now</a>
+                 <a href="user/donateNow.jsp" class="btn gradient-bg mr-2">Donate Now</a>
                </div><!-- .figure-overlay -->
              </figure>
 
@@ -226,7 +218,7 @@
                <img src="assets/images/cause-3.jpg" alt="">
 
                <div class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100">
-                 <a href="login.jsp" class="btn gradient-bg mr-2">Donate Now</a>
+                 <a href="user/donateNow.jsp" class="btn gradient-bg mr-2">Donate Now</a>
                </div><!-- .figure-overlay -->
              </figure>
 
@@ -298,7 +290,7 @@
            </div><!-- .fund-raised -->
 
            <div class="entry-footer mt-5">
-             <a href="login.jsp" class="btn gradient-bg">Donate Now</a>
+             <a href="user/donateNow.jsp" class="btn gradient-bg">Donate Now</a>
            </div><!-- .entry-footer -->
          </div><!-- .col -->
 
@@ -318,7 +310,7 @@
                <img src="assets/images/cause-4.jpg" alt="">
 
                <div class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100">
-                 <a href="login.jsp" class="btn gradient-bg mr-2">Donate Now</a>
+                 <a href="user/donateNow.jsp" class="btn gradient-bg mr-2">Donate Now</a>
                </div><!-- .figure-overlay -->
              </figure>
 
@@ -360,7 +352,7 @@
                <img src="assests/images/cause-5.jpg" alt="">
 
                <div class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100">
-                 <a href="login.jsp" class="btn gradient-bg mr-2">Donate Now</a>
+                 <a href="user/donateNow.jsp" class="btn gradient-bg mr-2">Donate Now</a>
                </div><!-- .figure-overlay -->
              </figure>
 
@@ -402,7 +394,7 @@
                <img src="assets/images/cause-6.jpg" alt="">
 
                <div class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100">
-                 <a href="login.jsp" class="btn gradient-bg mr-2">Donate Now</a>
+                 <a href="user/donateNow.jsp" class="btn gradient-bg mr-2">Donate Now</a>
                </div><!-- .figure-overlay -->
              </figure>
 

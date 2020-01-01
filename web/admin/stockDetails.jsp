@@ -4,6 +4,7 @@
     Author     : Ritesh Verma
 --%>
 
+<%@page import="com.model.User"%>
 <%@page import="com.model.Stock"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.StockDao"%>
@@ -17,7 +18,9 @@
 
    if (session.getAttribute("user") == null) {
       response.sendRedirect("../login.jsp");
-   }
+   } else {
+      User user = (User) session.getAttribute("user");
+      if (user.getType() == 1) {
 %>
 <!DOCTYPE html>
 <html>
@@ -91,3 +94,9 @@
     </div>
   </body>
 </html>
+<%
+      } else {
+         response.sendRedirect("../login.jsp");
+      }
+   }
+%>
